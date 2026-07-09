@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politique de confidentialité — Lueur</title>
+<style>
+  :root {
+    --bg: #FAF6F1;
+    --surface: #FFFFFF;
+    --ink: #2E2433;
+    --ink-soft: #736679;
+    --plum: #7A5878;
+    --plum-deep: #4E3A4E;
+    --line: #ECE4DC;
+    --accent-light: #F0E8EC;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1C1520;
+      --surface: #261E2A;
+      --ink: #F0EAF5;
+      --ink-soft: #A899B0;
+      --plum: #C2A0BF;
+      --plum-deep: #D9BED7;
+      --line: #3A2F3E;
+      --accent-light: #2E2433;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #FAF6F1;
+    --surface: #FFFFFF;
+    --ink: #2E2433;
+    --ink-soft: #736679;
+    --plum: #7A5878;
+    --plum-deep: #4E3A4E;
+    --line: #ECE4DC;
+    --accent-light: #F0E8EC;
+  }
+  :root[data-theme="dark"] {
+    --bg: #1C1520;
+    --surface: #261E2A;
+    --ink: #F0EAF5;
+    --ink-soft: #A899B0;
+    --plum: #C2A0BF;
+    --plum-deep: #D9BED7;
+    --line: #3A2F3E;
+    --accent-light: #2E2433;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.75;
+    font-size: 17px;
+    padding: 0 1rem 4rem;
+  }
+
+  header {
+    border-bottom: 1px solid var(--line);
+    padding: 2.5rem 0 2rem;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .wordmark {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--plum);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .wordmark-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--plum);
+    display: inline-block;
+  }
+
+  h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: normal;
+    color: var(--plum-deep);
+    line-height: 1.25;
+    text-wrap: balance;
+    margin-bottom: 0.5rem;
+  }
+
+  .meta {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    letter-spacing: 0.01em;
+  }
+
+  main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding-top: 2.5rem;
+  }
+
+  section {
+    margin-bottom: 2.5rem;
+  }
+
+  h2 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--plum);
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  p {
+    margin-bottom: 1rem;
+    max-width: 65ch;
+    color: var(--ink);
+  }
+
+  ul {
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
+    max-width: 65ch;
+  }
+
+  li {
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+
+  .contact-box {
+    background: var(--accent-light);
+    border-left: 3px solid var(--plum);
+    padding: 1.25rem 1.5rem;
+    border-radius: 0 8px 8px 0;
+    margin-top: 0.5rem;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .contact-box strong {
+    color: var(--plum-deep);
+    font-weight: 600;
+  }
+
+  a {
+    color: var(--plum);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  a:hover { opacity: 0.75; }
+
+  footer {
+    max-width: 680px;
+    margin: 3rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wordmark"><span class="wordmark-dot"></span>Lueur</div>
+  <h1>Politique de confidentialité</h1>
+  <p class="meta">En vigueur depuis le 9 juillet 2026</p>
+</header>
+
+<main>
+
+  <section>
+    <h2>À propos</h2>
+    <p>La présente politique de confidentialité s'applique à l'application <strong>Lueur — Suivi ménopause</strong> pour appareils mobiles iOS, ainsi qu'à tous les services associés, exploités par Jérémie (ci-après « le Prestataire »).</p>
+  </section>
+
+  <section>
+    <h2>Responsable du traitement</h2>
+    <div class="contact-box">
+      <strong>Jérémie</strong><br>
+      40800 Aire-sur-l'Adour, France<br>
+      <a href="mailto:lueur.app01@gmail.com">lueur.app01@gmail.com</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Données collectées</h2>
+    <p>L'application collecte les données que vous saisissez volontairement : symptômes quotidiens, intensités, notes personnelles. Ces données sont stockées localement sur votre appareil et, si vous créez un compte, synchronisées de manière sécurisée avec nos serveurs.</p>
+    <p>L'application peut aussi collecter automatiquement des informations techniques limitées : identifiant de l'appareil, système d'exploitation, type de navigateur mobile.</p>
+    <p>L'application ne collecte pas votre position géographique précise.</p>
+  </section>
+
+  <section>
+    <h2>Utilisation des données</h2>
+    <p>Vos données sont utilisées exclusivement pour :</p>
+    <ul>
+      <li>Afficher votre historique de symptômes et vos tendances</li>
+      <li>Générer des résumés personnalisés pour votre médecin (fonctionnalité Premium)</li>
+      <li>Vous envoyer des rappels quotidiens si vous les avez activés</li>
+      <li>Améliorer le fonctionnement de l'application</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Bases légales (RGPD)</h2>
+    <ul>
+      <li><strong>Exécution du contrat</strong> — traitement nécessaire à la fourniture des fonctionnalités de l'application.</li>
+      <li><strong>Consentement</strong> — pour les notifications push et les fonctionnalités optionnelles. Vous pouvez retirer votre consentement à tout moment.</li>
+      <li><strong>Intérêts légitimes</strong> — sécurité, prévention de la fraude, amélioration de l'application.</li>
+      <li><strong>Obligation légale</strong> — respect des lois applicables.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Partage des données</h2>
+    <p>Seules des données agrégées et anonymisées peuvent être transmises à des services tiers pour améliorer l'application. Vos données personnelles ne sont jamais vendues.</p>
+    <p>Le Prestataire peut divulguer vos informations si la loi l'exige, ou pour protéger des droits, la sécurité ou prévenir une fraude.</p>
+  </section>
+
+  <section>
+    <h2>Transferts internationaux</h2>
+    <p>Vos données peuvent être traitées en dehors de l'Espace économique européen. Dans ce cas, le Prestataire recourt à des mécanismes de transfert conformes au RGPD (décisions d'adéquation, clauses contractuelles types).</p>
+  </section>
+
+  <section>
+    <h2>Conservation des données</h2>
+    <ul>
+      <li>Données saisies par l'utilisateur : durée d'utilisation + 12 mois</li>
+      <li>Données collectées automatiquement : 24 mois maximum</li>
+      <li>Données agrégées anonymisées : conservation indéfinie</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Vos droits (RGPD)</h2>
+    <p>Conformément au RGPD, vous disposez des droits suivants :</p>
+    <ul>
+      <li><strong>Accès</strong> — consulter vos données personnelles</li>
+      <li><strong>Rectification</strong> — corriger des données inexactes</li>
+      <li><strong>Effacement</strong> — demander la suppression de vos données</li>
+      <li><strong>Limitation</strong> — restreindre l'usage de vos données</li>
+      <li><strong>Portabilité</strong> — recevoir vos données dans un format structuré</li>
+      <li><strong>Opposition</strong> — vous opposer à certains traitements</li>
+      <li><strong>Retrait du consentement</strong> — à tout moment, sans effet rétroactif</li>
+    </ul>
+    <p>Pour exercer ces droits, contactez : <a href="mailto:lueur.app01@gmail.com">lueur.app01@gmail.com</a></p>
+    <p>Vous pouvez également déposer une plainte auprès de la CNIL : <a href="https://www.cnil.fr" target="_blank">www.cnil.fr</a></p>
+  </section>
+
+  <section>
+    <h2>Enfants</h2>
+    <p>L'application n'est pas destinée aux personnes de moins de 16 ans. Le Prestataire ne collecte pas sciemment de données auprès de mineurs.</p>
+  </section>
+
+  <section>
+    <h2>Sécurité</h2>
+    <p>Le Prestataire met en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données. En cas de violation susceptible d'affecter vos droits, l'autorité compétente sera notifiée dans les 72 heures, et vous en serez informé si le risque est élevé.</p>
+  </section>
+
+  <section>
+    <h2>Modifications</h2>
+    <p>Cette politique peut être mise à jour. En cas de changement substantiel, vous en serez informé dans l'application. Les versions précédentes sont disponibles sur demande à <a href="mailto:lueur.app01@gmail.com">lueur.app01@gmail.com</a>.</p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>Pour toute question relative à la confidentialité :</p>
+    <div class="contact-box">
+      <a href="mailto:lueur.app01@gmail.com">lueur.app01@gmail.com</a><br>
+      Réponse sous un mois (délai extensible à deux mois selon la complexité de la demande).
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Lueur &mdash; Jérémie &middot; Aire-sur-l'Adour, France
+</footer>
+
+</body>
+</html>
