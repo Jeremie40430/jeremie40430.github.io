@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Le Débuché de Paris à Mont-de-Marsan — Centenaire 1927-2027</title>
-<meta name="description" content="Pour son centenaire, Le Débuché de Paris, ensemble de trompes de chasse fondé en 1927, donne un concert à l'église de la Madeleine de Mont-de-Marsan le samedi 5 juin 2027. Sur réservation.">
+<meta name="description" content="Pour son centenaire, Le Débuché de Paris, l'ensemble de trompes de chasse qui sonne à Notre-Dame de Paris, donne un concert à l'église de la Madeleine de Mont-de-Marsan le samedi 5 juin 2027. Sur réservation.">
 <link rel="canonical" href="https://jeremie40430.github.io/debuche-2027/">
 
 <!-- =========================================================================
@@ -27,7 +27,7 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="École de trompe de Beaussiet">
 <meta property="og:title" content="Le Débuché de Paris à Mont-de-Marsan — Centenaire 1927-2027">
-<meta property="og:description" content="Cent ans de trompe de chasse. L'un des plus anciens ensembles de trompes de France fête son centenaire à l'église de la Madeleine, le samedi 5 juin 2027. Sur réservation.">
+<meta property="og:description" content="Cent ans de trompe de chasse. L'ensemble qui sonne à Notre-Dame de Paris fête son centenaire à l'église de la Madeleine, le samedi 5 juin 2027. Sur réservation.">
 <meta property="og:url" content="https://jeremie40430.github.io/debuche-2027/">
 <meta property="og:image" content="https://jeremie40430.github.io/debuche-2027/affiche-partage.jpg">
 <meta property="og:image:width" content="1200">
@@ -39,16 +39,20 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;600&display=swap">
 
 <style>
+/* Palette reprise des couleurs du Débuché de Paris : le rouge et le bleu
+   de leurs tenues, l'or des trompes et du logo, sur un bleu de nuit. */
 :root{
-  --night:#0E140D;
-  --surface:#161E14;
-  --raised:#1E271B;
-  --parchment:#EFEBDF;
-  --muted:#9AA48E;
-  --faint:#6E7866;
-  --brass:#C79A4E;
-  --brass-bright:#E3C088;
-  --line:#2A3426;
+  --night:#0B1524;
+  --surface:#122134;
+  --raised:#1A2C44;
+  --parchment:#EFEDE6;
+  --muted:#98A6BA;
+  --faint:#6B7B92;
+  --red:#CE2434;
+  --red-bright:#E85763;
+  --brass:#E3B34A;
+  --brass-bright:#F2CF87;
+  --line:#23364E;
   --max:64rem;
 }
 *{box-sizing:border-box}
@@ -77,21 +81,21 @@ a{color:var(--brass-bright)}
 /* ---------------- bouton ---------------- */
 .cta{
   display:inline-block;padding:.85rem 1.9rem;
-  background:var(--brass);color:#0E140D;text-decoration:none;
+  background:var(--red);color:var(--parchment);text-decoration:none;
   font-family:"IBM Plex Mono",monospace;font-size:.82rem;
   letter-spacing:.12em;text-transform:uppercase;font-weight:500;
   border-radius:2px;transition:background .15s ease;
 }
-.cta:hover{background:var(--brass-bright)}
+.cta:hover{background:var(--red-bright)}
 .cta.ghost{background:transparent;color:var(--brass);box-shadow:inset 0 0 0 1px var(--brass)}
-.cta.ghost:hover{background:rgba(199,154,78,.12)}
+.cta.ghost:hover{background:rgba(227,179,74,.12)}
 
 /* ---------------- hero ---------------- */
 .hero{
   border-bottom:1px solid var(--line);
   padding:3.5rem 0 3rem;
   background:
-    radial-gradient(120% 90% at 50% -10%, rgba(199,154,78,.13), transparent 62%),
+    radial-gradient(120% 90% at 50% -10%, rgba(206,36,52,.20), transparent 62%),
     var(--night);
   text-align:center;
 }
@@ -212,7 +216,7 @@ details p{margin:.7rem 0 .1rem;color:var(--muted);font-size:.95rem}
 /* ---------------- placeholders a completer ---------------- */
 .todo{
   border:1px dashed var(--brass);border-radius:2px;
-  padding:1rem 1.1rem;margin:1.2rem 0;background:rgba(199,154,78,.05);
+  padding:1rem 1.1rem;margin:1.2rem 0;background:rgba(227,179,74,.06);
 }
 .todo::before{
   content:"À compléter";display:block;
@@ -278,17 +282,20 @@ footer a{color:var(--muted)}
     <p>Tout commence en 1927, quand six sonneurs parmi les plus réputés de leur temps se réunissent sous ce nom, à l'initiative de Jules Romary. En 1936, l'arrivée d'un directeur de musique, Gaston Chalmel, transforme le groupe : le répertoire s'élargit, l'exigence s'installe, et Le Débuché devient la référence où plusieurs générations de sonneurs européens sont venues chercher leur style.</p>
     <p>Cent ans plus tard, l'esprit n'a pas changé. Ses membres viennent des quatre coins de la France, mais aussi de Belgique et des Pays-Bas, et parcourent chaque mois des centaines de kilomètres pour se retrouver et répéter. Ce qui s'entend le soir du concert, c'est cette exigence, et l'amitié qui la porte.</p>
 
+    <p>Leur maison, c'est Saint-Eustache, au cœur de Paris, où le groupe sonne la Saint-Hubert chaque mois de novembre depuis plus de quarante ans. Et quand la France veut entendre des trompes sous ses plus hautes voûtes, c'est eux qu'elle appelle&nbsp;: Le Débuché a sonné à Notre-Dame de Paris avant l'incendie, et de nouveau depuis sa réouverture.</p>
+
     <div class="dates">
       <div><span class="an">1927</span><span>Six sonneurs fondent Le Débuché de Paris autour de Jules Romary.</span></div>
       <div><span class="an">1936</span><span>Gaston Chalmel prend la direction musicale et bâtit le répertoire du groupe.</span></div>
-      <div><span class="an">Depuis</span><span>Une fidélité de plus de quarante ans à l'église Saint-Eustache, à Paris, où le groupe sonne la Saint-Hubert chaque mois de novembre.</span></div>
+      <div><span class="an">40 ans</span><span>De fidélité à Saint-Eustache, leur église, pour la Saint-Hubert de novembre.</span></div>
+      <div><span class="an">2025</span><span>Le groupe sonne à Notre-Dame de Paris, rendue au public après l'incendie.</span></div>
       <div><span class="an">2027</span><span>Le centenaire, et un concert à Mont-de-Marsan.</span></div>
     </div>
 
-    <p>Entendre un tel effectif sous les voûtes d'une église est une expérience qui ne ressemble à aucun concert. La trompe n'est pas amplifiée : c'est le bâtiment lui-même qui porte le son. Une soirée comme celle-ci ne se reproduira pas de sitôt dans le département, et le nombre de places est limité à la capacité de l'église.</p>
+    <p>Entendre un tel effectif sous les voûtes d'une église est une expérience qui ne ressemble à aucun concert. La trompe n'est pas amplifiée&nbsp;: c'est le bâtiment lui-même qui porte le son. Une soirée comme celle-ci ne se reproduira pas de sitôt dans le département, et le nombre de places est limité à la capacité de l'église.</p>
 
     <div class="todo">
-      <p>À vérifier auprès du groupe avant l'annonce publique&nbsp;: le nom du directeur musical actuel, et si l'ensemble a bien sonné à Notre-Dame de Paris ou au château de Versailles, deux mentions qui circulent mais que leur propre présentation n'emploie pas. Leur texte officiel met en avant Saint-Eustache.</p>
+      <p>À confirmer auprès du groupe&nbsp;: le nom du directeur musical actuel. Vos deux textes se contredisent, l'un cite Sylvain Oudot, l'autre Guillaume Caucat.</p>
     </div>
   </div>
 </section>
