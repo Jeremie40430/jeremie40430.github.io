@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Générateur de QR code — Centenaire du Débuché de Paris</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;600&display=swap">
+
+<style>
+:root{
+  --night:#0E140D;--surface:#161E14;--parchment:#EFEBDF;
+  --muted:#9AA48E;--faint:#6E7866;--brass:#C79A4E;--brass-bright:#E3C088;--line:#2A3426;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--night);color:var(--parchment);
+  font-family:"Public Sans",system-ui,sans-serif;font-size:16px;line-height:1.6;
+  padding:2.5rem 1.5rem 5rem;
+}
+.shell{max-width:56rem;margin:0 auto}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--brass);margin:0 0 .6rem;
+}
+h1{font-family:"EB Garamond",Georgia,serif;font-weight:400;font-size:2.2rem;line-height:1.1;margin:0 0 .7rem}
+p{max-width:62ch;color:var(--muted);margin:0 0 1rem}
+p.tight{margin-bottom:.4rem}
+
+.panel{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;
+  margin-top:2.2rem;padding-top:2rem;border-top:1px solid var(--line);align-items:start;
+}
+@media (max-width:46rem){.panel{grid-template-columns:1fr}}
+
+label{display:block;margin-bottom:1rem}
+label span{
+  display:block;font-family:"IBM Plex Mono",monospace;font-size:.68rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:.35rem;
+}
+input,select{
+  width:100%;padding:.6rem .7rem;background:var(--surface);color:var(--parchment);
+  border:1px solid var(--line);border-radius:2px;
+  font-family:"IBM Plex Mono",monospace;font-size:.9rem;
+}
+input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+
+.preview{
+  background:#FFFFFF;padding:1.2rem;border-radius:2px;
+  width:16.5rem;display:flex;align-items:center;justify-content:center;
+}
+.preview svg{width:100%;height:auto;display:block}
+
+.actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:.6rem}
+button{
+  padding:.7rem 1.3rem;background:var(--brass);color:var(--night);border:0;border-radius:2px;
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.1em;
+  text-transform:uppercase;font-weight:500;cursor:pointer;
+}
+button:hover{background:var(--brass-bright)}
+button.ghost{background:transparent;color:var(--brass);box-shadow:inset 0 0 0 1px var(--brass)}
+button.ghost:hover{background:rgba(199,154,78,.12)}
+
+.rules{border-top:1px solid var(--line);margin-top:3rem;padding-top:1.6rem}
+.rules h2{font-family:"EB Garamond",Georgia,serif;font-weight:400;font-size:1.5rem;margin:0 0 .9rem}
+.rules ol{margin:0;padding-left:1.3rem;color:var(--muted);max-width:62ch}
+.rules li{margin-bottom:.7rem}
+.rules b{color:var(--parchment);font-weight:600}
+.status{
+  font-family:"IBM Plex Mono",monospace;font-size:.74rem;color:var(--faint);
+  margin-top:.8rem;min-height:1.2em;
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <p class="eyebrow">Outil interne</p>
+  <h1>Générateur de QR code</h1>
+  <p>Produit un QR code vectoriel, au format SVG, à donner tel quel à l'imprimeur. Un SVG reste net à n'importe quelle taille, contrairement à une capture d'écran. La cible par défaut est la page vitrine du concert, pas la billetterie&nbsp;: c'est volontaire, voir les règles en bas de page.</p>
+
+  <div class="panel">
+    <div>
+      <label>
+        <span>Adresse encodée</span>
+        <input id="url" type="url" value="https://jeremie40430.github.io/debuche-2027/">
+      </label>
+      <label>
+        <span>Correction d'erreur</span>
+        <select id="ecc">
+          <option value="H" selected>H — maximale, 30 % (recommandé pour l'impression)</option>
+          <option value="Q">Q — 25 %</option>
+          <option value="M">M — 15 %</option>
+          <option value="L">L — 7 %</option>
+        </select>
+      </label>
+      <label>
+        <span>Marge blanche, en modules</span>
+        <input id="margin" type="number" value="4" min="0" max="10" step="1">
+      </label>
+      <div class="actions">
+        <button id="dl-svg">Télécharger le SVG</button>
+        <button class="ghost" id="dl-png">Télécharger un PNG 2000 px</button>
+      </div>
+      <p class="status" id="status"></p>
+    </div>
+
+    <div class="preview" id="preview"></div>
+  </div>
+
+  <div class="rules">
+    <h2>Les six règles à respecter avant d'imprimer</h2>
+    <ol>
+      <li><b>Le QR pointe sur le site, pas sur HelloAsso.</b> La page <code>/reserver/</code> redirige vers la billetterie et reste modifiable en une ligne. Si la campagne HelloAsso change d'adresse, les affiches déjà collées continuent de fonctionner.</li>
+      <li><b>3&nbsp;cm de côté au minimum sur un A3</b>, 2&nbsp;cm sur un flyer A5. En dessous, les téléphones peinent, surtout de nuit ou en vitrine.</li>
+      <li><b>Garde la marge blanche.</b> Les quatre modules de silence autour du code ne sont pas une décoration, ils sont nécessaires à la détection. Ne colle rien contre le QR.</li>
+      <li><b>Fort contraste, et dans le bon sens&nbsp;:</b> motif sombre sur fond clair. Un QR clair sur fond sombre n'est pas lu par tous les appareils.</li>
+      <li><b>Ne pose pas le QR sur une photo.</b> Réserve-lui un aplat uni.</li>
+      <li><b>Teste sur l'épreuve papier</b>, pas sur l'écran, avec deux téléphones différents, dont un vieux, avant de valider le tirage.</li>
+    </ol>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script>
+(function () {
+  var urlIn = document.getElementById('url');
+  var eccIn = document.getElementById('ecc');
+  var marginIn = document.getElementById('margin');
+  var preview = document.getElementById('preview');
+  var status = document.getElementById('status');
+  var current = '';
+
+  function build() {
+    var text = urlIn.value.trim();
+    if (!text) { preview.innerHTML = ''; status.textContent = 'Saisis une adresse.'; return; }
+    var margin = Math.max(0, Math.min(10, parseInt(marginIn.value, 10) || 0));
+    try {
+      var qr = qrcode(0, eccIn.value);
+      qr.addData(text);
+      qr.make();
+      current = qr.createSvgTag({ cellSize: 8, margin: margin * 8, scalable: true });
+      preview.innerHTML = current;
+      status.textContent = 'Version ' + qr.getModuleCount() + ' × ' + qr.getModuleCount() +
+        ' modules · correction ' + eccIn.value;
+    } catch (e) {
+      preview.innerHTML = '';
+      status.textContent = "Adresse trop longue pour ce niveau de correction. Raccourcis l'URL.";
+    }
+  }
+
+  function download(blob, filename) {
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  }
+
+  document.getElementById('dl-svg').addEventListener('click', function () {
+    if (!current) return;
+    var doc = '<?xml version="1.0" encoding="UTF-8"?>\n' + current;
+    download(new Blob([doc], { type: 'image/svg+xml' }), 'qr-debuche-2027.svg');
+  });
+
+  document.getElementById('dl-png').addEventListener('click', function () {
+    if (!current) return;
+    var svg = preview.querySelector('svg');
+    var size = 2000;
+    var img = new Image();
+    img.onload = function () {
+      var c = document.createElement('canvas');
+      c.width = c.height = size;
+      var ctx = c.getContext('2d');
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fillRect(0, 0, size, size);
+      ctx.drawImage(img, 0, 0, size, size);
+      c.toBlob(function (b) { download(b, 'qr-debuche-2027.png'); }, 'image/png');
+    };
+    img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svg.outerHTML)));
+  });
+
+  [urlIn, eccIn, marginIn].forEach(function (el) {
+    el.addEventListener('input', build);
+    el.addEventListener('change', build);
+  });
+  build();
+})();
+</script>
+</body>
+</html>
