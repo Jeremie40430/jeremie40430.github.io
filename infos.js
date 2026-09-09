@@ -22,10 +22,10 @@ var INFOS = {
   /* --- L'HORAIRE ------------------------------------------------------- */
 
   // L'heure du concert. Exemple : "20 h 30"
-  heure: "",
+  heure: "20 h 30",
 
   // L'heure d'ouverture des portes. Exemple : "19 h 45"
-  ouverturePortes: "",
+  ouverturePortes: "19 h 00",
 
 
   /* --- LA BILLETTERIE --------------------------------------------------- */
@@ -41,9 +41,9 @@ var INFOS = {
   // Les tarifs. Tu peux en ajouter ou en retirer en copiant une ligne
   // entière, virgule comprise.
   tarifs: [
-    // { nom: "Plein tarif",        prix: "25 €" },
-    // { nom: "Tarif réduit",       prix: "15 €" },
-    // { nom: "Moins de 12 ans",    prix: "Gratuit" },
+    { nom: "Plein tarif",     prix: "20 €" },
+    { nom: "Moins de 12 ans", prix: "10 €" },
+    { nom: "Moins de 3 ans",  prix: "Gratuit" },
   ],
 
 

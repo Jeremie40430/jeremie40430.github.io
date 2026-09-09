@@ -216,6 +216,12 @@ p{margin:0 0 1.1rem;max-width:60ch}
 .dates span:last-child{font-size:.94rem;color:var(--muted);line-height:1.5}
 @media (max-width:30rem){.dates div{grid-template-columns:1fr;gap:.15rem}}
 
+.rare{
+  border-left:3px solid var(--red);background:var(--surface);
+  padding:.95rem 1.15rem;margin:1.5rem 0;max-width:62ch;
+}
+.rare b{color:var(--parchment)}
+
 /* ---------------- programme et partenaires ---------------- */
 .setlist{list-style:none;margin:1.4rem 0 0;padding:0;counter-reset:morceau}
 .setlist li{
@@ -300,6 +306,7 @@ footer a{color:var(--muted)}
       <a href="#programme">Programme</a>
       <a href="#ecole">L'école</a>
       <a href="#infos">Infos pratiques</a>
+      <a href="#apres">Après le concert</a>
       <a href="#faq">Questions</a>
     </nav>
     <a class="cta" href="/reserver/">Réserver</a>
@@ -317,7 +324,7 @@ footer a{color:var(--muted)}
       <a class="cta" href="/reserver/">Réserver ma place</a>
       <a class="cta ghost" href="#concert">Découvrir le concert</a>
     </div>
-    <p class="hero-note" id="i-note">Placement libre &middot; Réservation obligatoire &middot; Paiement en ligne</p>
+    <p class="hero-note" id="i-note">500 places seulement &middot; Placement libre &middot; Réservation obligatoire</p>
   </div>
 </header>
 
@@ -359,7 +366,8 @@ footer a{color:var(--muted)}
       <div><span class="an">2027</span><span>Le centenaire, et un concert à Mont-de-Marsan.</span></div>
     </div>
 
-    <p>Entendre un tel effectif sous les voûtes d'une église est une expérience qui ne ressemble à aucun concert. La trompe n'est pas amplifiée&nbsp;: c'est le bâtiment lui-même qui porte le son. Une soirée comme celle-ci ne se reproduira pas de sitôt dans le département, et le nombre de places est limité à la capacité de l'église.</p>
+    <p>Entendre un tel effectif sous les voûtes d'une église est une expérience qui ne ressemble à aucun concert. La trompe n'est pas amplifiée&nbsp;: c'est le bâtiment lui-même qui porte le son. Une soirée comme celle-ci ne se reproduira pas de sitôt dans le département.</p>
+    <p class="rare"><b>L'église de la Madeleine compte 500 places, et il n'y en aura pas une de plus.</b> Pas de rappel le lendemain, pas de seconde date, aucune vente le soir même. Le jour où les 500 billets seront partis, ce sera terminé.</p>
 
     <div class="todo">
       <p>À confirmer auprès du groupe&nbsp;: le nom du directeur musical actuel. Vos deux textes se contredisent, l'un cite Sylvain Oudot, l'autre Guillaume Caucat.</p>
@@ -418,11 +426,11 @@ footer a{color:var(--muted)}
       </div>
       <div>
         <h3>Réservation</h3>
-        <p>En ligne uniquement, à l'avance.<br>Billet envoyé par mail, à présenter sur téléphone ou imprimé.</p>
+        <p>À l'avance, en ligne ou par chèque.<br>Aucune vente le soir du concert.</p>
       </div>
       <div>
         <h3>Placement</h3>
-        <p>Libre, dans la limite des 500 places de l'église. Les portes ouvrent avant le concert.</p>
+        <p>Libre, dans la limite des 500 places. Arrivez tôt si vous tenez à une place précise.</p>
       </div>
       <div>
         <h3>Accessibilité</h3>
@@ -443,6 +451,18 @@ footer a{color:var(--muted)}
   </div>
 </section>
 
+<section id="apres">
+  <div class="shell narrow">
+    <p class="eyebrow">La suite de la soirée</p>
+    <h2>Après le concert, on se retrouve</h2>
+    <p>Un point de restauration et de boisson est prévu après le concert, à la <b>salle des fêtes d'Artassenx</b>, dans les Landes. C'est ouvert à tous ceux qui le souhaitent, sans obligation.</p>
+    <p>C'est le moment où les sonneurs déposent leurs trompes et où l'on discute avec eux. Si le concert vous a donné envie d'essayer l'instrument, c'est là qu'il faut venir poser vos questions.</p>
+    <div class="todo">
+      <p>À préciser avant l'annonce&nbsp;: l'adresse exacte de la salle des fêtes, l'horaire, et si le repas est payant, auquel cas il faudra une option dédiée dans la billetterie pour connaître le nombre de couverts à l'avance.</p>
+    </div>
+  </div>
+</section>
+
 <section id="faq">
   <div class="shell narrow">
     <p class="eyebrow">Questions fréquentes</p>
@@ -450,7 +470,11 @@ footer a{color:var(--muted)}
 
     <details>
       <summary>Peut-on payer sur place le soir du concert&nbsp;?</summary>
-      <p>Non. Le concert est uniquement sur réservation payée à l'avance, en ligne. Ne faites pas le déplacement sans billet.</p>
+      <p>Non. L'église compte 500 places et rien ne se vend le soir même. Ne faites pas le déplacement sans avoir réservé et payé à l'avance.</p>
+    </details>
+    <details>
+      <summary>Comment réserver&nbsp;?</summary>
+      <p>De deux façons, au choix. En ligne, par carte bancaire, sur notre billetterie&nbsp;: c'est immédiat et votre place est retenue tout de suite. Ou par chèque, à l'ordre de l'École de trompe de Beaussiet, envoyé à Francis Faget, 1048 route de Laglorieuse, 40090 Artassenx. Joignez vos nom, téléphone et adresse mail, ainsi que le nombre et le type de places souhaitées. Votre réservation est confirmée à réception.</p>
     </details>
     <details>
       <summary>Les places sont-elles numérotées&nbsp;?</summary>
@@ -471,6 +495,10 @@ footer a{color:var(--muted)}
     <details>
       <summary>Est-ce adapté aux enfants&nbsp;?</summary>
       <p>Oui, mais sachez qu'un ensemble de trompes dans une église, c'est puissant. Pour les tout-petits, prévoyez de quoi protéger leurs oreilles.</p>
+    </details>
+    <details>
+      <summary>Y a-t-il quelque chose après le concert&nbsp;?</summary>
+      <p>Oui. Un point de restauration et de boisson est prévu à la salle des fêtes d'Artassenx, ouvert à tous ceux qui le souhaitent.</p>
     </details>
     <details>
       <summary>Puis-je me faire rembourser&nbsp;?</summary>
