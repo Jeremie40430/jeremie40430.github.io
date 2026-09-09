@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Jérémie — Aire-sur-l'Adour</title>
+<meta name="description" content="Projets et applications de Jérémie, dans les Landes : Lueur, application de suivi de la ménopause, et le concert du centenaire du Débuché de Paris à Mont-de-Marsan.">
+<link rel="canonical" href="https://jeremie40430.github.io/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Public+Sans:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --ground:#FAF8F4;
+  --surface:#FFFFFF;
+  --ink:#221E24;
+  --ink-soft:#5F5763;
+  --ink-faint:#8B838F;
+  --line:#E8E2DC;
+  --line-strong:#D2CAC4;
+  --lueur:#7A5878;
+  --brass:#8E5F1D;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#17141A;
+    --surface:#1F1B23;
+    --ink:#EFEAF2;
+    --ink-soft:#A79FAD;
+    --ink-faint:#7C7482;
+    --line:#2E2833;
+    --line-strong:#453D4A;
+    --lueur:#C2A0BF;
+    --brass:#E0A94F;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#17141A;
+  --surface:#1F1B23;
+  --ink:#EFEAF2;
+  --ink-soft:#A79FAD;
+  --ink-faint:#7C7482;
+  --line:#2E2833;
+  --line-strong:#453D4A;
+  --lueur:#C2A0BF;
+  --brass:#E0A94F;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16.5px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.shell{max-width:40rem;margin:0 auto;padding:0 1.5rem}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--lueur);outline-offset:3px}
+
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-faint);margin:0;
+}
+
+/* ---------- en-tete ---------- */
+header{padding:4.5rem 0 2.6rem}
+header h1{
+  font-family:Newsreader,Georgia,serif;font-weight:400;
+  font-size:clamp(2.2rem,7vw,3.1rem);line-height:1.08;
+  letter-spacing:-.01em;margin:.8rem 0 .7rem;
+}
+header p{color:var(--ink-soft);margin:0;max-width:46ch}
+
+/* ---------- liste de projets ---------- */
+.projects{
+  list-style:none;margin:0;padding:0;
+  border-top:1px solid var(--line);
+}
+.projects li{border-bottom:1px solid var(--line);padding:1.5rem 0}
+.project{display:block}
+.project h2 a{
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+  transition:border-color .15s ease;
+}
+.project h2 a:hover{border-bottom-color:var(--ink-faint)}
+.project-head{
+  display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;margin-bottom:.35rem;
+}
+.dot{
+  width:.5rem;height:.5rem;border-radius:50%;flex:0 0 auto;
+  transform:translateY(-.1rem);
+}
+.dot.lueur{background:var(--lueur)}
+.dot.concert{background:var(--brass)}
+.project h2{
+  font-family:Newsreader,Georgia,serif;font-weight:500;
+  font-size:1.4rem;line-height:1.2;margin:0;
+}
+.status{
+  font-family:"IBM Plex Mono",monospace;font-size:.66rem;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-faint);border:1px solid var(--line-strong);
+  padding:.12rem .42rem;border-radius:2px;margin-left:auto;white-space:nowrap;
+}
+.project p{margin:0;color:var(--ink-soft);font-size:.95rem;max-width:52ch}
+.sub-links{
+  display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:.7rem;
+  font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.06em;
+}
+.sub-links a{
+  color:var(--ink-faint);text-decoration:none;
+  border-bottom:1px solid var(--line-strong);padding-bottom:.1rem;
+}
+.sub-links a:hover{color:var(--ink);border-color:currentColor}
+
+/* ---------- pied ---------- */
+footer{
+  padding:3rem 0 4rem;margin-top:2.5rem;
+  border-top:1px solid var(--line);
+  color:var(--ink-faint);font-size:.85rem;
+}
+footer p{margin:0 0 .5rem;max-width:52ch}
+footer a{color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <header>
+    <p class="eyebrow">Aire-sur-l'Adour, Landes</p>
+    <h1>Jérémie</h1>
+    <p>Sonneur de trompe de chasse depuis treize ans, et bricoleur d'applications le reste du temps. Voici ce qui se trouve ici.</p>
+  </header>
+
+  <main>
+    <ul class="projects">
+
+      <li>
+        <div class="project">
+          <div class="project-head">
+            <span class="dot concert"></span>
+            <h2><a href="/debuche-2027/">Le Débuché de Paris à Mont-de-Marsan</a></h2>
+            <span class="status">5 juin 2027</span>
+          </div>
+          <p>Pour son centenaire, l'ensemble de trompes de chasse qui sonne à Notre-Dame de Paris donne un concert à l'église de la Madeleine. Organisé par l'École de trompe de Beaussiet.</p>
+          <div class="sub-links">
+            <a href="/debuche-2027/">La page du concert</a>
+            <a href="/reserver/">Réserver une place</a>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="project">
+          <div class="project-head">
+            <span class="dot lueur"></span>
+            <h2><a href="/privacy-policy.html">Lueur</a></h2>
+            <span class="status">Application iOS</span>
+          </div>
+          <p>Une application de suivi de la ménopause, pensée pour noter ses symptômes au jour le jour, simplement, et sans que ces données partent où que ce soit sans accord.</p>
+          <div class="sub-links">
+            <a href="/privacy-policy.html">Politique de confidentialité</a>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </main>
+
+  <footer>
+    <p>Ce site héberge les pages publiques de mes projets. Il est statique, il ne dépose aucun traceur et ne collecte rien.</p>
+    <p><a href="/privacy-policy.html">Politique de confidentialité de Lueur</a></p>
+  </footer>
+
+</div>
+
+</body>
+</html>
