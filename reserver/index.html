@@ -8,15 +8,16 @@
 <!-- =========================================================================
      REDIRECTION VERS LA BILLETTERIE HELLOASSO
      =========================================================================
-     C'est le SEUL fichier a modifier le jour ou le lien HelloAsso change.
-     Remplace la valeur de DESTINATION ci-dessous par l'URL de la campagne,
-     puis fais un commit. Les affiches deja imprimees continuent de marcher.
-
-     Format d'une campagne HelloAsso :
-     https://www.helloasso.com/associations/<asso>/evenements/<campagne>
+     Rien a modifier ici. L'adresse de la billetterie se renseigne une seule
+     fois, dans le fichier infos.js a la racine du site, ligne
+     "lienBilletterie". Les affiches deja imprimees continuent de marcher.
      ========================================================================= -->
+<script src="/infos.js"></script>
 <script>
   var DESTINATION = "https://www.helloasso.com/";
+  if (typeof INFOS !== "undefined" && INFOS.lienBilletterie) {
+    DESTINATION = INFOS.lienBilletterie;
+  }
 </script>
 
 <title>Réservation — Le Débuché de Paris à Mont-de-Marsan</title>

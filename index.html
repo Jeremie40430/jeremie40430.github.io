@@ -216,6 +216,26 @@ p{margin:0 0 1.1rem;max-width:60ch}
 .dates span:last-child{font-size:.94rem;color:var(--muted);line-height:1.5}
 @media (max-width:30rem){.dates div{grid-template-columns:1fr;gap:.15rem}}
 
+/* ---------------- programme et partenaires ---------------- */
+.setlist{list-style:none;margin:1.4rem 0 0;padding:0;counter-reset:morceau}
+.setlist li{
+  display:grid;grid-template-columns:2.2rem 1fr;gap:.6rem;
+  padding:.7rem 0;border-top:1px solid var(--line);align-items:baseline;
+}
+.setlist li:last-child{border-bottom:1px solid var(--line)}
+.setlist li::before{
+  counter-increment:morceau;content:counter(morceau,decimal-leading-zero);
+  font-family:"IBM Plex Mono",monospace;font-size:.74rem;color:var(--brass);
+}
+.partners{
+  list-style:none;margin:1.4rem 0 0;padding:0;
+  display:flex;flex-wrap:wrap;gap:.6rem;
+}
+.partners li{
+  border:1px solid var(--line);border-radius:2px;
+  padding:.4rem .8rem;font-size:.9rem;color:var(--muted);
+}
+
 /* ---------------- images ---------------- */
 .photo{margin:0;border-bottom:1px solid var(--line)}
 .photo img{width:100%;height:auto}
@@ -267,10 +287,6 @@ details p{margin:.7rem 0 .1rem;color:var(--muted);font-size:.95rem}
 footer{padding:2.5rem 0 3.5rem;color:var(--faint);font-size:.85rem}
 footer p{max-width:60ch;margin:0 0 .6rem}
 footer a{color:var(--muted)}
-.partners{
-  display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;
-  margin-top:1.4rem;
-}
 </style>
 </head>
 <body>
@@ -295,13 +311,13 @@ footer a{color:var(--muted)}
     <p class="centenaire">1927 &nbsp;&mdash;&nbsp; 2027</p>
     <h1>Le Débuché de Paris</h1>
     <p class="kicker">Cent ans de trompe de chasse, une soirée à Mont-de-Marsan</p>
-    <p class="hero-when">SAMEDI 5 JUIN 2027</p>
+    <p class="hero-when">SAMEDI 5 JUIN 2027<span id="i-heure-hero"></span></p>
     <p class="hero-where">Église de la Madeleine, Mont-de-Marsan</p>
     <div class="hero-actions">
       <a class="cta" href="/reserver/">Réserver ma place</a>
       <a class="cta ghost" href="#concert">Découvrir le concert</a>
     </div>
-    <p class="hero-note">Placement libre &middot; Réservation obligatoire &middot; Paiement en ligne</p>
+    <p class="hero-note" id="i-note">Placement libre &middot; Réservation obligatoire &middot; Paiement en ligne</p>
   </div>
 </header>
 
@@ -364,7 +380,9 @@ footer a{color:var(--muted)}
   <div class="shell narrow">
     <p class="eyebrow">Le programme</p>
     <h2>Ce que vous entendrez</h2>
-    <div class="todo">
+    <p id="i-programme-intro" hidden></p>
+    <ol class="setlist" id="i-programme" hidden></ol>
+    <div class="todo" id="i-programme-todo">
       <p>Programme détaillé à recevoir du Débuché de Paris&nbsp;: les fanfares annoncées, la durée du concert, la présence ou non d'un entracte, et si un récitant présente les morceaux.</p>
     </div>
   </div>
@@ -378,8 +396,9 @@ footer a{color:var(--muted)}
     <p>Faire venir Le Débuché de Paris pour son centenaire, c'est le projet le plus ambitieux que l'école ait porté. Les bénéfices de cette soirée reviennent intégralement à l'école et à la transmission de la trompe dans les Landes.</p>
     <h3>Envie d'essayer&nbsp;?</h3>
     <p class="muted">L'école accueille de nouveaux élèves. Venez nous voir à la table d'accueil le soir du concert, ou écrivez-nous.</p>
-    <div class="todo">
-      <p>Adresse mail de contact de l'association, lien vers la page Facebook, lieu et jour des cours, et le nom du président, Francis Faget, si vous voulez le faire figurer.</p>
+    <p id="i-contact" hidden></p>
+    <div class="todo" id="i-contact-todo">
+      <p>Adresse mail de contact de l'association et lien vers la page Facebook, à renseigner dans le fichier infos.js.</p>
     </div>
   </div>
 </section>
@@ -391,7 +410,7 @@ footer a{color:var(--muted)}
     <div class="infos">
       <div>
         <h3>Date et horaire</h3>
-        <p>Samedi 5 juin 2027.<br>Horaire à confirmer.</p>
+        <p id="i-horaire">Samedi 5 juin 2027.<br>Horaire à confirmer.</p>
       </div>
       <div>
         <h3>Lieu</h3>
@@ -407,11 +426,15 @@ footer a{color:var(--muted)}
       </div>
       <div>
         <h3>Accessibilité</h3>
-        <p>Nous contacter avant votre venue pour toute question d'accès.</p>
+        <p id="i-accessibilite">Nous contacter avant votre venue pour toute question d'accès.</p>
       </div>
       <div>
         <h3>Stationnement</h3>
-        <p>Parkings du centre-ville, à quelques minutes à pied.</p>
+        <p id="i-stationnement">Parkings du centre-ville, à quelques minutes à pied.</p>
+      </div>
+      <div id="i-bloc-tarifs" hidden>
+        <h3>Tarifs</h3>
+        <p id="i-tarifs"></p>
       </div>
     </div>
     <div class="todo">
@@ -469,14 +492,109 @@ footer a{color:var(--muted)}
   <div class="shell narrow">
     <p class="eyebrow">Ils soutiennent le centenaire</p>
     <h2>Partenaires</h2>
-    <div class="todo">
-      <p>Logos des partenaires et soutiens institutionnels, au fur et à mesure des accords. Prévoir les logos en fichier vectoriel ou en PNG sur fond transparent.</p>
+    <ul class="partners" id="i-partenaires" hidden></ul>
+    <div class="todo" id="i-partenaires-todo">
+      <p>Les partenaires s'ajoutent au fur et à mesure des accords, dans le fichier infos.js.</p>
     </div>
-    <div class="partners"></div>
   </div>
 </section>
 
 </main>
+
+<script src="/infos.js"></script>
+<script>
+// Remplit la page avec ce qui est écrit dans infos.js.
+// Chaque valeur laissée vide dans ce fichier laisse en place le texte
+// par défaut de la page : une info manquante n'affiche jamais un trou.
+(function () {
+  if (typeof INFOS === 'undefined') return;
+
+  function texte(id, valeur) {
+    var el = document.getElementById(id);
+    if (el && valeur) el.textContent = valeur;
+  }
+  function montrer(id) { var el = document.getElementById(id); if (el) el.hidden = false; }
+  function cacher(id) { var el = document.getElementById(id); if (el) el.hidden = true; }
+
+  // Horaire
+  if (INFOS.heure) {
+    texte('i-heure-hero', ' · ' + INFOS.heure.toUpperCase());
+    var h = 'Samedi 5 juin 2027, ' + INFOS.heure + '.';
+    if (INFOS.ouverturePortes) h += ' Ouverture des portes à ' + INFOS.ouverturePortes + '.';
+    texte('i-horaire', h);
+  }
+
+  // Tarifs
+  if (INFOS.tarifs && INFOS.tarifs.length) {
+    texte('i-tarifs', INFOS.tarifs.map(function (t) {
+      return t.nom + ' : ' + t.prix;
+    }).join(' · '));
+    montrer('i-bloc-tarifs');
+  }
+
+  // Billetterie
+  var boutons = document.querySelectorAll('.cta[href="/reserver/"]');
+  if (!INFOS.billetterieOuverte) {
+    Array.prototype.forEach.call(boutons, function (b) {
+      b.textContent = 'Bientôt en réservation';
+      b.removeAttribute('href');
+      b.style.opacity = '.6';
+      b.style.cursor = 'default';
+    });
+    texte('i-note', 'Les réservations ne sont pas encore ouvertes. Revenez bientôt.');
+  }
+
+  // Programme
+  if (INFOS.programmeIntro) { texte('i-programme-intro', INFOS.programmeIntro); montrer('i-programme-intro'); }
+  if (INFOS.programme && INFOS.programme.length) {
+    var liste = document.getElementById('i-programme');
+    INFOS.programme.forEach(function (morceau) {
+      var li = document.createElement('li');
+      li.appendChild(document.createElement('span')).textContent = morceau;
+      liste.appendChild(li);
+    });
+    montrer('i-programme');
+    cacher('i-programme-todo');
+  }
+
+  // Contact
+  if (INFOS.email || INFOS.facebook) {
+    var c = document.getElementById('i-contact');
+    if (INFOS.email) {
+      var mail = document.createElement('a');
+      mail.href = 'mailto:' + INFOS.email;
+      mail.textContent = INFOS.email;
+      c.appendChild(mail);
+    }
+    if (INFOS.facebook) {
+      if (INFOS.email) c.appendChild(document.createTextNode(' · '));
+      var fb = document.createElement('a');
+      fb.href = INFOS.facebook;
+      fb.textContent = 'Notre page Facebook';
+      fb.rel = 'noopener';
+      c.appendChild(fb);
+    }
+    montrer('i-contact');
+    cacher('i-contact-todo');
+  }
+
+  // Partenaires
+  if (INFOS.partenaires && INFOS.partenaires.length) {
+    var ul = document.getElementById('i-partenaires');
+    INFOS.partenaires.forEach(function (nom) {
+      var li = document.createElement('li');
+      li.textContent = nom;
+      ul.appendChild(li);
+    });
+    montrer('i-partenaires');
+    cacher('i-partenaires-todo');
+  }
+
+  // Infos pratiques libres
+  texte('i-stationnement', INFOS.stationnement);
+  texte('i-accessibilite', INFOS.accessibilite);
+})();
+</script>
 
 <script>
 // Souligne l'onglet de la section en cours de lecture.
