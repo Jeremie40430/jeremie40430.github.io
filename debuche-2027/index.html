@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Le Débuché de Paris à Mont-de-Marsan — Centenaire 1927-2027</title>
-<meta name="description" content="Pour son centenaire, Le Débuché de Paris, ensemble de trompes de chasse qui sonne à Notre-Dame de Paris, donne un concert à l'église de la Madeleine de Mont-de-Marsan le samedi 5 juin 2027. Sur réservation.">
+<meta name="description" content="Pour son centenaire, Le Débuché de Paris, ensemble de trompes de chasse fondé en 1927, donne un concert à l'église de la Madeleine de Mont-de-Marsan le samedi 5 juin 2027. Sur réservation.">
 <link rel="canonical" href="https://jeremie40430.github.io/debuche-2027/">
 
 <!-- =========================================================================
@@ -27,7 +27,7 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="École de trompe de Beaussiet">
 <meta property="og:title" content="Le Débuché de Paris à Mont-de-Marsan — Centenaire 1927-2027">
-<meta property="og:description" content="Cent ans de trompe de chasse. L'ensemble qui sonne à Notre-Dame de Paris fête son centenaire à l'église de la Madeleine, le samedi 5 juin 2027. Sur réservation.">
+<meta property="og:description" content="Cent ans de trompe de chasse. L'un des plus anciens ensembles de trompes de France fête son centenaire à l'église de la Madeleine, le samedi 5 juin 2027. Sur réservation.">
 <meta property="og:url" content="https://jeremie40430.github.io/debuche-2027/">
 <meta property="og:image" content="https://jeremie40430.github.io/debuche-2027/affiche-partage.jpg">
 <meta property="og:image:width" content="1200">
@@ -159,6 +159,36 @@ p{margin:0 0 1.1rem;max-width:60ch}
 }
 .muted{color:var(--muted)}
 
+/* ---------------- reperes historiques ---------------- */
+.dates{
+  display:flex;flex-direction:column;gap:1px;
+  background:var(--line);border:1px solid var(--line);
+  margin:1.8rem 0 1.6rem;
+}
+.dates div{
+  background:var(--night);padding:.85rem 1rem;
+  display:grid;grid-template-columns:5.2rem 1fr;gap:1rem;align-items:baseline;
+}
+.dates .an{
+  font-family:"IBM Plex Mono",monospace;font-size:.82rem;
+  letter-spacing:.08em;color:var(--brass);font-variant-numeric:tabular-nums;
+}
+.dates span:last-child{font-size:.94rem;color:var(--muted);line-height:1.5}
+@media (max-width:30rem){.dates div{grid-template-columns:1fr;gap:.15rem}}
+
+/* ---------------- images ---------------- */
+.photo{margin:0;border-bottom:1px solid var(--line)}
+.photo img{width:100%;height:auto}
+.photo figcaption{
+  font-family:"IBM Plex Mono",monospace;font-size:.68rem;
+  letter-spacing:.1em;color:var(--faint);
+  padding:.7rem 1.5rem;max-width:var(--max);margin:0 auto;
+}
+.logo{
+  width:6.5rem;height:auto;border-radius:50%;
+  background:#FFFFFF;padding:.35rem;margin-bottom:1.4rem;
+}
+
 /* ---------------- infos pratiques ---------------- */
 .infos{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));
@@ -227,17 +257,38 @@ footer a{color:var(--muted)}
   <div><dt>Date</dt><dd>5 juin</dd></div>
 </dl>
 
+<!-- Photo du groupe. Deposer debuche-groupe.jpg dans ce dossier, environ
+     2000 px de large. Si le fichier est absent, le bloc se masque tout seul. -->
+<figure class="photo" id="photo-groupe" hidden>
+  <img src="debuche-groupe.jpg" alt="Les sonneurs du Débuché de Paris en tenue rouge, trompes à l'épaule, devant un château"
+       onload="document.getElementById('photo-groupe').hidden = false">
+  <figcaption>Le Débuché de Paris</figcaption>
+</figure>
+
 <main>
 
 <section id="concert">
   <div class="shell narrow">
+    <!-- Logo du groupe : deposer logo-debuche.png dans ce dossier. -->
+    <img class="logo" src="logo-debuche.png" alt="Logo du Débuché de Paris"
+         hidden onload="this.hidden = false">
     <p class="eyebrow">Le concert</p>
     <h2>Un siècle de sonneurs, pour un soir dans les Landes</h2>
     <p class="big">Le Débuché de Paris fête ses cent ans. Pour l'occasion, l'ensemble quitte Paris et vient sonner à l'église de la Madeleine de Mont-de-Marsan, invité par l'École de trompe de Beaussiet.</p>
-    <p>Fondé en 1927, Le Débuché de Paris est l'un des grands ensembles de trompes de chasse français. On le connaît notamment pour sonner à la cathédrale Notre-Dame de Paris à l'occasion de la Saint-Hubert, la fête des chasseurs. Entendre un tel effectif sous les voûtes d'une église est une expérience qui ne ressemble à aucun concert : la trompe n'est pas amplifiée, c'est le bâtiment lui-même qui porte le son.</p>
-    <p>Une soirée comme celle-ci ne se reproduira pas de sitôt dans le département. Le nombre de places est limité à la capacité de l'église, et tout se joue à la réservation.</p>
+    <p>Tout commence en 1927, quand six sonneurs parmi les plus réputés de leur temps se réunissent sous ce nom, à l'initiative de Jules Romary. En 1936, l'arrivée d'un directeur de musique, Gaston Chalmel, transforme le groupe : le répertoire s'élargit, l'exigence s'installe, et Le Débuché devient la référence où plusieurs générations de sonneurs européens sont venues chercher leur style.</p>
+    <p>Cent ans plus tard, l'esprit n'a pas changé. Ses membres viennent des quatre coins de la France, mais aussi de Belgique et des Pays-Bas, et parcourent chaque mois des centaines de kilomètres pour se retrouver et répéter. Ce qui s'entend le soir du concert, c'est cette exigence, et l'amitié qui la porte.</p>
+
+    <div class="dates">
+      <div><span class="an">1927</span><span>Six sonneurs fondent Le Débuché de Paris autour de Jules Romary.</span></div>
+      <div><span class="an">1936</span><span>Gaston Chalmel prend la direction musicale et bâtit le répertoire du groupe.</span></div>
+      <div><span class="an">Depuis</span><span>Une fidélité de plus de quarante ans à l'église Saint-Eustache, à Paris, où le groupe sonne la Saint-Hubert chaque mois de novembre.</span></div>
+      <div><span class="an">2027</span><span>Le centenaire, et un concert à Mont-de-Marsan.</span></div>
+    </div>
+
+    <p>Entendre un tel effectif sous les voûtes d'une église est une expérience qui ne ressemble à aucun concert. La trompe n'est pas amplifiée : c'est le bâtiment lui-même qui porte le son. Une soirée comme celle-ci ne se reproduira pas de sitôt dans le département, et le nombre de places est limité à la capacité de l'église.</p>
+
     <div class="todo">
-      <p>Texte de présentation officiel du Débuché de Paris, à leur demander, ainsi que deux ou trois photos en haute définition et l'autorisation écrite de les utiliser.</p>
+      <p>À vérifier auprès du groupe avant l'annonce publique&nbsp;: le nom du directeur musical actuel, et si l'ensemble a bien sonné à Notre-Dame de Paris ou au château de Versailles, deux mentions qui circulent mais que leur propre présentation n'emploie pas. Leur texte officiel met en avant Saint-Eustache.</p>
     </div>
   </div>
 </section>
