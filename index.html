@@ -4,187 +4,510 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Jérémie — Aire-sur-l'Adour</title>
-<meta name="description" content="Projets et applications de Jérémie, dans les Landes : Lueur, application de suivi de la ménopause, et le concert du centenaire du Débuché de Paris à Mont-de-Marsan.">
+<title>Le Débuché de Paris à Mont-de-Marsan — Centenaire 1927-2027</title>
+<meta name="description" content="Pour son centenaire, Le Débuché de Paris, l'ensemble de trompes de chasse qui sonne à Notre-Dame de Paris, donne un concert à l'église de la Madeleine de Mont-de-Marsan le samedi 5 juin 2027. Sur réservation.">
 <link rel="canonical" href="https://jeremie40430.github.io/">
 
-<!-- Page volontairement non indexee par les moteurs de recherche.
-     Supprime la ligne ci-dessous pour la rendre visible dans Google. -->
+<!-- =========================================================================
+     A SUPPRIMER LE JOUR DE L'ANNONCE PUBLIQUE (la ligne ci-dessous, uniquement)
+     =========================================================================
+     Tant que la page contient des encadres "a completer", cette ligne empeche
+     Google de l'indexer. La page reste accessible a qui a l'adresse : on peut
+     donc la relire et la faire relire, mais elle ne remontera pas dans les
+     resultats de recherche dans un etat inachevé.
+
+     Supprime cette balise quand horaire, tarif, programme et photos sont en
+     place, juste avant l'ouverture de la billetterie.
+     ========================================================================= -->
 <meta name="robots" content="noindex">
+
+<!-- Apercu de partage Facebook / WhatsApp / Messenger.
+     affiche-partage.jpg : 1200x630 px, a deposer dans ce dossier. -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="École de trompe de Beaussiet">
+<meta property="og:title" content="Le Débuché de Paris à Mont-de-Marsan — Centenaire 1927-2027">
+<meta property="og:description" content="Cent ans de trompe de chasse. L'ensemble qui sonne à Notre-Dame de Paris fête son centenaire à l'église de la Madeleine, le samedi 5 juin 2027. Sur réservation.">
+<meta property="og:url" content="https://jeremie40430.github.io/">
+<meta property="og:image" content="https://jeremie40430.github.io/affiche-partage.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Public+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;600&display=swap">
 
 <style>
+/* Palette reprise des couleurs du Débuché de Paris : le rouge et le bleu
+   de leurs tenues, l'or des trompes et du logo, sur un bleu de nuit. */
 :root{
-  --ground:#FAF8F4;
-  --surface:#FFFFFF;
-  --ink:#221E24;
-  --ink-soft:#5F5763;
-  --ink-faint:#8B838F;
-  --line:#E8E2DC;
-  --line-strong:#D2CAC4;
-  --lueur:#7A5878;
-  --concert:#B5122A;
+  --night:#0B1524;
+  --surface:#122134;
+  --raised:#1A2C44;
+  --parchment:#EFEDE6;
+  --muted:#98A6BA;
+  --faint:#6B7B92;
+  --red:#CE2434;
+  --red-bright:#E85763;
+  --brass:#E3B34A;
+  --brass-bright:#F2CF87;
+  --line:#23364E;
+  --max:64rem;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --ground:#17141A;
-    --surface:#1F1B23;
-    --ink:#EFEAF2;
-    --ink-soft:#A79FAD;
-    --ink-faint:#7C7482;
-    --line:#2E2833;
-    --line-strong:#453D4A;
-    --lueur:#C2A0BF;
-    --concert:#E85763;
-  }
-}
-:root[data-theme="dark"]{
-  --ground:#17141A;
-  --surface:#1F1B23;
-  --ink:#EFEAF2;
-  --ink-soft:#A79FAD;
-  --ink-faint:#7C7482;
-  --line:#2E2833;
-  --line-strong:#453D4A;
-  --lueur:#C2A0BF;
-  --concert:#E85763;
-}
-
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+
 body{
   margin:0;
-  background:var(--ground);
-  color:var(--ink);
+  background:var(--night);
+  color:var(--parchment);
   font-family:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  font-size:16.5px;line-height:1.6;
+  font-size:17px;line-height:1.65;
   -webkit-font-smoothing:antialiased;
 }
-.shell{max-width:40rem;margin:0 auto;padding:0 1.5rem}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--lueur);outline-offset:3px}
+img{max-width:100%;display:block}
+a{color:var(--brass-bright)}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
 
+.shell{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
 .eyebrow{
   font-family:"IBM Plex Mono",ui-monospace,monospace;
-  font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--ink-faint);margin:0;
+  font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--brass);margin:0;
 }
 
-/* ---------- en-tete ---------- */
-header{padding:4.5rem 0 2.6rem}
-header h1{
-  font-family:Newsreader,Georgia,serif;font-weight:400;
-  font-size:clamp(2.2rem,7vw,3.1rem);line-height:1.08;
-  letter-spacing:-.01em;margin:.8rem 0 .7rem;
+/* ---------------- bouton ---------------- */
+.cta{
+  display:inline-block;padding:.85rem 1.9rem;
+  background:var(--red);color:var(--parchment);text-decoration:none;
+  font-family:"IBM Plex Mono",monospace;font-size:.82rem;
+  letter-spacing:.12em;text-transform:uppercase;font-weight:500;
+  border-radius:2px;transition:background .15s ease;
 }
-header p{color:var(--ink-soft);margin:0;max-width:46ch}
+.cta:hover{background:var(--red-bright)}
+.cta.ghost{background:transparent;color:var(--brass);box-shadow:inset 0 0 0 1px var(--brass)}
+.cta.ghost:hover{background:rgba(227,179,74,.12)}
 
-/* ---------- liste de projets ---------- */
-.projects{
-  list-style:none;margin:0;padding:0;
-  border-top:1px solid var(--line);
+/* ---------------- barre d'onglets ---------------- */
+.tabs{
+  position:sticky;top:0;z-index:20;
+  background:rgba(11,21,36,.93);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
 }
-.projects li{border-bottom:1px solid var(--line);padding:1.5rem 0}
-.project{display:block}
-.project h2 a{
-  text-decoration:none;
-  border-bottom:1px solid transparent;
-  transition:border-color .15s ease;
+.tabs-inner{
+  max-width:var(--max);margin:0 auto;padding:0 1.5rem;
+  display:flex;align-items:center;gap:1.5rem;height:3.3rem;
 }
-.project h2 a:hover{border-bottom-color:var(--ink-faint)}
-.project-head{
-  display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;margin-bottom:.35rem;
+.tabs-brand{
+  font-family:"IBM Plex Mono",monospace;font-size:.68rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--brass);
+  white-space:nowrap;text-decoration:none;
 }
-.dot{
-  width:.5rem;height:.5rem;border-radius:50%;flex:0 0 auto;
-  transform:translateY(-.1rem);
+.tabs nav{
+  display:flex;gap:1.4rem;flex:1;
+  overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;
 }
-.dot.lueur{background:var(--lueur)}
-.dot.concert{background:var(--concert)}
-.project h2{
-  font-family:Newsreader,Georgia,serif;font-weight:500;
-  font-size:1.4rem;line-height:1.2;margin:0;
+.tabs nav::-webkit-scrollbar{display:none}
+.tabs nav a{
+  font-family:"IBM Plex Mono",monospace;font-size:.72rem;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+  text-decoration:none;white-space:nowrap;padding:.3rem 0;
+  border-bottom:2px solid transparent;transition:color .15s ease;
 }
-.status{
+.tabs nav a:hover{color:var(--parchment)}
+.tabs nav a.active{color:var(--parchment);border-bottom-color:var(--brass)}
+.tabs .cta{padding:.45rem 1.05rem;font-size:.7rem;flex:0 0 auto}
+section{scroll-margin-top:3.4rem}
+@media (max-width:46rem){
+  .tabs-brand{display:none}
+  .tabs-inner{gap:1rem;padding:0 1rem}
+}
+
+/* ---------------- hero ---------------- */
+.hero{
+  border-bottom:1px solid var(--line);
+  padding:3.5rem 0 3rem;
+  background:
+    radial-gradient(120% 90% at 50% -10%, rgba(206,36,52,.20), transparent 62%),
+    var(--night);
+  text-align:center;
+}
+.centenaire{
+  display:inline-flex;align-items:center;gap:.9rem;
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;
+  letter-spacing:.24em;color:var(--brass);margin-bottom:1.6rem;
+}
+.centenaire::before,.centenaire::after{
+  content:"";width:2.5rem;height:1px;background:var(--brass);opacity:.55;
+}
+.hero h1{
+  font-family:"EB Garamond",Georgia,serif;
+  font-weight:400;font-size:clamp(2.6rem,8.5vw,5.4rem);
+  line-height:1.02;letter-spacing:-.015em;margin:0;text-wrap:balance;
+}
+.hero .kicker{
+  font-family:"EB Garamond",Georgia,serif;font-style:italic;
+  font-size:clamp(1.1rem,3vw,1.5rem);color:var(--muted);
+  margin:.9rem auto 0;max-width:34ch;line-height:1.4;
+}
+.hero-when{
+  font-family:"IBM Plex Mono",monospace;font-size:.9rem;
+  letter-spacing:.1em;color:var(--parchment);margin:2.2rem 0 .4rem;
+}
+.hero-where{color:var(--muted);font-size:.94rem;margin:0 0 2rem}
+.hero-actions{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+.hero-note{
+  font-family:"IBM Plex Mono",monospace;font-size:.72rem;
+  letter-spacing:.09em;color:var(--faint);margin:1.4rem 0 0;
+}
+
+/* ---------------- bandeau chiffres ---------------- */
+.strip{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(8rem,1fr));
+  gap:1px;background:var(--line);border-bottom:1px solid var(--line);
+}
+.strip div{background:var(--night);padding:1.15rem 1rem;text-align:center}
+.strip dt{
   font-family:"IBM Plex Mono",monospace;font-size:.66rem;
-  letter-spacing:.12em;text-transform:uppercase;
-  color:var(--ink-faint);border:1px solid var(--line-strong);
-  padding:.12rem .42rem;border-radius:2px;margin-left:auto;white-space:nowrap;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin:0 0 .35rem;
 }
-.project p{margin:0;color:var(--ink-soft);font-size:.95rem;max-width:52ch}
-.sub-links{
-  display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:.7rem;
-  font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.06em;
+.strip dd{
+  margin:0;font-family:"EB Garamond",Georgia,serif;
+  font-size:1.55rem;line-height:1.1;color:var(--brass);
+  font-variant-numeric:tabular-nums;
 }
-.sub-links a{
-  color:var(--ink-faint);text-decoration:none;
-  border-bottom:1px solid var(--line-strong);padding-bottom:.1rem;
-}
-.sub-links a:hover{color:var(--ink);border-color:currentColor}
 
-/* ---------- pied ---------- */
-footer{
-  padding:3rem 0 4rem;margin-top:2.5rem;
-  border-top:1px solid var(--line);
-  color:var(--ink-faint);font-size:.85rem;
+/* ---------------- sections ---------------- */
+section{padding:3.6rem 0;border-bottom:1px solid var(--line)}
+.narrow{max-width:38rem}
+h2{
+  font-family:"EB Garamond",Georgia,serif;font-weight:400;
+  font-size:clamp(1.8rem,4.5vw,2.5rem);line-height:1.15;
+  margin:.7rem 0 1.2rem;text-wrap:balance;
 }
-footer p{margin:0 0 .5rem;max-width:52ch}
-footer a{color:var(--ink-soft)}
+h3{
+  font-family:"Public Sans",sans-serif;font-size:.95rem;font-weight:600;
+  margin:2rem 0 .5rem;
+}
+p{margin:0 0 1.1rem;max-width:60ch}
+.big{
+  font-family:"EB Garamond",Georgia,serif;font-size:1.28rem;
+  line-height:1.55;color:var(--parchment);
+}
+.muted{color:var(--muted)}
+
+/* ---------------- reperes historiques ---------------- */
+.dates{
+  display:flex;flex-direction:column;gap:1px;
+  background:var(--line);border:1px solid var(--line);
+  margin:1.8rem 0 1.6rem;
+}
+.dates div{
+  background:var(--night);padding:.85rem 1rem;
+  display:grid;grid-template-columns:5.2rem 1fr;gap:1rem;align-items:baseline;
+}
+.dates .an{
+  font-family:"IBM Plex Mono",monospace;font-size:.82rem;
+  letter-spacing:.08em;color:var(--brass);font-variant-numeric:tabular-nums;
+}
+.dates span:last-child{font-size:.94rem;color:var(--muted);line-height:1.5}
+@media (max-width:30rem){.dates div{grid-template-columns:1fr;gap:.15rem}}
+
+/* ---------------- images ---------------- */
+.photo{margin:0;border-bottom:1px solid var(--line)}
+.photo img{width:100%;height:auto}
+.photo figcaption{
+  font-family:"IBM Plex Mono",monospace;font-size:.68rem;
+  letter-spacing:.1em;color:var(--faint);
+  padding:.7rem 1.5rem;max-width:var(--max);margin:0 auto;
+}
+.logo{
+  width:6.5rem;height:auto;border-radius:50%;
+  background:#FFFFFF;padding:.35rem;margin-bottom:1.4rem;
+}
+
+/* ---------------- infos pratiques ---------------- */
+.infos{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));
+  gap:1.6rem 2.2rem;margin-top:1.6rem;
+}
+.infos h3{margin:0 0 .3rem}
+.infos p{margin:0;font-size:.95rem;color:var(--muted)}
+
+/* ---------------- faq ---------------- */
+details{border-top:1px solid var(--line);padding:.9rem 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{
+  cursor:pointer;font-weight:600;font-size:.98rem;
+  list-style:none;display:flex;justify-content:space-between;gap:1rem;align-items:baseline;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--brass);font-family:"IBM Plex Mono",monospace}
+details[open] summary::after{content:"–"}
+details p{margin:.7rem 0 .1rem;color:var(--muted);font-size:.95rem}
+
+/* ---------------- placeholders a completer ---------------- */
+.todo{
+  border:1px dashed var(--brass);border-radius:2px;
+  padding:1rem 1.1rem;margin:1.2rem 0;background:rgba(227,179,74,.06);
+}
+.todo::before{
+  content:"À compléter";display:block;
+  font-family:"IBM Plex Mono",monospace;font-size:.66rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--brass);margin-bottom:.4rem;
+}
+.todo p{margin:0;font-size:.92rem;color:var(--muted);max-width:62ch}
+
+/* ---------------- pied ---------------- */
+.closing{text-align:center;background:var(--surface)}
+.closing h2{margin-top:0}
+footer{padding:2.5rem 0 3.5rem;color:var(--faint);font-size:.85rem}
+footer p{max-width:60ch;margin:0 0 .6rem}
+footer a{color:var(--muted)}
+.partners{
+  display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;
+  margin-top:1.4rem;
+}
 </style>
 </head>
 <body>
 
-<div class="shell">
-
-  <header>
-    <p class="eyebrow">Aire-sur-l'Adour, Landes</p>
-    <h1>Jérémie</h1>
-    <p>Sonneur de trompe de chasse depuis treize ans, et bricoleur d'applications le reste du temps. Voici ce qui se trouve ici.</p>
-  </header>
-
-  <main>
-    <ul class="projects">
-
-      <li>
-        <div class="project">
-          <div class="project-head">
-            <span class="dot concert"></span>
-            <h2><a href="/debuche-2027/">Le Débuché de Paris à Mont-de-Marsan</a></h2>
-            <span class="status">5 juin 2027</span>
-          </div>
-          <p>Pour son centenaire, l'ensemble de trompes de chasse qui sonne à Notre-Dame de Paris donne un concert à l'église de la Madeleine. Organisé par l'École de trompe de Beaussiet.</p>
-          <div class="sub-links">
-            <a href="/debuche-2027/">La page du concert</a>
-            <a href="/reserver/">Réserver une place</a>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <div class="project">
-          <div class="project-head">
-            <span class="dot lueur"></span>
-            <h2><a href="/privacy-policy.html">Lueur</a></h2>
-            <span class="status">Application iOS</span>
-          </div>
-          <p>Une application de suivi de la ménopause, pensée pour noter ses symptômes au jour le jour, simplement, et sans que ces données partent où que ce soit sans accord.</p>
-          <div class="sub-links">
-            <a href="/privacy-policy.html">Politique de confidentialité</a>
-          </div>
-        </div>
-      </li>
-
-    </ul>
-  </main>
-
-  <footer>
-    <p>Ce site héberge les pages publiques de mes projets. Il est statique, il ne dépose aucun traceur et ne collecte rien.</p>
-    <p><a href="/privacy-policy.html">Politique de confidentialité de Lueur</a></p>
-  </footer>
-
+<div class="tabs">
+  <div class="tabs-inner">
+    <a class="tabs-brand" href="#haut">Centenaire 1927&ndash;2027</a>
+    <nav aria-label="Sections de la page">
+      <a href="#concert">Le concert</a>
+      <a href="#trompe">La trompe</a>
+      <a href="#programme">Programme</a>
+      <a href="#ecole">L'école</a>
+      <a href="#infos">Infos pratiques</a>
+      <a href="#faq">Questions</a>
+    </nav>
+    <a class="cta" href="/reserver/">Réserver</a>
+  </div>
 </div>
+
+<header class="hero" id="haut">
+  <div class="shell">
+    <p class="centenaire">1927 &nbsp;&mdash;&nbsp; 2027</p>
+    <h1>Le Débuché de Paris</h1>
+    <p class="kicker">Cent ans de trompe de chasse, une soirée à Mont-de-Marsan</p>
+    <p class="hero-when">SAMEDI 5 JUIN 2027</p>
+    <p class="hero-where">Église de la Madeleine, Mont-de-Marsan</p>
+    <div class="hero-actions">
+      <a class="cta" href="/reserver/">Réserver ma place</a>
+      <a class="cta ghost" href="#concert">Découvrir le concert</a>
+    </div>
+    <p class="hero-note">Placement libre &middot; Réservation obligatoire &middot; Paiement en ligne</p>
+  </div>
+</header>
+
+<dl class="strip">
+  <div><dt>Fondation</dt><dd>1927</dd></div>
+  <div><dt>Centenaire</dt><dd>100 ans</dd></div>
+  <div><dt>Places</dt><dd>500</dd></div>
+  <div><dt>Date</dt><dd>5 juin</dd></div>
+</dl>
+
+<!-- Photo du groupe. Deposer debuche-groupe.jpg dans ce dossier, environ
+     2000 px de large. Si le fichier est absent, le bloc se masque tout seul. -->
+<figure class="photo" id="photo-groupe" hidden>
+  <img src="debuche-groupe.jpg" alt="Les sonneurs du Débuché de Paris en tenue rouge, trompes à l'épaule, devant un château"
+       onload="document.getElementById('photo-groupe').hidden = false">
+  <figcaption>Le Débuché de Paris</figcaption>
+</figure>
+
+<main>
+
+<section id="concert">
+  <div class="shell narrow">
+    <!-- Logo du groupe : deposer logo-debuche.png dans ce dossier. -->
+    <img class="logo" src="logo-debuche.png" alt="Logo du Débuché de Paris"
+         hidden onload="this.hidden = false">
+    <p class="eyebrow">Le concert</p>
+    <h2>Un siècle de sonneurs, pour un soir dans les Landes</h2>
+    <p class="big">Le Débuché de Paris fête ses cent ans. Pour l'occasion, l'ensemble quitte Paris et vient sonner à l'église de la Madeleine de Mont-de-Marsan, invité par l'École de trompe de Beaussiet.</p>
+    <p>Tout commence en 1927, quand six sonneurs parmi les plus réputés de leur temps se réunissent sous ce nom, à l'initiative de Jules Romary. En 1936, l'arrivée d'un directeur de musique, Gaston Chalmel, transforme le groupe : le répertoire s'élargit, l'exigence s'installe, et Le Débuché devient la référence où plusieurs générations de sonneurs européens sont venues chercher leur style.</p>
+    <p>Cent ans plus tard, l'esprit n'a pas changé. Ses membres viennent des quatre coins de la France, mais aussi de Belgique et des Pays-Bas, et parcourent chaque mois des centaines de kilomètres pour se retrouver et répéter. Ce qui s'entend le soir du concert, c'est cette exigence, et l'amitié qui la porte.</p>
+
+    <p>Leur maison, c'est Saint-Eustache, au cœur de Paris, où le groupe sonne la Saint-Hubert chaque mois de novembre depuis plus de quarante ans. Et quand la France veut entendre des trompes sous ses plus hautes voûtes, c'est eux qu'elle appelle&nbsp;: Le Débuché a sonné à Notre-Dame de Paris avant l'incendie, et de nouveau depuis sa réouverture.</p>
+
+    <div class="dates">
+      <div><span class="an">1927</span><span>Six sonneurs fondent Le Débuché de Paris autour de Jules Romary.</span></div>
+      <div><span class="an">1936</span><span>Gaston Chalmel prend la direction musicale et bâtit le répertoire du groupe.</span></div>
+      <div><span class="an">40 ans</span><span>De fidélité à Saint-Eustache, leur église, pour la Saint-Hubert de novembre.</span></div>
+      <div><span class="an">2025</span><span>Le groupe sonne à Notre-Dame de Paris, rendue au public après l'incendie.</span></div>
+      <div><span class="an">2027</span><span>Le centenaire, et un concert à Mont-de-Marsan.</span></div>
+    </div>
+
+    <p>Entendre un tel effectif sous les voûtes d'une église est une expérience qui ne ressemble à aucun concert. La trompe n'est pas amplifiée&nbsp;: c'est le bâtiment lui-même qui porte le son. Une soirée comme celle-ci ne se reproduira pas de sitôt dans le département, et le nombre de places est limité à la capacité de l'église.</p>
+
+    <div class="todo">
+      <p>À confirmer auprès du groupe&nbsp;: le nom du directeur musical actuel. Vos deux textes se contredisent, l'un cite Sylvain Oudot, l'autre Guillaume Caucat.</p>
+    </div>
+  </div>
+</section>
+
+<section id="trompe">
+  <div class="shell narrow">
+    <p class="eyebrow">Pour ceux qui découvrent</p>
+    <h2>Qu'est-ce que la trompe de chasse&nbsp;?</h2>
+    <p>Un tour et demi de cuivre enroulé, aucune clé, aucun piston. Tout se joue aux lèvres et au souffle. C'est un instrument qui se sonne, on ne dit pas qu'on en joue, et qui se transmet depuis le XVII<sup>e</sup> siècle avec un répertoire propre, les fanfares, dont beaucoup racontent une scène de chasse ou rendent hommage à un animal.</p>
+    <p>La trompe est faite pour le plein air et pour les grands volumes. Dans une nef, un ensemble complet produit une masse sonore que rien ne prépare vraiment. C'est aussi une pratique bien vivante&nbsp;: elle s'enseigne, elle se transmet, et elle est inscrite au patrimoine culturel immatériel de l'humanité depuis 2020.</p>
+  </div>
+</section>
+
+<section id="programme">
+  <div class="shell narrow">
+    <p class="eyebrow">Le programme</p>
+    <h2>Ce que vous entendrez</h2>
+    <div class="todo">
+      <p>Programme détaillé à recevoir du Débuché de Paris&nbsp;: les fanfares annoncées, la durée du concert, la présence ou non d'un entracte, et si un récitant présente les morceaux.</p>
+    </div>
+  </div>
+</section>
+
+<section id="ecole">
+  <div class="shell narrow">
+    <p class="eyebrow">L'organisateur</p>
+    <h2>L'École de trompe de Beaussiet</h2>
+    <p>C'est une école de trompe de chasse landaise, portée par une association et animée par des sonneurs bénévoles. On y apprend l'instrument depuis le début, sans prérequis musical, et on y sonne ensemble toute l'année.</p>
+    <p>Faire venir Le Débuché de Paris pour son centenaire, c'est le projet le plus ambitieux que l'école ait porté. Les bénéfices de cette soirée reviennent intégralement à l'école et à la transmission de la trompe dans les Landes.</p>
+    <h3>Envie d'essayer&nbsp;?</h3>
+    <p class="muted">L'école accueille de nouveaux élèves. Venez nous voir à la table d'accueil le soir du concert, ou écrivez-nous.</p>
+    <div class="todo">
+      <p>Adresse mail de contact de l'association, lien vers la page Facebook, lieu et jour des cours, et le nom du président, Francis Faget, si vous voulez le faire figurer.</p>
+    </div>
+  </div>
+</section>
+
+<section id="infos">
+  <div class="shell">
+    <p class="eyebrow">Infos pratiques</p>
+    <h2>Venir au concert</h2>
+    <div class="infos">
+      <div>
+        <h3>Date et horaire</h3>
+        <p>Samedi 5 juin 2027.<br>Horaire à confirmer.</p>
+      </div>
+      <div>
+        <h3>Lieu</h3>
+        <p>Église de la Madeleine<br>Mont-de-Marsan, Landes</p>
+      </div>
+      <div>
+        <h3>Réservation</h3>
+        <p>En ligne uniquement, à l'avance.<br>Billet envoyé par mail, à présenter sur téléphone ou imprimé.</p>
+      </div>
+      <div>
+        <h3>Placement</h3>
+        <p>Libre, dans la limite des 500 places de l'église. Les portes ouvrent avant le concert.</p>
+      </div>
+      <div>
+        <h3>Accessibilité</h3>
+        <p>Nous contacter avant votre venue pour toute question d'accès.</p>
+      </div>
+      <div>
+        <h3>Stationnement</h3>
+        <p>Parkings du centre-ville, à quelques minutes à pied.</p>
+      </div>
+    </div>
+    <div class="todo">
+      <p>À confirmer avant la mise en ligne publique&nbsp;: heure exacte du concert et de l'ouverture des portes, tarifs, parkings précis à recommander, accès pour les personnes à mobilité réduite.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="shell narrow">
+    <p class="eyebrow">Questions fréquentes</p>
+    <h2>Avant de réserver</h2>
+
+    <details>
+      <summary>Peut-on payer sur place le soir du concert&nbsp;?</summary>
+      <p>Non. Le concert est uniquement sur réservation payée à l'avance, en ligne. Ne faites pas le déplacement sans billet.</p>
+    </details>
+    <details>
+      <summary>Les places sont-elles numérotées&nbsp;?</summary>
+      <p>Non, le placement est libre. Votre billet garantit votre entrée, pas un siège précis&nbsp;: arrivez un peu en avance si vous tenez à une place particulière.</p>
+    </details>
+    <details>
+      <summary>Comment reçoit-on son billet&nbsp;?</summary>
+      <p>Par mail, en pièce jointe, immédiatement après le paiement. Présentez-le sur votre téléphone ou imprimé à l'entrée. Pensez à vérifier vos courriers indésirables.</p>
+    </details>
+    <details>
+      <summary>Pourquoi une contribution m'est-elle proposée au moment du paiement&nbsp;?</summary>
+      <p>La plateforme de billetterie que nous utilisons est gratuite pour les associations. Elle vit d'une contribution facultative proposée aux acheteurs. Elle est librement modifiable, et peut être mise à zéro sans que cela change quoi que ce soit à votre réservation.</p>
+    </details>
+    <details>
+      <summary>Est-ce une messe ou un concert&nbsp;?</summary>
+      <p>Un concert. Il se tient dans une église, lieu qui convient à la trompe pour son acoustique, mais il s'agit bien d'une soirée musicale ouverte à tous.</p>
+    </details>
+    <details>
+      <summary>Est-ce adapté aux enfants&nbsp;?</summary>
+      <p>Oui, mais sachez qu'un ensemble de trompes dans une église, c'est puissant. Pour les tout-petits, prévoyez de quoi protéger leurs oreilles.</p>
+    </details>
+    <details>
+      <summary>Puis-je me faire rembourser&nbsp;?</summary>
+      <p>Les conditions d'annulation sont précisées au moment de la réservation.</p>
+    </details>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="shell">
+    <p class="eyebrow">5 juin 2027</p>
+    <h2>500 places, et cent ans à fêter</h2>
+    <p class="muted" style="margin:0 auto 1.8rem;max-width:44ch">La réservation se fait en ligne, en quelques minutes.</p>
+    <a class="cta" href="/reserver/">Réserver ma place</a>
+  </div>
+</section>
+
+<section id="partenaires">
+  <div class="shell narrow">
+    <p class="eyebrow">Ils soutiennent le centenaire</p>
+    <h2>Partenaires</h2>
+    <div class="todo">
+      <p>Logos des partenaires et soutiens institutionnels, au fur et à mesure des accords. Prévoir les logos en fichier vectoriel ou en PNG sur fond transparent.</p>
+    </div>
+    <div class="partners"></div>
+  </div>
+</section>
+
+</main>
+
+<script>
+// Souligne l'onglet de la section en cours de lecture.
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.tabs nav a'));
+  var targets = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+
+  function update() {
+    var current = -1;
+    for (var i = 0; i < targets.length; i++) {
+      if (targets[i] && targets[i].getBoundingClientRect().top <= 90) current = i;
+    }
+    links.forEach(function (a, i) { a.classList.toggle('active', i === current); });
+  }
+
+  var pending = false;
+  window.addEventListener('scroll', function () {
+    if (pending) return;
+    pending = true;
+    window.requestAnimationFrame(function () { update(); pending = false; });
+  }, { passive: true });
+  update();
+})();
+</script>
+
+<footer>
+  <div class="shell">
+    <p>Concert organisé par l'École de trompe de Beaussiet, association loi 1901, au bénéfice de la transmission de la trompe de chasse dans les Landes.</p>
+    <p></p>
+  </div>
+</footer>
 
 </body>
 </html>
