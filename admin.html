@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Modifier le site — Le Débuché de Paris à Mont-de-Marsan</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;600&display=swap">
+
+<style>
+:root{
+  --night:#0B1524;--surface:#122134;--raised:#1A2C44;--parchment:#EFEDE6;
+  --muted:#98A6BA;--faint:#6B7B92;--red:#CE2434;--red-bright:#E85763;
+  --brass:#E3B34A;--brass-bright:#F2CF87;--line:#23364E;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--night);color:var(--parchment);
+  font-family:"Public Sans",system-ui,sans-serif;font-size:16px;line-height:1.6;
+  padding:2.5rem 1.5rem 6rem;
+}
+.shell{max-width:44rem;margin:0 auto}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--brass);margin:0 0 .6rem;
+}
+h1{font-family:"EB Garamond",Georgia,serif;font-weight:400;font-size:2.2rem;line-height:1.1;margin:0 0 .7rem}
+p.intro{color:var(--muted);margin:0 0 2rem;max-width:60ch}
+
+fieldset{
+  border:1px solid var(--line);border-radius:2px;
+  margin:0 0 1.6rem;padding:1.2rem 1.3rem 1.4rem;background:var(--surface);
+}
+legend{
+  font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--brass);padding:0 .5rem;
+}
+.hint{color:var(--faint);font-size:.84rem;margin:.1rem 0 1.1rem;line-height:1.45}
+
+label{display:block;margin-bottom:1rem}
+label > span{
+  display:block;font-size:.82rem;color:var(--muted);margin-bottom:.3rem;
+}
+input[type=text],input[type=url],input[type=email],textarea{
+  width:100%;padding:.55rem .7rem;background:var(--night);color:var(--parchment);
+  border:1px solid var(--line);border-radius:2px;
+  font-family:inherit;font-size:.95rem;
+}
+textarea{min-height:6.5rem;resize:vertical;line-height:1.5}
+input:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{
+  outline:2px solid var(--brass);outline-offset:2px;
+}
+
+.toggle{display:flex;align-items:flex-start;gap:.7rem;margin-bottom:.4rem;cursor:pointer}
+.toggle input{
+  appearance:none;width:1.1rem;height:1.1rem;margin:.28rem 0 0;flex:0 0 auto;
+  border:1.5px solid var(--faint);border-radius:2px;background:var(--night);cursor:pointer;
+  position:relative;
+}
+.toggle input:checked{background:var(--red);border-color:var(--red)}
+.toggle input:checked::after{
+  content:"";position:absolute;left:.31rem;top:.11rem;
+  width:.28rem;height:.55rem;border:solid var(--parchment);border-width:0 2px 2px 0;
+  transform:rotate(42deg);
+}
+.toggle span{font-size:.95rem}
+
+.paires{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.7rem}
+.paire{display:grid;grid-template-columns:1fr 8rem 2.2rem;gap:.5rem}
+.paire button{padding:0;background:transparent;color:var(--faint);border:1px solid var(--line);border-radius:2px;cursor:pointer;font-size:1.1rem}
+.paire button:hover{color:var(--red-bright);border-color:var(--red)}
+
+button{
+  font-family:"IBM Plex Mono",monospace;font-size:.76rem;letter-spacing:.1em;
+  text-transform:uppercase;font-weight:500;cursor:pointer;border-radius:2px;
+  padding:.6rem 1.1rem;border:0;background:var(--brass);color:var(--night);
+}
+button:hover{background:var(--brass-bright)}
+button.ghost{background:transparent;color:var(--brass);box-shadow:inset 0 0 0 1px var(--brass)}
+button.ghost:hover{background:rgba(227,179,74,.12)}
+button.small{padding:.35rem .8rem;font-size:.68rem}
+
+.barre{
+  position:sticky;bottom:0;background:linear-gradient(transparent,var(--night) 28%);
+  padding:1.6rem 0 .4rem;display:flex;gap:.7rem;flex-wrap:wrap;align-items:center;
+}
+.etat{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--faint)}
+
+#sortie{margin-top:1.6rem}
+#sortie textarea{
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;min-height:16rem;
+  background:var(--raised);
+}
+.etapes{
+  border-left:3px solid var(--brass);background:var(--surface);
+  padding:1rem 1.2rem;margin:1.4rem 0 0;
+}
+.etapes ol{margin:.4rem 0 0;padding-left:1.2rem;color:var(--muted);font-size:.92rem}
+.etapes li{margin-bottom:.45rem}
+.etapes a{color:var(--brass-bright)}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <p class="eyebrow">Interface d'administration</p>
+  <h1>Modifier le site</h1>
+  <p class="intro">Remplis les champs, clique sur Générer, puis colle le résultat dans GitHub. Tu n'as aucune syntaxe à respecter&nbsp;: les guillemets et les virgules sont écrits pour toi. Les champs laissés vides gardent le texte par défaut du site.</p>
+
+  <form id="form">
+
+    <fieldset>
+      <legend>Horaire</legend>
+      <label><span>Heure du concert</span><input type="text" id="heure" placeholder="20 h 30"></label>
+      <label><span>Ouverture des portes</span><input type="text" id="ouverturePortes" placeholder="19 h 45"></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Billetterie</legend>
+      <label class="toggle">
+        <input type="checkbox" id="billetterieOuverte">
+        <span>Les réservations sont ouvertes</span>
+      </label>
+      <p class="hint">Tant que cette case est décochée, les boutons du site affichent « Bientôt en réservation » et ne mènent nulle part.</p>
+      <label><span>Lien de la campagne HelloAsso</span><input type="url" id="lienBilletterie" placeholder="https://www.helloasso.com/associations/…/evenements/…"></label>
+      <label><span>Tarifs</span></label>
+      <div class="paires" id="tarifs"></div>
+      <button type="button" class="ghost small" id="ajout-tarif">Ajouter un tarif</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Programme</legend>
+      <label><span>Phrase d'introduction, facultative</span><input type="text" id="programmeIntro" placeholder="Un parcours en deux parties, avec entracte."></label>
+      <label>
+        <span>Les morceaux, un par ligne</span>
+        <textarea id="programme" placeholder="Fanfare d'ouverture&#10;Les fanfares de circonstance&#10;Entracte"></textarea>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Contact</legend>
+      <label><span>Adresse mail de l'association</span><input type="email" id="email" placeholder="contact@exemple.fr"></label>
+      <label><span>Page Facebook</span><input type="url" id="facebook" placeholder="https://www.facebook.com/…"></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Partenaires</legend>
+      <label>
+        <span>Un partenaire par ligne</span>
+        <textarea id="partenaires" placeholder="Ville de Mont-de-Marsan&#10;Fédération des chasseurs des Landes"></textarea>
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Infos pratiques</legend>
+      <label><span>Stationnement</span><input type="text" id="stationnement" placeholder="Parking du Midou, à 5 minutes à pied."></label>
+      <label><span>Accessibilité</span><input type="text" id="accessibilite" placeholder="Accès de plain-pied par la porte latérale."></label>
+    </fieldset>
+
+  </form>
+
+  <div class="barre">
+    <button type="button" id="generer">Générer le fichier</button>
+    <button type="button" class="ghost" id="copier">Copier</button>
+    <span class="etat" id="etat"></span>
+  </div>
+
+  <div id="sortie" hidden>
+    <textarea id="resultat" readonly spellcheck="false"></textarea>
+    <div class="etapes">
+      <b>Il reste trois clics.</b>
+      <ol>
+        <li>Ouvre <a href="https://github.com/Jeremie40430/jeremie40430.github.io/edit/main/infos.js" target="_blank" rel="noopener">le fichier infos.js sur GitHub</a>.</li>
+        <li>Sélectionne tout le contenu existant et colle ce qui a été copié à la place.</li>
+        <li>Clique sur le bouton vert <b>Commit changes</b>. Le site est à jour une minute plus tard.</li>
+      </ol>
+    </div>
+  </div>
+
+</div>
+
+<script src="/infos.js"></script>
+<script>
+(function () {
+  var champsTexte = ['heure','ouverturePortes','lienBilletterie','programmeIntro',
+                     'email','facebook','stationnement','accessibilite'];
+  var champsListe = ['programme','partenaires'];
+
+  // --- Pré-remplissage avec ce qui est actuellement en ligne ---------------
+  if (typeof INFOS !== 'undefined') {
+    champsTexte.forEach(function (k) {
+      if (INFOS[k]) document.getElementById(k).value = INFOS[k];
+    });
+    champsListe.forEach(function (k) {
+      if (INFOS[k] && INFOS[k].length) document.getElementById(k).value = INFOS[k].join('\n');
+    });
+    document.getElementById('billetterieOuverte').checked = !!INFOS.billetterieOuverte;
+    (INFOS.tarifs || []).forEach(function (t) { ajouterTarif(t.nom, t.prix); });
+  }
+  if (!document.querySelectorAll('#tarifs .paire').length) ajouterTarif('', '');
+
+  function ajouterTarif(nom, prix) {
+    var d = document.createElement('div');
+    d.className = 'paire';
+    var a = document.createElement('input');
+    a.type = 'text'; a.placeholder = 'Plein tarif'; a.value = nom || '';
+    var b = document.createElement('input');
+    b.type = 'text'; b.placeholder = '25 €'; b.value = prix || '';
+    var x = document.createElement('button');
+    x.type = 'button'; x.textContent = '×'; x.title = 'Retirer ce tarif';
+    x.addEventListener('click', function () { d.remove(); });
+    d.appendChild(a); d.appendChild(b); d.appendChild(x);
+    document.getElementById('tarifs').appendChild(d);
+  }
+  document.getElementById('ajout-tarif').addEventListener('click', function () { ajouterTarif('', ''); });
+
+  // --- Fabrication du fichier ---------------------------------------------
+  function guill(v) {
+    return '"' + String(v || '').replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '"';
+  }
+  function val(id) { return document.getElementById(id).value.trim(); }
+  function lignes(id) {
+    return val(id).split('\n').map(function (l) { return l.trim(); })
+                  .filter(function (l) { return l.length; });
+  }
+
+  function fabriquer() {
+    var t = [];
+    t.push('/* Les infos du concert.');
+    t.push('   Fichier écrit automatiquement depuis /admin.html — ' +
+           new Date().toLocaleDateString('fr-FR') + '.');
+    t.push('   Tu peux aussi le modifier à la main, en gardant guillemets et virgules. */');
+    t.push('');
+    t.push('var INFOS = {');
+    t.push('');
+    t.push('  heure: ' + guill(val('heure')) + ',');
+    t.push('  ouverturePortes: ' + guill(val('ouverturePortes')) + ',');
+    t.push('');
+    t.push('  billetterieOuverte: ' +
+           (document.getElementById('billetterieOuverte').checked ? 'true' : 'false') + ',');
+    t.push('  lienBilletterie: ' + guill(val('lienBilletterie')) + ',');
+    t.push('');
+
+    var tarifs = [];
+    Array.prototype.forEach.call(document.querySelectorAll('#tarifs .paire'), function (p) {
+      var champs = p.querySelectorAll('input');
+      var nom = champs[0].value.trim(), prix = champs[1].value.trim();
+      if (nom || prix) tarifs.push('    { nom: ' + guill(nom) + ', prix: ' + guill(prix) + ' },');
+    });
+    t.push('  tarifs: [');
+    tarifs.forEach(function (l) { t.push(l); });
+    t.push('  ],');
+    t.push('');
+
+    t.push('  programmeIntro: ' + guill(val('programmeIntro')) + ',');
+    t.push('  programme: [');
+    lignes('programme').forEach(function (l) { t.push('    ' + guill(l) + ','); });
+    t.push('  ],');
+    t.push('');
+
+    t.push('  email: ' + guill(val('email')) + ',');
+    t.push('  facebook: ' + guill(val('facebook')) + ',');
+    t.push('');
+
+    t.push('  partenaires: [');
+    lignes('partenaires').forEach(function (l) { t.push('    ' + guill(l) + ','); });
+    t.push('  ],');
+    t.push('');
+
+    t.push('  stationnement: ' + guill(val('stationnement')) + ',');
+    t.push('  accessibilite: ' + guill(val('accessibilite')) + ',');
+    t.push('');
+    t.push('};');
+    t.push('');
+    return t.join('\n');
+  }
+
+  var etat = document.getElementById('etat');
+  var resultat = document.getElementById('resultat');
+
+  document.getElementById('generer').addEventListener('click', function () {
+    resultat.value = fabriquer();
+    document.getElementById('sortie').hidden = false;
+    etat.textContent = 'Fichier prêt.';
+    resultat.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+
+  document.getElementById('copier').addEventListener('click', function () {
+    if (!resultat.value) resultat.value = fabriquer();
+    document.getElementById('sortie').hidden = false;
+    resultat.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(resultat.value).then(function () {
+        etat.textContent = 'Copié. Ouvre GitHub et colle.';
+      }, function () {
+        etat.textContent = ok ? 'Copié.' : 'Sélectionne le texte et copie-le à la main.';
+      });
+    } else {
+      etat.textContent = ok ? 'Copié.' : 'Sélectionne le texte et copie-le à la main.';
+    }
+  });
+})();
+</script>
+</body>
+</html>

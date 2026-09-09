@@ -3,7 +3,20 @@
 Tout ce qui change au fil des mois se trouve dans **un seul fichier** : `infos.js`.
 Tu n'as jamais besoin d'ouvrir les autres.
 
-## Comment modifier une info, en une minute
+Deux façons de faire, au choix.
+
+## La façon simple : l'interface
+
+**https://jeremie40430.github.io/admin.html**
+
+Une page avec des champs à remplir. Elle se pré-remplit avec ce qui est
+actuellement en ligne, tu modifies ce que tu veux, tu cliques sur **Copier**,
+puis tu colles dans GitHub en suivant les trois étapes affichées à l'écran.
+
+Aucune syntaxe à respecter : les guillemets et les virgules sont écrits pour
+toi. C'est la méthode à privilégier.
+
+## La façon directe : modifier le fichier
 
 1. Va sur **https://github.com/Jeremie40430/jeremie40430.github.io**
 2. Clique sur le fichier **`infos.js`**
