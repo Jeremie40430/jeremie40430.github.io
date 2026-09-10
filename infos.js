@@ -64,12 +64,12 @@ var INFOS = {
   /* --- NOUS CONTACTER --------------------------------------------------- */
 
   // L'adresse mail de l'association.
-  email: "francisfaget53@hotmail.fr",
+  // Colle ici la nouvelle adresse dédiée au concert dès qu'elle existe.
+  email: "",
 
   // Les numéros de téléphone, un par ligne entre guillemets.
+  // Ne mets ici que des numéros que vous acceptez de rendre publics.
   telephones: [
-    "06 04 53 56 46",
-    "05 58 45 75 10",
   ],
 
   // Le lien de la page Facebook. Laisse "" s'il n'y en a pas.

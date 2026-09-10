@@ -366,13 +366,11 @@ footer a{color:var(--muted)}
     <a class="tabs-brand" href="#haut">Centenaire 1927&ndash;2027</a>
     <nav aria-label="Sections de la page">
       <a href="#concert">Le concert</a>
-      <a href="#centenaire">Pourquoi venir</a>
       <a href="#trompe">La trompe</a>
+      <a href="#eglise">L'église</a>
       <a href="#programme">Programme</a>
       <a href="#ecole">L'école</a>
       <a href="#infos">Infos pratiques</a>
-      <a href="#sejour">Se garer, dormir</a>
-      <a href="#apres">Après le concert</a>
       <a href="#faq">Questions</a>
     </nav>
     <a class="cta" href="/reserver/">Réserver</a>
@@ -436,7 +434,7 @@ footer a{color:var(--muted)}
     <p>Pour les amateurs de trompe, elle le sera encore davantage&nbsp;: assister au centenaire du Débuché de Paris, dans une église, avec l'ensemble réuni pour l'occasion, est un rendez-vous qui mérite de sortir du cadre habituel des concerts de trompes.</p>
     <p class="signature">Une soirée pour célébrer un siècle d'histoire.</p>
 
-    <p class="rare"><b>L'église de la Madeleine compte 500 places, et il n'y en aura pas une de plus.</b> Pas de rappel le lendemain, pas de seconde date, aucune vente le soir même. Le jour où les 500 billets seront partis, ce sera terminé.</p>
+    <p class="rare"><b>L'église de la Madeleine compte 500 places.</b> Les réservations se font à l'avance, et aucun billet ne sera vendu le soir du concert. Mieux vaut s'y prendre tôt.</p>
   </div>
 </section>
 
@@ -480,6 +478,24 @@ footer a{color:var(--muted)}
   </div>
 </section>
 
+<section id="eglise">
+  <div class="shell narrow">
+    <p class="eyebrow">Le lieu</p>
+    <h2>L'église de la Madeleine</h2>
+
+    <p class="big">Un vaisseau de pierre néoclassique au cœur de Mont-de-Marsan, et l'une des plus belles caisses de résonance des Landes.</p>
+
+    <p>L'édifice actuel remplace une chapelle prieurale élevée dès la fondation de la ville, au XII<sup>e</sup> siècle. Il est construit entre 1823 et 1831 sur les plans d'Augustin Arthaud, l'architecte qui refait alors tout le quartier, et consacré le 1<sup>er</sup> novembre 1829. Pierres de taille, colonnes et fronton triangulaire&nbsp;: c'est du néoclassique assumé, plus proche d'un temple antique que d'une église gothique. Elle est inscrite au titre des monuments historiques depuis 1975.</p>
+
+    <h3>Ce qu'on y voit</h3>
+    <p>Un maître-autel de marbre de 1775, œuvre des frères Mazzetti, rapporté d'un autre édifice. Un grand orgue venu de l'abbaye Saint-Jean de la Castelle, restauré en 1895. Une fresque consacrée à sainte Madeleine. Et, devant le porche, un bronze d'Antoine Bourdelle daté de 1923.</p>
+
+    <h3>Ce qu'on y entend</h3>
+    <p>C'est la raison pour laquelle le concert a lieu ici. La pierre nue et la hauteur de la nef prolongent le son au lieu de l'absorber. Une trompe n'est jamais amplifiée&nbsp;: sa puissance vient du souffle du sonneur, et sa couleur du bâtiment qui l'entoure. Sous ces voûtes, une quinzaine de trompes ne produisent pas un son plus fort, elles produisent un son plus large.</p>
+    <p class="muted">L'école y a déjà donné un concert en 2009, devant 550 personnes.</p>
+  </div>
+</section>
+
 <section id="programme">
   <div class="shell narrow">
     <p class="eyebrow">Le programme</p>
@@ -519,6 +535,7 @@ footer a{color:var(--muted)}
     <dl class="contact">
       <div><dt>Répétitions</dt><dd>Salle des fêtes d'Artassenx<br>Tous les mardis, de 20 h à 22 h</dd></div>
       <div id="bloc-contact" hidden><dt>Nous joindre</dt><dd id="i-contact"></dd></div>
+      <div id="bloc-contact-vide"><dt>Nous joindre</dt><dd class="muted">Une adresse de contact sera publiée ici avant l'ouverture des réservations.</dd></div>
     </dl>
   </div>
 </section>
@@ -748,6 +765,7 @@ document.addEventListener('click', function (e) {
     tels.forEach(function (t) { lien('tel:' + t.replace(/[^0-9+]/g, ''), t); });
     if (INFOS.facebook) lien(INFOS.facebook, 'Notre page Facebook');
     montrer('bloc-contact');
+    cacher('bloc-contact-vide');
   }
 
   // Parkings
