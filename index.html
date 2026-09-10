@@ -68,6 +68,7 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 img{max-width:100%;display:block}
+[hidden]{display:none!important}
 a{color:var(--brass-bright)}
 :focus-visible{outline:2px solid var(--brass);outline-offset:3px}
 
@@ -120,10 +121,18 @@ a{color:var(--brass-bright)}
 .tabs nav a:hover{color:var(--parchment)}
 .tabs nav a.active{color:var(--parchment);border-bottom-color:var(--brass)}
 .tabs .cta{padding:.45rem 1.05rem;font-size:.7rem;flex:0 0 auto}
+.tabs-cta{display:none;border-top:1px solid var(--line);padding:.5rem 1rem .6rem}
+.tabs-cta .cta{display:block;width:100%;text-align:center;padding:.6rem 1rem;font-size:.72rem}
 section{scroll-margin-top:3.4rem}
+
+/* Sur mobile la barre tient sur deux lignes : les onglets restent lisibles
+   en haut, le bouton passe en dessous, et l'ensemble suit le défilement. */
 @media (max-width:46rem){
   .tabs-brand{display:none}
-  .tabs-inner{gap:1rem;padding:0 1rem}
+  .tabs-inner{gap:1rem;padding:0 1rem;height:2.9rem}
+  .tabs .sur-large{display:none}
+  .tabs-cta{display:block}
+  section{scroll-margin-top:6.4rem}
 }
 
 /* ---------------- hero ---------------- */
@@ -166,18 +175,31 @@ section{scroll-margin-top:3.4rem}
 
 /* ---------------- bandeau chiffres ---------------- */
 .strip{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(8rem,1fr));
+  display:grid;grid-template-columns:repeat(4,1fr);
   gap:1px;background:var(--line);border-bottom:1px solid var(--line);
 }
-.strip div{background:var(--night);padding:1.15rem 1rem;text-align:center}
+.strip div{
+  background:var(--night);padding:1.5rem 1rem 1.6rem;text-align:center;
+  display:flex;flex-direction:column;justify-content:flex-start;
+}
 .strip dt{
-  font-family:"IBM Plex Mono",monospace;font-size:.66rem;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin:0 0 .35rem;
+  font-family:"IBM Plex Mono",monospace;font-size:.62rem;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin:0 0 .55rem;
 }
 .strip dd{
   margin:0;font-family:"EB Garamond",Georgia,serif;
-  font-size:1.55rem;line-height:1.1;color:var(--brass);
+  font-size:2rem;line-height:1;color:var(--brass);
   font-variant-numeric:tabular-nums;
+}
+.strip dd.sous{
+  font-family:"Public Sans",sans-serif;font-size:.76rem;line-height:1.3;
+  color:var(--faint);margin-top:.5rem;
+}
+/* Deux colonnes sur mobile : jamais de vignette orpheline en bout de ligne. */
+@media (max-width:46rem){
+  .strip{grid-template-columns:repeat(2,1fr)}
+  .strip div{padding:1.2rem .8rem 1.3rem}
+  .strip dd{font-size:1.7rem}
 }
 
 /* ---------------- sections ---------------- */
@@ -373,7 +395,10 @@ footer a{color:var(--muted)}
       <a href="#infos">Infos pratiques</a>
       <a href="#faq">Questions</a>
     </nav>
-    <a class="cta" href="/reserver/">Réserver</a>
+    <a class="cta sur-large" href="/reserver/" data-court="Bientôt">Réserver</a>
+  </div>
+  <div class="tabs-cta">
+    <a class="cta" href="/reserver/">Réserver ma place</a>
   </div>
 </div>
 
@@ -396,7 +421,7 @@ footer a{color:var(--muted)}
   <div><dt>Fondation</dt><dd>1927</dd></div>
   <div><dt>Centenaire</dt><dd>100 ans</dd></div>
   <div><dt>Places</dt><dd>500</dd></div>
-  <div><dt>Date</dt><dd>5 juin</dd></div>
+  <div><dt>Tarifs</dt><dd id="i-strip-tarif">20 €</dd><dd class="sous" id="i-strip-tarif-sous">10 € pour les enfants</dd></div>
 </dl>
 
 <!-- Photo du groupe. Deposer debuche-groupe.jpg dans ce dossier, environ
@@ -719,6 +744,13 @@ document.addEventListener('click', function (e) {
     texte('i-horaire', h);
   }
 
+  // Vignette des tarifs : le premier tarif en grand, le second en dessous
+  if (INFOS.tarifs && INFOS.tarifs.length) {
+    texte('i-strip-tarif', INFOS.tarifs[0].prix);
+    var second = INFOS.tarifs[1];
+    texte('i-strip-tarif-sous', second ? second.prix + ' ' + second.nom.toLowerCase() : '');
+  }
+
   // Tarifs
   if (INFOS.tarifs && INFOS.tarifs.length) {
     texte('i-tarifs', INFOS.tarifs.map(function (t) {
@@ -731,7 +763,7 @@ document.addEventListener('click', function (e) {
   var boutons = document.querySelectorAll('.cta[href="/reserver/"]');
   if (!INFOS.billetterieOuverte) {
     Array.prototype.forEach.call(boutons, function (b) {
-      b.textContent = 'Bientôt en réservation';
+      b.textContent = b.dataset.court || 'Bientôt en réservation';
       b.removeAttribute('href');
       b.style.opacity = '.6';
       b.style.cursor = 'default';
