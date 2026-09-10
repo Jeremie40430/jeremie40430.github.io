@@ -216,6 +216,22 @@ p{margin:0 0 1.1rem;max-width:60ch}
 .dates span:last-child{font-size:.94rem;color:var(--muted);line-height:1.5}
 @media (max-width:30rem){.dates div{grid-template-columns:1fr;gap:.15rem}}
 
+.signature{
+  font-family:"EB Garamond",Georgia,serif;font-style:italic;
+  font-size:1.25rem;line-height:1.4;color:var(--brass-bright);
+  margin:1.6rem 0 0;
+}
+.litanie{
+  list-style:none;margin:1.8rem 0;padding:0 0 0 1.2rem;
+  border-left:2px solid var(--brass);
+}
+.litanie li{
+  font-family:"EB Garamond",Georgia,serif;
+  font-size:1.35rem;line-height:1.35;color:var(--parchment);
+  margin-bottom:.35rem;
+}
+.litanie li:last-child{margin-bottom:0;color:var(--brass-bright)}
+
 .rare{
   border-left:3px solid var(--red);background:var(--surface);
   padding:.95rem 1.15rem;margin:1.5rem 0;max-width:62ch;
@@ -302,7 +318,7 @@ footer a{color:var(--muted)}
     <a class="tabs-brand" href="#haut">Centenaire 1927&ndash;2027</a>
     <nav aria-label="Sections de la page">
       <a href="#concert">Le concert</a>
-      <a href="#trompe">La trompe</a>
+      <a href="#centenaire">Pourquoi venir</a>
       <a href="#programme">Programme</a>
       <a href="#ecole">L'école</a>
       <a href="#infos">Infos pratiques</a>
@@ -347,40 +363,46 @@ footer a{color:var(--muted)}
 
 <section id="concert">
   <div class="shell narrow">
-    <!-- Logo du groupe : deposer logo-debuche.png dans ce dossier. -->
+    <!-- Logo du groupe : deposer logo-debuche.png a la racine du site. -->
     <img class="logo" src="logo-debuche.png" alt="Logo du Débuché de Paris"
          hidden onload="this.hidden = false">
-    <p class="eyebrow">Le concert</p>
-    <h2>Un siècle de sonneurs, pour un soir dans les Landes</h2>
-    <p class="big">Le Débuché de Paris fête ses cent ans. Pour l'occasion, l'ensemble quitte Paris et vient sonner à l'église de la Madeleine de Mont-de-Marsan, invité par l'École de trompe de Beaussiet.</p>
-    <p>Tout commence en 1927, quand six sonneurs parmi les plus réputés de leur temps se réunissent sous ce nom, à l'initiative de Jules Romary. En 1936, l'arrivée d'un directeur de musique, Gaston Chalmel, transforme le groupe : le répertoire s'élargit, l'exigence s'installe, et Le Débuché devient la référence où plusieurs générations de sonneurs européens sont venues chercher leur style.</p>
-    <p>Cent ans plus tard, l'esprit n'a pas changé. Ses membres viennent des quatre coins de la France, mais aussi de Belgique et des Pays-Bas, et parcourent chaque mois des centaines de kilomètres pour se retrouver et répéter. Ce qui s'entend le soir du concert, c'est cette exigence, et l'amitié qui la porte.</p>
+    <p class="eyebrow">100 ans du Débuché de Paris</p>
+    <h2>Un rendez-vous rare à Mont-de-Marsan</h2>
 
-    <p>Leur maison, c'est Saint-Eustache, au cœur de Paris, où le groupe sonne la Saint-Hubert chaque mois de novembre depuis plus de quarante ans. Et quand la France veut entendre des trompes sous ses plus hautes voûtes, c'est eux qu'elle appelle&nbsp;: Le Débuché a sonné à Notre-Dame de Paris avant l'incendie, et de nouveau depuis sa réouverture.</p>
+    <p class="big">En 2027, le Débuché de Paris fête ses 100 ans.</p>
 
-    <div class="dates">
-      <div><span class="an">1927</span><span>Six sonneurs fondent Le Débuché de Paris autour de Jules Romary.</span></div>
-      <div><span class="an">1936</span><span>Gaston Chalmel prend la direction musicale et bâtit le répertoire du groupe.</span></div>
-      <div><span class="an">40 ans</span><span>De fidélité à Saint-Eustache, leur église, pour la Saint-Hubert de novembre.</span></div>
-      <div><span class="an">2025</span><span>Le groupe sonne à Notre-Dame de Paris, rendue au public après l'incendie.</span></div>
-      <div><span class="an">2027</span><span>Le centenaire, et un concert à Mont-de-Marsan.</span></div>
-    </div>
+    <p>Pour célébrer ce centenaire, l'un des grands noms de la trompe française fera le déplacement jusqu'à Mont-de-Marsan, à l'invitation de l'École de Trompe de Beaussiet, présidée par Francis Faget.</p>
 
-    <p>Entendre un tel effectif sous les voûtes d'une église est une expérience qui ne ressemble à aucun concert. La trompe n'est pas amplifiée&nbsp;: c'est le bâtiment lui-même qui porte le son. Une soirée comme celle-ci ne se reproduira pas de sitôt dans le département.</p>
+    <h3>Une venue qui ne doit rien au hasard</h3>
+    <p>Le Débuché de Paris est né en 1927, à l'initiative de Jules Romary, lorsque six sonneurs réputés de leur époque décident de se réunir sous un même nom. En 1936, Gaston Chalmel prend la direction musicale du groupe et participe largement à la construction de son répertoire et de son style.</p>
+    <p>Depuis, les générations se succèdent sans que le nom ne disparaisse. La direction musicale est aujourd'hui assurée par Guillaume Caucat.</p>
+    <p>Aujourd'hui encore, ses sonneurs viennent de France, de Belgique et des Pays-Bas pour se retrouver et travailler ensemble. Le groupe poursuit ses prestations dans des lieux qui ne sont pas choisis au hasard&nbsp;: Notre-Dame de Paris, le Sacré-Cœur de Montmartre, la chapelle royale de Versailles ou encore la basilique de Saint-Hubert en Belgique ont récemment accueilli ses trompes.</p>
+
+    <h3>Et en 2027, ce sera Mont-de-Marsan</h3>
+    <p>Pour son centenaire, le Débuché de Paris viendra faire résonner ses trompes à l'église de la Madeleine.</p>
+    <p>Le choix du lieu compte. La trompe est un instrument qui ne se sonne pas comme les autres. Sans amplification, sa puissance repose sur le souffle du sonneur et sur l'acoustique du bâtiment. Sous les voûtes de la Madeleine, le son pourra se déployer dans toute sa profondeur.</p>
+
+    <h3>Pour le public landais, l'occasion sera rare</h3>
+    <p>Pour les amateurs de trompe, elle le sera encore davantage&nbsp;: assister au centenaire du Débuché de Paris, dans une église, avec l'ensemble réuni pour l'occasion, est un rendez-vous qui mérite de sortir du cadre habituel des concerts de trompes.</p>
+    <p class="signature">Une soirée pour célébrer un siècle d'histoire.</p>
+
     <p class="rare"><b>L'église de la Madeleine compte 500 places, et il n'y en aura pas une de plus.</b> Pas de rappel le lendemain, pas de seconde date, aucune vente le soir même. Le jour où les 500 billets seront partis, ce sera terminé.</p>
-
-    <div class="todo">
-      <p>À confirmer auprès du groupe&nbsp;: le nom du directeur musical actuel. Vos deux textes se contredisent, l'un cite Sylvain Oudot, l'autre Guillaume Caucat.</p>
-    </div>
   </div>
 </section>
 
-<section id="trompe">
+<section id="centenaire">
   <div class="shell narrow">
-    <p class="eyebrow">Pour ceux qui découvrent</p>
-    <h2>Qu'est-ce que la trompe de chasse&nbsp;?</h2>
-    <p>Un tour et demi de cuivre enroulé, aucune clé, aucun piston. Tout se joue aux lèvres et au souffle. C'est un instrument qui se sonne, on ne dit pas qu'on en joue, et qui se transmet depuis le XVII<sup>e</sup> siècle avec un répertoire propre, les fanfares, dont beaucoup racontent une scène de chasse ou rendent hommage à un animal.</p>
-    <p>La trompe est faite pour le plein air et pour les grands volumes. Dans une nef, un ensemble complet produit une masse sonore que rien ne prépare vraiment. C'est aussi une pratique bien vivante&nbsp;: elle s'enseigne, elle se transmet, et elle est inscrite au patrimoine culturel immatériel de l'humanité depuis 2020.</p>
+    <p class="eyebrow">Pourquoi venir</p>
+    <h2>Un centenaire à ne pas manquer</h2>
+    <p class="big">Depuis 1927, le Débuché de Paris a traversé les générations et participé à l'histoire de la trompe musicale.</p>
+    <p>En 2027, cette histoire viendra exceptionnellement jusqu'à Mont-de-Marsan.</p>
+    <ul class="litanie">
+      <li>100 ans d'histoire.</li>
+      <li>Une formation de référence.</li>
+      <li>Un lieu chargé d'acoustique.</li>
+      <li>Une seule soirée dans les Landes.</li>
+    </ul>
+    <p class="signature">Le Débuché de Paris à Mont-de-Marsan.<br>Un centenaire à ne pas manquer.</p>
   </div>
 </section>
 
