@@ -91,49 +91,98 @@ a{color:var(--brass-bright)}
 .cta.ghost{background:transparent;color:var(--brass);box-shadow:inset 0 0 0 1px var(--brass)}
 .cta.ghost:hover{background:rgba(227,179,74,.12)}
 
-/* ---------------- barre d'onglets ---------------- */
+/* ---------------- barre du haut ---------------- */
 .tabs{
-  position:sticky;top:0;z-index:20;
-  background:rgba(11,21,36,.93);
+  position:sticky;top:0;z-index:30;
+  background:rgba(11,21,36,.94);
   backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   border-bottom:1px solid var(--line);
 }
 .tabs-inner{
-  max-width:var(--max);margin:0 auto;padding:0 1.5rem;
-  display:flex;align-items:center;gap:1.5rem;height:3.3rem;
+  max-width:var(--max);margin:0 auto;padding:0 1.2rem;
+  display:flex;align-items:center;gap:1rem;height:3.4rem;
 }
-.tabs-brand{
-  font-family:"IBM Plex Mono",monospace;font-size:.68rem;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--brass);
-  white-space:nowrap;text-decoration:none;
-}
-.tabs nav{
-  display:flex;gap:1.4rem;flex:1;
-  overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;
-}
-.tabs nav::-webkit-scrollbar{display:none}
-.tabs nav a{
-  font-family:"IBM Plex Mono",monospace;font-size:.72rem;
-  letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
-  text-decoration:none;white-space:nowrap;padding:.3rem 0;
-  border-bottom:2px solid transparent;transition:color .15s ease;
-}
-.tabs nav a:hover{color:var(--parchment)}
-.tabs nav a.active{color:var(--parchment);border-bottom-color:var(--brass)}
 .tabs .cta{padding:.45rem 1.05rem;font-size:.7rem;flex:0 0 auto}
-.tabs-cta{display:none;border-top:1px solid var(--line);padding:.5rem 1rem .6rem}
-.tabs-cta .cta{display:block;width:100%;text-align:center;padding:.6rem 1rem;font-size:.72rem}
-section{scroll-margin-top:3.4rem}
 
-/* Sur mobile la barre tient sur deux lignes : les onglets restent lisibles
-   en haut, le bouton passe en dessous, et l'ensemble suit le défilement. */
-@media (max-width:46rem){
-  .tabs-brand{display:none}
-  .tabs-inner{gap:1rem;padding:0 1rem;height:2.9rem}
-  .tabs .sur-large{display:none}
-  .tabs-cta{display:block}
-  section{scroll-margin-top:6.4rem}
+/* le nom de la section en cours, au milieu de la barre */
+.tabs-ou{
+  flex:1;margin:0;text-align:center;min-width:0;
+  font-family:"IBM Plex Mono",monospace;font-size:.68rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
+
+/* le bouton menu */
+.burger{
+  display:flex;align-items:center;gap:.55rem;flex:0 0 auto;
+  background:transparent;border:0;padding:.4rem .2rem;cursor:pointer;
+  color:var(--parchment);
+}
+.burger-traits{display:flex;flex-direction:column;gap:3px;width:1.05rem}
+.burger-traits i{display:block;height:1.5px;background:currentColor;border-radius:1px}
+.burger-mot{
+  font-family:"IBM Plex Mono",monospace;font-size:.68rem;
+  letter-spacing:.14em;text-transform:uppercase;
+}
+@media (max-width:26rem){.burger-mot{display:none}}
+
+/* ---------------- menu déroulant ---------------- */
+.menu-fond{
+  position:fixed;inset:0;z-index:38;
+  background:rgba(4,9,16,.6);backdrop-filter:blur(2px);
+}
+.menu{
+  position:fixed;top:0;left:0;bottom:0;z-index:40;
+  width:min(21rem,86vw);overflow-y:auto;
+  background:var(--surface);border-right:1px solid var(--line);
+  padding:1.2rem 1.4rem 2.5rem;
+}
+.menu-tete{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.4rem}
+.fermer{
+  background:transparent;border:0;color:var(--muted);
+  font-size:1.7rem;line-height:1;cursor:pointer;padding:0 .2rem;
+}
+.fermer:hover{color:var(--parchment)}
+.menu-groupe{margin-bottom:1.5rem}
+.menu-titre{
+  font-family:"EB Garamond",Georgia,serif;font-size:1.25rem;
+  color:var(--brass);margin:0 0 .5rem;
+  padding-bottom:.35rem;border-bottom:1px solid var(--line);
+}
+.menu-groupe a{
+  display:block;padding:.42rem 0 .42rem .9rem;
+  color:var(--muted);text-decoration:none;font-size:.94rem;
+  border-left:2px solid transparent;
+}
+.menu-groupe a:hover{color:var(--parchment)}
+.menu-groupe a.active{color:var(--parchment);border-left-color:var(--brass)}
+.menu-cta{display:block;text-align:center;margin-top:.5rem}
+
+/* ---------------- repère vertical ---------------- */
+.rail{display:none}
+@media (min-width:82rem){
+  .rail{
+    display:block;position:fixed;z-index:15;
+    right:1.8rem;top:50%;transform:translateY(-50%);
+    padding-left:.9rem;border-left:1px solid var(--line);
+  }
+  .rail a{
+    display:flex;align-items:center;gap:.6rem;
+    padding:.45rem 0;text-decoration:none;
+    font-family:"IBM Plex Mono",monospace;font-size:.68rem;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+    transition:color .15s ease;
+  }
+  .rail a span{
+    width:.38rem;height:.38rem;border-radius:50%;
+    background:var(--line);flex:0 0 auto;transition:background .15s ease;
+  }
+  .rail a:hover{color:var(--muted)}
+  .rail a.active{color:var(--parchment)}
+  .rail a.active span{background:var(--brass);box-shadow:0 0 0 3px rgba(227,179,74,.18)}
+}
+
+section{scroll-margin-top:4rem}
 
 /* ---------------- hero ---------------- */
 .hero{
@@ -385,22 +434,66 @@ footer a{color:var(--muted)}
 
 <div class="tabs">
   <div class="tabs-inner">
-    <a class="tabs-brand" href="#haut">Centenaire 1927&ndash;2027</a>
-    <nav aria-label="Sections de la page">
-      <a href="#concert">Le concert</a>
-      <a href="#trompe">La trompe</a>
-      <a href="#eglise">L'église</a>
-      <a href="#programme">Programme</a>
-      <a href="#ecole">L'école</a>
-      <a href="#infos">Infos pratiques</a>
-      <a href="#faq">Questions</a>
-    </nav>
-    <a class="cta sur-large" href="/reserver/" data-court="Bientôt">Réserver</a>
-  </div>
-  <div class="tabs-cta">
-    <a class="cta" href="/reserver/">Réserver ma place</a>
+    <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="menu">
+      <span class="burger-traits" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="burger-mot">Menu</span>
+    </button>
+    <p class="tabs-ou" id="tabs-ou">100 ans du Débuché de Paris</p>
+    <a class="cta" href="/reserver/" data-court="Bientôt">Réserver</a>
   </div>
 </div>
+
+<div class="menu-fond" id="menu-fond" hidden></div>
+
+<nav class="menu" id="menu" aria-label="Sommaire du site" hidden>
+  <div class="menu-tete">
+    <p class="eyebrow">Sommaire</p>
+    <button type="button" class="fermer" id="fermer" aria-label="Fermer le menu">&times;</button>
+  </div>
+
+  <div class="menu-groupe">
+    <p class="menu-titre">Le concert</p>
+    <a href="#concert">Le concert</a>
+    <a href="#centenaire">Pourquoi venir</a>
+    <a href="#eglise">L'église</a>
+    <a href="#programme">Le programme</a>
+  </div>
+
+  <div class="menu-groupe">
+    <p class="menu-titre">La trompe</p>
+    <a href="#trompe">L'instrument</a>
+    <a href="#fitf">La FITF</a>
+    <a href="#unesco">L'UNESCO</a>
+  </div>
+
+  <div class="menu-groupe">
+    <p class="menu-titre">L'école</p>
+    <a href="#ecole">L'École de trompes de Beaussiet</a>
+    <a href="#partenaires">Les partenaires</a>
+  </div>
+
+  <div class="menu-groupe">
+    <p class="menu-titre">Infos pratiques</p>
+    <a href="#infos">Venir au concert</a>
+    <a href="#sejour">Se garer et dormir</a>
+    <a href="#apres">Après le concert</a>
+  </div>
+
+  <div class="menu-groupe">
+    <p class="menu-titre">Questions</p>
+    <a href="#faq">Avant de réserver</a>
+  </div>
+
+  <a class="cta menu-cta" href="/reserver/" data-court="Bientôt en réservation">Réserver ma place</a>
+</nav>
+
+<aside class="rail" id="rail" aria-hidden="true">
+  <a href="#concert" data-couvre="concert centenaire eglise programme"><span></span>Le concert</a>
+  <a href="#trompe" data-couvre="trompe fitf unesco"><span></span>La trompe</a>
+  <a href="#ecole" data-couvre="ecole partenaires"><span></span>L'école</a>
+  <a href="#infos" data-couvre="infos sejour apres"><span></span>Infos pratiques</a>
+  <a href="#faq" data-couvre="faq"><span></span>Questions</a>
+</aside>
 
 <header class="hero" id="haut">
   <div class="shell">
@@ -482,24 +575,43 @@ footer a{color:var(--muted)}
 <section id="trompe">
   <div class="shell narrow">
     <p class="eyebrow">Pour ceux qui découvrent</p>
-    <h2>Qu'est-ce que la trompe de chasse&nbsp;?</h2>
+    <h2>L'instrument</h2>
 
     <p class="big">Un tour et demi de cuivre enroulé, aucune clé, aucun piston. Tout se joue aux lèvres et au souffle.</p>
 
     <p>On ne dit pas qu'on en joue, on dit qu'on la sonne. Le son est clair et perçant, et la musique repose entièrement sur la résonance naturelle de l'instrument et sur ses harmoniques. C'est ce qui explique qu'un ensemble puisse superposer un chant, une seconde voix et une basse sans qu'aucun sonneur ne change de doigté&nbsp;: il n'y en a pas.</p>
 
-    <p>Le répertoire, les fanfares, ne cesse de s'enrichir depuis le XVII<sup>e</sup> siècle. Beaucoup de ces pièces racontent une scène de chasse ou rendent hommage à un animal. La transmission, elle, reste orale et se fait par imitation, au sein d'écoles de trompe où l'on apprend en sonnant avec les autres plutôt que seul devant une partition. C'est exactement ce que fait l'École de Beaussiet le mardi soir.</p>
+    <p>Le répertoire, les fanfares, ne cesse de s'enrichir depuis le XVII<sup>e</sup> siècle. Beaucoup de ces pièces racontent une scène de chasse ou rendent hommage à un animal. La transmission, elle, reste orale et se fait par imitation, au sein d'écoles de trompe où l'on apprend en sonnant avec les autres plutôt que seul devant une partition.</p>
 
     <p>La trompe est faite pour le plein air et pour les grands volumes. Dans une nef, un ensemble complet produit une masse sonore que rien ne prépare vraiment.</p>
+  </div>
+</section>
 
-    <div class="unesco">
-      <p class="eyebrow">Patrimoine mondial</p>
-      <p><b>L'art musical des sonneurs de trompe est inscrit depuis 2020 au patrimoine culturel immatériel de l'humanité</b>, à la demande conjointe de la France, de la Belgique, du Luxembourg et de l'Italie. L'UNESCO souligne la place du chant dans la cohésion du groupe, la transmission orale par les écoles, et la très grande mixité sociale des sonneurs.</p>
-      <p class="liens">
-        <a href="https://ich.unesco.org/fr/RL/l-art-musical-des-sonneurs-de-trompe-une-technique-instrumentale-liee-au-chant-a-la-maitrise-du-souffle-au-vibrato-a-la-resonance-des-lieux-et-a-la-convivialite-01581" target="_blank" rel="noopener">La fiche UNESCO</a>
-        <a href="https://fitf.org/la-trompe/" target="_blank" rel="noopener">La Fédération Internationale des Trompes de France</a>
-      </p>
-    </div>
+<section id="fitf">
+  <div class="shell narrow">
+    <p class="eyebrow">La fédération</p>
+    <h2>La Fédération Internationale des Trompes de France</h2>
+
+    <p>La trompe n'est pas une pratique isolée&nbsp;: elle est structurée. La FITF fédère les sonneurs et les écoles, organise les concours et fait vivre le répertoire d'un pays à l'autre. C'est dans ce cadre que les écoles se rencontrent, se jaugent et se transmettent leur style.</p>
+
+    <p>L'École de Beaussiet y est rattachée, et son président en est le délégué départemental pour les Landes, après plus de quarante ans d'adhésion. C'est aussi ce réseau qui a rendu possible le concours international organisé à Maurrin en 2018, et qui permet aujourd'hui de faire venir Le Débuché de Paris.</p>
+
+    <p class="liens"><a href="https://fitf.org/la-trompe/" target="_blank" rel="noopener">Le site de la FITF</a></p>
+  </div>
+</section>
+
+<section id="unesco">
+  <div class="shell narrow">
+    <p class="eyebrow">Patrimoine mondial</p>
+    <h2>Reconnue par l'UNESCO</h2>
+
+    <p class="big">Depuis 2020, l'art musical des sonneurs de trompe est inscrit au patrimoine culturel immatériel de l'humanité.</p>
+
+    <p>L'inscription a été demandée conjointement par la France, la Belgique, le Luxembourg et l'Italie. Le texte officiel retient trois choses&nbsp;: la place du chant dans la cohésion du groupe, la transmission orale au sein des écoles de trompe, et la très grande mixité sociale des sonneurs, venus de tous les milieux et réunis par la même fascination.</p>
+
+    <p>Autrement dit, ce que vous entendrez le 5 juin n'est pas seulement un concert. C'est une pratique vivante que quatre pays ont jugée digne d'être protégée.</p>
+
+    <p class="liens"><a href="https://ich.unesco.org/fr/RL/l-art-musical-des-sonneurs-de-trompe-une-technique-instrumentale-liee-au-chant-a-la-maitrise-du-souffle-au-vibrato-a-la-resonance-des-lieux-et-a-la-convivialite-01581" target="_blank" rel="noopener">La fiche officielle de l'UNESCO</a></p>
   </div>
 </section>
 
@@ -863,26 +975,77 @@ document.addEventListener('click', function (e) {
 </script>
 
 <script>
-// Souligne l'onglet de la section en cours de lecture.
+// Menu, repère vertical, et nom de la section en cours.
 (function () {
-  var links = Array.prototype.slice.call(document.querySelectorAll('.tabs nav a'));
-  var targets = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  var menu   = document.getElementById('menu');
+  var fond   = document.getElementById('menu-fond');
+  var burger = document.getElementById('burger');
 
-  function update() {
-    var current = -1;
-    for (var i = 0; i < targets.length; i++) {
-      if (targets[i] && targets[i].getBoundingClientRect().top <= 90) current = i;
-    }
-    links.forEach(function (a, i) { a.classList.toggle('active', i === current); });
+  function ouvrir(oui) {
+    menu.hidden = !oui;
+    fond.hidden = !oui;
+    burger.setAttribute('aria-expanded', oui ? 'true' : 'false');
+    document.body.style.overflow = oui ? 'hidden' : '';
+    if (oui) { var p = menu.querySelector('a'); if (p) p.focus(); }
+    else burger.focus();
   }
 
-  var pending = false;
+  burger.addEventListener('click', function () { ouvrir(menu.hidden); });
+  document.getElementById('fermer').addEventListener('click', function () { ouvrir(false); });
+  fond.addEventListener('click', function () { ouvrir(false); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !menu.hidden) ouvrir(false);
+  });
+  menu.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A' && e.target.getAttribute('href').charAt(0) === '#') ouvrir(false);
+  });
+
+  // Toutes les sections, dans l'ordre de la page
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main section'));
+  var liensMenu = Array.prototype.slice.call(document.querySelectorAll('.menu-groupe a'));
+  var liensRail = Array.prototype.slice.call(document.querySelectorAll('.rail a'));
+  var ou = document.getElementById('tabs-ou');
+  var depart = ou.textContent;
+
+  function titre(section) {
+    var h = section.querySelector('h2');
+    return h ? h.textContent.replace(/\s+/g, ' ').trim() : '';
+  }
+
+  var courante = null;
+
+  function majuscule() {
+    var trouvee = null;
+    sections.forEach(function (sec) {
+      if (sec.getBoundingClientRect().top <= 120) trouvee = sec;
+    });
+    if (trouvee === courante) return;
+    courante = trouvee;
+
+    var id = trouvee ? trouvee.id : null;
+
+    // le nom affiché dans la barre
+    ou.textContent = trouvee ? titre(trouvee) : depart;
+
+    // l'entrée du menu
+    liensMenu.forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+    });
+
+    // le repère vertical, qui raisonne par groupe
+    liensRail.forEach(function (a) {
+      var couvre = (a.dataset.couvre || '').split(' ');
+      a.classList.toggle('active', id !== null && couvre.indexOf(id) !== -1);
+    });
+  }
+
+  var enAttente = false;
   window.addEventListener('scroll', function () {
-    if (pending) return;
-    pending = true;
-    window.requestAnimationFrame(function () { update(); pending = false; });
+    if (enAttente) return;
+    enAttente = true;
+    window.requestAnimationFrame(function () { majuscule(); enAttente = false; });
   }, { passive: true });
-  update();
+  majuscule();
 })();
 </script>
 
