@@ -85,6 +85,12 @@ var INFOS = {
   ],
 
 
+  /* --- LE REPAS D'APRÈS-CONCERT ----------------------------------------- */
+
+  // Le prix du repas, quand il sera arrêté. Exemple : "15 €"
+  repasPrix: "",
+
+
   /* --- SE GARER ET DORMIR ----------------------------------------------- */
 
   // Les parkings à recommander autour de l'église, un par ligne.

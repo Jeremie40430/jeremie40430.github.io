@@ -623,13 +623,26 @@ footer a{color:var(--muted)}
 
     <p class="big">Le concert fini, on se retrouve à la salle des fêtes d'Artassenx, autour d'un verre et de quelque chose à griller.</p>
 
-    <p>Rien de compliqué&nbsp;: des grillades, saucisses et ventrèche, à la landaise. C'est ouvert à qui le souhaite, et c'est le moment où les sonneurs déposent leur trompe, s'assoient et redeviennent joignables.</p>
+    <p>Rien de compliqué&nbsp;: des grillades, saucisses et ventrèche, à la landaise. C'est le moment où les sonneurs déposent leur trompe, s'assoient et redeviennent joignables.</p>
 
     <p><b>Et si vous sonnez, prenez votre trompe.</b> Tous les sonneurs sont invités à la sortir, quel que soit leur niveau et d'où qu'ils viennent, pour finir la soirée en musique. C'est comme ça que ça se passe depuis toujours, et l'UNESCO a même mis un mot là-dessus dans le texte qui protège la trompe&nbsp;: la convivialité.</p>
 
-    <div class="todo">
-      <p>À confirmer avant l'annonce&nbsp;: l'adresse et l'horaire de la salle des fêtes, le temps de trajet depuis l'église, et si le repas est payant. S'il l'est, il faut une option dédiée dans la billetterie pour connaître le nombre de couverts.</p>
-    </div>
+    <dl class="contact">
+      <div>
+        <dt>Où</dt>
+        <dd>Salle des fêtes d'Artassenx<br>1 route de Mont-de-Marsan<br>40090 Artassenx</dd>
+      </div>
+      <div>
+        <dt>Depuis l'église</dt>
+        <dd>10 km, environ 14 minutes en voiture<br><a href="https://www.google.com/maps/dir/?api=1&amp;origin=%C3%89glise%20de%20la%20Madeleine%2C%20Mont-de-Marsan&amp;destination=1%20route%20de%20Mont-de-Marsan%2C%2040090%20Artassenx" target="_blank" rel="noopener">Voir l'itinéraire</a></dd>
+      </div>
+      <div>
+        <dt>Le repas</dt>
+        <dd id="i-repas">Payant, à réserver en même temps que votre place.</dd>
+      </div>
+    </dl>
+
+    <p class="muted">Le repas se réserve avec le billet du concert, et pas sur place&nbsp;: c'est ce qui nous permet de savoir combien de couverts préparer.</p>
   </div>
 </section>
 
@@ -816,7 +829,7 @@ footer a{color:var(--muted)}
     </details>
     <details>
       <summary>Y a-t-il quelque chose après le concert&nbsp;?</summary>
-      <p>Oui. Un point de restauration et de boisson est prévu à la salle des fêtes d'Artassenx, ouvert à tous ceux qui le souhaitent.</p>
+      <p>Oui, un repas à la salle des fêtes d'Artassenx, à dix kilomètres de l'église, soit un quart d'heure de route. Des grillades, saucisses et ventrèche. Le repas est payant et se réserve en même temps que votre place, jamais sur place. Les sonneurs sont invités à venir avec leur trompe pour finir la soirée en musique.</p>
     </details>
     <details>
       <summary>Puis-je me faire rembourser&nbsp;?</summary>
@@ -873,6 +886,11 @@ document.addEventListener('click', function (e) {
     var h = 'Samedi 5 juin 2027, ' + INFOS.heure + '.';
     if (INFOS.ouverturePortes) h += ' Ouverture des portes à ' + INFOS.ouverturePortes + '.';
     texte('i-horaire', h);
+  }
+
+  // Repas d'après-concert
+  if (INFOS.repasPrix) {
+    texte('i-repas', INFOS.repasPrix + ' par personne, à réserver en même temps que votre place.');
   }
 
   // Vignette des tarifs : le premier tarif en grand, le second en dessous
