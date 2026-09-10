@@ -158,28 +158,42 @@ a{color:var(--brass-bright)}
 .menu-groupe a.active{color:var(--parchment);border-left-color:var(--brass)}
 .menu-cta{display:block;text-align:center;margin-top:.5rem}
 
-/* ---------------- repère vertical ---------------- */
-.rail{display:none}
-@media (min-width:82rem){
-  .rail{
-    display:block;position:fixed;z-index:15;
-    right:1.8rem;top:50%;transform:translateY(-50%);
-    padding-left:.9rem;border-left:1px solid var(--line);
-  }
-  .rail a{
-    display:flex;align-items:center;gap:.6rem;
-    padding:.45rem 0;text-decoration:none;
-    font-family:"IBM Plex Mono",monospace;font-size:.68rem;
-    letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
-    transition:color .15s ease;
-  }
-  .rail a span{
-    width:.38rem;height:.38rem;border-radius:50%;
-    background:var(--line);flex:0 0 auto;transition:background .15s ease;
-  }
-  .rail a:hover{color:var(--muted)}
-  .rail a.active{color:var(--parchment)}
-  .rail a.active span{background:var(--brass);box-shadow:0 0 0 3px rgba(227,179,74,.18)}
+/* ---------------- repère vertical ----------------
+   Toujours visible. Sur écran étroit il se réduit à une colonne de
+   pastilles, calée dans la marge, pour ne jamais recouvrir le texte.
+   Dès qu'il y a de la place, les intitulés apparaissent.            */
+.rail{
+  position:fixed;z-index:15;
+  right:.55rem;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;
+}
+.rail a{
+  display:flex;align-items:center;justify-content:flex-end;gap:.6rem;
+  min-height:1.75rem;padding:0 .35rem;text-decoration:none;
+  font-family:"IBM Plex Mono",monospace;font-size:.68rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+  transition:color .15s ease;
+}
+.rail a .point{
+  width:.4rem;height:.4rem;border-radius:50%;
+  background:var(--line);flex:0 0 auto;
+  transition:background .15s ease, box-shadow .15s ease;
+}
+.rail a:hover{color:var(--muted)}
+.rail a:hover .point{background:var(--muted)}
+.rail a.active{color:var(--parchment)}
+.rail a.active .point{background:var(--brass);box-shadow:0 0 0 3px rgba(227,179,74,.2)}
+
+/* Écrans étroits : pastilles seules, l'intitulé reste lisible par les
+   lecteurs d'écran grâce au title sur le lien. */
+.rail .mot{
+  position:absolute;width:1px;height:1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;
+}
+@media (min-width:80rem){
+  .rail{right:1.8rem;padding-left:.9rem;border-left:1px solid var(--line)}
+  .rail a{justify-content:flex-start;padding:.45rem 0;min-height:0}
+  .rail .mot{position:static;width:auto;height:auto;overflow:visible;clip:auto}
 }
 
 section{scroll-margin-top:4rem}
@@ -487,13 +501,13 @@ footer a{color:var(--muted)}
   <a class="cta menu-cta" href="/reserver/" data-court="Bientôt en réservation">Réserver ma place</a>
 </nav>
 
-<aside class="rail" id="rail" aria-hidden="true">
-  <a href="#concert" data-couvre="concert centenaire eglise programme"><span></span>Le concert</a>
-  <a href="#trompe" data-couvre="trompe fitf unesco"><span></span>La trompe</a>
-  <a href="#ecole" data-couvre="ecole partenaires"><span></span>L'école</a>
-  <a href="#infos" data-couvre="infos sejour apres"><span></span>Infos pratiques</a>
-  <a href="#faq" data-couvre="faq"><span></span>Questions</a>
-</aside>
+<nav class="rail" id="rail" aria-label="Repère de lecture">
+  <a href="#concert" data-couvre="concert centenaire eglise programme" title="Le concert"><span class="point"></span><span class="mot">Le concert</span></a>
+  <a href="#trompe" data-couvre="trompe fitf unesco" title="La trompe"><span class="point"></span><span class="mot">La trompe</span></a>
+  <a href="#ecole" data-couvre="ecole partenaires" title="L'école"><span class="point"></span><span class="mot">L'école</span></a>
+  <a href="#infos" data-couvre="infos sejour apres" title="Infos pratiques"><span class="point"></span><span class="mot">Infos pratiques</span></a>
+  <a href="#faq" data-couvre="faq" title="Questions"><span class="point"></span><span class="mot">Questions</span></a>
+</nav>
 
 <header class="hero" id="haut">
   <div class="shell">
