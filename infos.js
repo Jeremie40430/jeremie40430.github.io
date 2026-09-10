@@ -64,7 +64,13 @@ var INFOS = {
   /* --- NOUS CONTACTER --------------------------------------------------- */
 
   // L'adresse mail de l'association.
-  email: "",
+  email: "francisfaget53@hotmail.fr",
+
+  // Les numéros de téléphone, un par ligne entre guillemets.
+  telephones: [
+    "06 04 53 56 46",
+    "05 58 45 75 10",
+  ],
 
   // Le lien de la page Facebook. Laisse "" s'il n'y en a pas.
   facebook: "",
@@ -76,6 +82,21 @@ var INFOS = {
   partenaires: [
     // "Ville de Mont-de-Marsan",
     // "Fédération des chasseurs des Landes",
+  ],
+
+
+  /* --- SE GARER ET DORMIR ----------------------------------------------- */
+
+  // Les parkings à recommander autour de l'église, un par ligne.
+  // Mets le nom, puis le temps de marche.
+  parkings: [
+    // { nom: "Parking du Midou",  detail: "5 minutes à pied" },
+  ],
+
+  // Les hébergements du secteur. « trajet » sert à les classer :
+  // écris "15 minutes" ou "30 minutes".
+  hebergements: [
+    // { nom: "Hôtel …", ville: "Mont-de-Marsan", trajet: "15 minutes" },
   ],
 
 

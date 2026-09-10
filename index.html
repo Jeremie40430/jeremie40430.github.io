@@ -238,6 +238,54 @@ p{margin:0 0 1.1rem;max-width:60ch}
 }
 .rare b{color:var(--parchment)}
 
+/* ---------------- encart UNESCO ---------------- */
+.unesco{
+  border:1px solid var(--line);border-radius:2px;
+  background:var(--surface);padding:1.2rem 1.3rem;margin-top:2rem;
+}
+.unesco p{margin:0 0 .8rem;max-width:60ch}
+.unesco .eyebrow{margin-bottom:.6rem}
+.unesco b{color:var(--parchment)}
+.liens{display:flex;flex-wrap:wrap;gap:1.4rem;margin:0!important;
+  font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.05em}
+
+/* ---------------- contact de l'école ---------------- */
+.contact{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));
+  gap:1px;background:var(--line);border:1px solid var(--line);margin:1.4rem 0 0;
+}
+.contact > div{background:var(--night);padding:.9rem 1.1rem}
+.contact dt{
+  font-family:"IBM Plex Mono",monospace;font-size:.66rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:.35rem;
+}
+.contact dd{margin:0;font-size:.95rem;line-height:1.5}
+.contact dd a{display:block}
+
+/* ---------------- plan ---------------- */
+.plan{margin-top:2rem}
+.plan iframe{
+  width:100%;height:22rem;border:1px solid var(--line);border-radius:2px;display:block;
+}
+.plan-note{font-size:.84rem;color:var(--faint);margin:.8rem 0 0;max-width:58ch}
+
+/* ---------------- séjour ---------------- */
+.lead-p{color:var(--muted);max-width:60ch}
+.liste-lieux{list-style:none;margin:0;padding:0}
+.liste-lieux li{
+  display:grid;grid-template-columns:1fr auto;gap:1rem;
+  padding:.7rem 0;border-top:1px solid var(--line);align-items:baseline;
+}
+.liste-lieux li:last-child{border-bottom:1px solid var(--line)}
+.liste-lieux .detail{
+  font-family:"IBM Plex Mono",monospace;font-size:.76rem;color:var(--brass);white-space:nowrap;
+}
+.groupe-trajet{margin-bottom:1.8rem}
+.groupe-trajet h4{
+  font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--brass);margin:0 0 .3rem;font-weight:400;
+}
+
 /* ---------------- programme et partenaires ---------------- */
 .setlist{list-style:none;margin:1.4rem 0 0;padding:0;counter-reset:morceau}
 .setlist li{
@@ -319,9 +367,11 @@ footer a{color:var(--muted)}
     <nav aria-label="Sections de la page">
       <a href="#concert">Le concert</a>
       <a href="#centenaire">Pourquoi venir</a>
+      <a href="#trompe">La trompe</a>
       <a href="#programme">Programme</a>
       <a href="#ecole">L'école</a>
       <a href="#infos">Infos pratiques</a>
+      <a href="#sejour">Se garer, dormir</a>
       <a href="#apres">Après le concert</a>
       <a href="#faq">Questions</a>
     </nav>
@@ -406,6 +456,30 @@ footer a{color:var(--muted)}
   </div>
 </section>
 
+<section id="trompe">
+  <div class="shell narrow">
+    <p class="eyebrow">Pour ceux qui découvrent</p>
+    <h2>Qu'est-ce que la trompe de chasse&nbsp;?</h2>
+
+    <p class="big">Un tour et demi de cuivre enroulé, aucune clé, aucun piston. Tout se joue aux lèvres et au souffle.</p>
+
+    <p>On ne dit pas qu'on en joue, on dit qu'on la sonne. Le son est clair et perçant, et la musique repose entièrement sur la résonance naturelle de l'instrument et sur ses harmoniques. C'est ce qui explique qu'un ensemble puisse superposer un chant, une seconde voix et une basse sans qu'aucun sonneur ne change de doigté&nbsp;: il n'y en a pas.</p>
+
+    <p>Le répertoire, les fanfares, ne cesse de s'enrichir depuis le XVII<sup>e</sup> siècle. Beaucoup de ces pièces racontent une scène de chasse ou rendent hommage à un animal. La transmission, elle, reste orale et se fait par imitation, au sein d'écoles de trompe où l'on apprend en sonnant avec les autres plutôt que seul devant une partition. C'est exactement ce que fait l'École de Beaussiet le mardi soir.</p>
+
+    <p>La trompe est faite pour le plein air et pour les grands volumes. Dans une nef, un ensemble complet produit une masse sonore que rien ne prépare vraiment.</p>
+
+    <div class="unesco">
+      <p class="eyebrow">Patrimoine mondial</p>
+      <p><b>L'art musical des sonneurs de trompe est inscrit depuis 2020 au patrimoine culturel immatériel de l'humanité</b>, à la demande conjointe de la France, de la Belgique, du Luxembourg et de l'Italie. L'UNESCO souligne la place du chant dans la cohésion du groupe, la transmission orale par les écoles, et la très grande mixité sociale des sonneurs.</p>
+      <p class="liens">
+        <a href="https://ich.unesco.org/fr/RL/l-art-musical-des-sonneurs-de-trompe-une-technique-instrumentale-liee-au-chant-a-la-maitrise-du-souffle-au-vibrato-a-la-resonance-des-lieux-et-a-la-convivialite-01581" target="_blank" rel="noopener">La fiche UNESCO</a>
+        <a href="https://fitf.org/la-trompe/" target="_blank" rel="noopener">La Fédération Internationale des Trompes de France</a>
+      </p>
+    </div>
+  </div>
+</section>
+
 <section id="programme">
   <div class="shell narrow">
     <p class="eyebrow">Le programme</p>
@@ -425,9 +499,9 @@ footer a{color:var(--muted)}
 
     <p class="big">Une école landaise née en 2006, à l'initiative de Francis Faget, entouré de quelques amis veneurs. Son objectif n'a pas changé depuis&nbsp;: former des sonneurs, et les amener jusqu'à la scène.</p>
 
-    <p>Le nom vient du premier lieu de répétition, l'église historique de Beaussiet, sur la commune de Mazerolles. L'école se retrouve aujourd'hui à la salle des fêtes d'Artassenx, mise à disposition par la commune, tous les mardis de 19 h 30 à 22 h.</p>
+    <p>Le nom vient du premier lieu de répétition, l'église historique de Beaussiet, sur la commune de Mazerolles. L'école se retrouve aujourd'hui à la salle des fêtes d'Artassenx, mise à disposition par la commune, tous les mardis de 20 h à 22 h.</p>
 
-    <p>Tous les quatre ou cinq ans, l'école monte un grand rendez-vous, et le public landais répond&nbsp;: quatre concerts et un concours international depuis 2009, jamais moins de 450 personnes. Depuis la création, trente-neuf élèves ont mis les lèvres sur cet instrument difficile, et une douzaine de passionnés sonnent toujours ensemble. L'école se produit chaque année à l'assemblée générale des chasseurs des Landes, et son président est délégué départemental de la Fédération Internationale des Trompes de France.</p>
+    <p>Tous les quatre ou cinq ans, l'école monte un grand rendez-vous, et le public landais répond&nbsp;: quatre concerts et un concours international depuis 2009, jamais moins de 450 personnes. Depuis la création, trente-neuf élèves ont mis les lèvres sur cet instrument difficile, et une douzaine de passionnés sonnent toujours ensemble. Pendant des années, l'école a sonné chaque assemblée générale des chasseurs des Landes&nbsp;; le rituel s'est arrêté depuis quelque temps. Son président est délégué départemental de la Fédération Internationale des Trompes de France.</p>
 
     <h3>Ce que l'école a déjà organisé</h3>
     <div class="dates">
@@ -441,11 +515,11 @@ footer a{color:var(--muted)}
     <p>Faire venir le Débuché de Paris pour son centenaire est le projet le plus ambitieux que l'école ait porté. Les bénéfices de cette soirée reviennent intégralement à l'école et à la transmission de la trompe dans les Landes.</p>
 
     <h3>Envie d'essayer&nbsp;?</h3>
-    <p class="muted">L'école accueille de nouveaux élèves, sans aucun prérequis musical. Venez nous voir à la table d'accueil le soir du concert, ou passez un mardi soir à Artassenx.</p>
-    <p id="i-contact" hidden></p>
-    <div class="todo" id="i-contact-todo">
-      <p>Adresse mail de contact de l'association et lien vers la page Facebook, à renseigner dans le fichier infos.js.</p>
-    </div>
+    <p class="muted">L'école accueille de nouveaux élèves, sans aucun prérequis musical. Venez nous voir à la table d'accueil le soir du concert, ou passez un mardi soir à la salle des fêtes d'Artassenx, entre 20 h et 22 h.</p>
+    <dl class="contact">
+      <div><dt>Répétitions</dt><dd>Salle des fêtes d'Artassenx<br>Tous les mardis, de 20 h à 22 h</dd></div>
+      <div id="bloc-contact" hidden><dt>Nous joindre</dt><dd id="i-contact"></dd></div>
+    </dl>
   </div>
 </section>
 
@@ -460,7 +534,7 @@ footer a{color:var(--muted)}
       </div>
       <div>
         <h3>Lieu</h3>
-        <p>Église de la Madeleine<br>Mont-de-Marsan, Landes</p>
+        <p>Église de la Madeleine<br>35 rue Victor-Hugo<br>40000 Mont-de-Marsan</p>
       </div>
       <div>
         <h3>Réservation</h3>
@@ -483,8 +557,30 @@ footer a{color:var(--muted)}
         <p id="i-tarifs"></p>
       </div>
     </div>
+    <div class="plan" id="plan">
+      <button type="button" class="cta ghost" id="voir-plan">Afficher le plan</button>
+      <p class="plan-note">Le plan est fourni par Google. Il ne se charge qu'à votre demande, pour ne rien déposer sur votre appareil sans votre accord.</p>
+      <p class="plan-note"><a href="https://www.google.com/maps/search/?api=1&amp;query=%C3%89glise%20de%20la%20Madeleine%2C%2035%20rue%20Victor-Hugo%2C%2040000%20Mont-de-Marsan" target="_blank" rel="noopener">Ouvrir l'itinéraire dans Google Maps</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="sejour">
+  <div class="shell">
+    <p class="eyebrow">Se garer, et dormir sur place</p>
+    <h2>Organiser votre venue</h2>
+    <p class="lead-p">Le concert commence à 20 h 30 et l'église ouvre dès 19 h. Si vous venez de loin, autant faire de la soirée une étape.</p>
+
+    <h3>Où se garer</h3>
+    <ul class="liste-lieux" id="i-parkings" hidden></ul>
+    <p class="muted" id="i-parkings-vide">Les parkings du centre-ville sont à quelques minutes à pied de l'église. Le détail sera précisé ici avant l'ouverture des réservations.</p>
+
+    <h3>Où dormir</h3>
+    <div id="i-hebergements" hidden></div>
+    <p class="muted" id="i-hebergements-vide">Une sélection d'hébergements à moins de quinze et de trente minutes de l'église sera publiée ici. En attendant, l'office de tourisme du Marsan renseigne sur les disponibilités.</p>
+
     <div class="todo">
-      <p>À confirmer avant la mise en ligne publique&nbsp;: heure exacte du concert et de l'ouverture des portes, tarifs, parkings précis à recommander, accès pour les personnes à mobilité réduite.</p>
+      <p>À me transmettre pour remplir cette section&nbsp;: les parkings que vous recommandez avec le temps de marche, et les hébergements retenus avec leur commune et le temps de trajet. Je ne les invente pas, citer un hôtel sur votre site revient à le recommander.</p>
     </div>
   </div>
 </section>
@@ -567,6 +663,22 @@ footer a{color:var(--muted)}
 
 </main>
 
+<script>
+// Le plan Google n'est chargé qu'après un clic : aucun cookie tiers
+// n'est déposé tant que le visiteur ne le demande pas.
+document.addEventListener('click', function (e) {
+  if (e.target.id !== 'voir-plan') return;
+  var cadre = document.createElement('iframe');
+  cadre.src = 'https://www.google.com/maps?q=' +
+    encodeURIComponent('Église de la Madeleine, 35 rue Victor-Hugo, 40000 Mont-de-Marsan') +
+    '&output=embed';
+  cadre.loading = 'lazy';
+  cadre.title = "Plan d'accès à l'église de la Madeleine";
+  cadre.referrerPolicy = 'no-referrer-when-downgrade';
+  e.target.replaceWith(cadre);
+});
+</script>
+
 <script src="/infos.js"></script>
 <script>
 // Remplit la page avec ce qui est écrit dans infos.js.
@@ -623,25 +735,63 @@ footer a{color:var(--muted)}
     cacher('i-programme-todo');
   }
 
-  // Contact
-  if (INFOS.email || INFOS.facebook) {
+  // Contact : mail, téléphones, Facebook
+  var tels = INFOS.telephones || [];
+  if (INFOS.email || tels.length || INFOS.facebook) {
     var c = document.getElementById('i-contact');
-    if (INFOS.email) {
-      var mail = document.createElement('a');
-      mail.href = 'mailto:' + INFOS.email;
-      mail.textContent = INFOS.email;
-      c.appendChild(mail);
+    function lien(href, texte) {
+      var a = document.createElement('a');
+      a.href = href; a.textContent = texte; a.rel = 'noopener';
+      c.appendChild(a);
     }
-    if (INFOS.facebook) {
-      if (INFOS.email) c.appendChild(document.createTextNode(' · '));
-      var fb = document.createElement('a');
-      fb.href = INFOS.facebook;
-      fb.textContent = 'Notre page Facebook';
-      fb.rel = 'noopener';
-      c.appendChild(fb);
-    }
-    montrer('i-contact');
-    cacher('i-contact-todo');
+    if (INFOS.email) lien('mailto:' + INFOS.email, INFOS.email);
+    tels.forEach(function (t) { lien('tel:' + t.replace(/[^0-9+]/g, ''), t); });
+    if (INFOS.facebook) lien(INFOS.facebook, 'Notre page Facebook');
+    montrer('bloc-contact');
+  }
+
+  // Parkings
+  if (INFOS.parkings && INFOS.parkings.length) {
+    var up = document.getElementById('i-parkings');
+    INFOS.parkings.forEach(function (p) {
+      var li = document.createElement('li');
+      var n = document.createElement('span'); n.textContent = p.nom;
+      var d = document.createElement('span'); d.className = 'detail'; d.textContent = p.detail || '';
+      li.appendChild(n); li.appendChild(d);
+      up.appendChild(li);
+    });
+    montrer('i-parkings');
+    cacher('i-parkings-vide');
+  }
+
+  // Hébergements, regroupés par temps de trajet
+  if (INFOS.hebergements && INFOS.hebergements.length) {
+    var hote = document.getElementById('i-hebergements');
+    var groupes = {};
+    INFOS.hebergements.forEach(function (h) {
+      var k = h.trajet || 'À proximité';
+      (groupes[k] = groupes[k] || []).push(h);
+    });
+    Object.keys(groupes).sort().forEach(function (k) {
+      var bloc = document.createElement('div');
+      bloc.className = 'groupe-trajet';
+      var t = document.createElement('h4');
+      t.textContent = 'À moins de ' + k + ' de l\'église';
+      bloc.appendChild(t);
+      var ul = document.createElement('ul');
+      ul.className = 'liste-lieux';
+      groupes[k].forEach(function (h) {
+        var li = document.createElement('li');
+        var n = document.createElement('span'); n.textContent = h.nom;
+        var v = document.createElement('span'); v.className = 'detail'; v.textContent = h.ville || '';
+        li.appendChild(n); li.appendChild(v);
+        ul.appendChild(li);
+      });
+      bloc.appendChild(ul);
+      hote.appendChild(bloc);
+    });
+    montrer('i-hebergements');
+    cacher('i-hebergements-vide');
   }
 
   // Partenaires
