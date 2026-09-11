@@ -244,10 +244,17 @@ a{color:var(--rouge)}
 }
 .hero-when{
   display:inline-block;margin:2.6rem 0 .7rem;
-  padding:.6rem 1.4rem;border:1px solid var(--or-clair);
+  padding:.8rem 1.8rem .9rem;border:1px solid var(--or-clair);
   font-family:"IBM Plex Mono",monospace;font-size:1.02rem;font-weight:500;
-  letter-spacing:.16em;color:#FFFFFF;
+  letter-spacing:.16em;color:#FFFFFF;text-align:center;
 }
+.hero-heure{
+  display:block;margin-top:.35rem;
+  font-family:"EB Garamond",Georgia,serif;font-weight:600;
+  font-size:2.1rem;line-height:1;letter-spacing:.05em;
+  color:var(--or-clair);
+}
+.hero-heure:empty{display:none}
 .hero-where{color:var(--sur-nuit-douce);font-size:1rem;margin:0 0 2.2rem}
 .hero-actions{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
 .hero-note{
@@ -351,6 +358,7 @@ a{color:var(--rouge)}
 
 /* ---------------- vidéos ---------------- */
 .video{margin:2.4rem 0 0}
+.video-titre a{border:0}
 .video-titre{
   font-family:"EB Garamond",Georgia,serif;font-weight:600;
   font-size:1.6rem;line-height:1.15;color:var(--encre);
@@ -417,6 +425,10 @@ h2{
   font-size:clamp(2rem,5.2vw,3rem);line-height:1.08;
   margin:.6rem 0 1.3rem;text-wrap:balance;letter-spacing:-.01em;
 }
+h3 a{color:inherit;text-decoration:none;border-bottom:1px solid var(--or);padding-bottom:.1rem}
+h3 a:hover{color:var(--rouge);border-bottom-color:var(--rouge)}
+.inverse h3 a{border-bottom-color:var(--or-clair)}
+.inverse h3 a:hover{color:#FFFFFF;border-bottom-color:#FFFFFF}
 h3{
   font-family:"Public Sans",sans-serif;font-size:.82rem;font-weight:700;
   letter-spacing:.12em;text-transform:uppercase;color:var(--or);
@@ -701,7 +713,7 @@ footer a{color:var(--encre-douce)}
     <p class="centenaire">1927 &nbsp;&mdash;&nbsp; 2027</p>
     <h1>Le Débuché de Paris</h1>
     <p class="kicker">Cent ans de trompe de chasse, une soirée à Mont-de-Marsan</p>
-    <p class="hero-when">SAMEDI 5 JUIN 2027<span id="i-heure-hero"></span></p>
+    <p class="hero-when">SAMEDI 5 JUIN 2027<span class="hero-heure" id="i-heure-hero"></span></p>
     <p class="hero-where">Église de la Madeleine, Mont-de-Marsan</p>
     <div class="hero-actions">
       <a class="cta" href="/reserver/">Réserver ma place</a>
@@ -831,7 +843,7 @@ footer a{color:var(--encre-douce)}
         <img src="https://i.ytimg.com/vi/RDa5KP3r8Zk/maxresdefault.jpg" alt="" loading="lazy" width="1280" height="720">
         <span class="video-play" aria-hidden="true"></span>
       </button>
-      <figcaption>Vidéo publiée par la Fédération Internationale de Trompes de France.</figcaption>
+      <figcaption>Vidéo publiée par la <a href="https://fitf.org/la-trompe/" target="_blank" rel="noopener">Fédération Internationale de Trompes de France</a>.</figcaption>
     </figure>
 
     <hr class="sep">
@@ -906,10 +918,10 @@ footer a{color:var(--encre-douce)}
 
     <p class="big">La trompe n'est pas une pratique isolée. Deux structures la portent, et le concert du 5 juin s'inscrit dans ce que l'une et l'autre rendent possible.</p>
 
-    <h3>La Fédération Internationale des Trompes de France</h3>
+    <h3><a href="https://fitf.org/la-trompe/" target="_blank" rel="noopener">La Fédération Internationale des Trompes de France</a></h3>
     <p>C'est l'ossature du milieu&nbsp;: elle fédère les sonneurs et les écoles, organise les concours et fait circuler le répertoire d'un pays à l'autre. C'est dans ce cadre que les écoles se rencontrent, se jaugent et se transmettent leur style. L'École de Beaussiet y est rattachée, et son président en est le délégué départemental pour les Landes, après plus de quarante ans d'adhésion. C'est aussi ce réseau qui a rendu possible le concours international organisé à Maurrin en 2018.</p>
 
-    <h3>La Fondation pour le Rayonnement de la Trompe Musicale</h3>
+    <h3><a href="https://www.frtm.fr/la-frtm" target="_blank" rel="noopener">La Fondation pour le Rayonnement de la Trompe Musicale</a></h3>
     <p>Plus récente, placée sous l'égide de la Fondation de France, elle défend une idée simple et exigeante&nbsp;: la trompe est un instrument de concert à part entière. Elle exhume des partitions oubliées dans les archives européennes, commande des œuvres à des compositeurs d'aujourd'hui, et soutient l'ouverture de classes de trompe dans les conservatoires.</p>
 
     <p>C'est elle qui a fait renaître la messe de la Saint-Hubert à Notre-Dame de Paris après l'incendie, avec le Débuché de Paris pour l'assurer. Et c'est elle qui a commandé à Sylvain Oudot, ancien directeur musical du groupe, les pièces créées à Notre-Dame et à la basilique de Saint-Hubert en Belgique.</p>
@@ -952,7 +964,7 @@ footer a{color:var(--encre-douce)}
 
     <p>Le nom vient du premier lieu de répétition, l'église historique de Beaussiet, sur la commune de Mazerolles. L'école se retrouve aujourd'hui à la salle des fêtes d'Artassenx, mise à disposition par la commune, tous les mardis de 20 h à 22 h.</p>
 
-    <p>Tous les quatre ou cinq ans, l'école monte un grand rendez-vous, et le public landais répond&nbsp;: quatre concerts et un concours international depuis 2009, jamais moins de 450 personnes. Depuis la création, trente-neuf élèves ont mis les lèvres sur cet instrument difficile, et une douzaine de passionnés sonnent toujours ensemble. Pendant des années, l'école a sonné chaque assemblée générale des chasseurs des Landes&nbsp;; le rituel s'est arrêté depuis quelque temps. Son président est délégué départemental de la Fédération Internationale des Trompes de France.</p>
+    <p>Tous les quatre ou cinq ans, l'école monte un grand rendez-vous, et le public landais répond&nbsp;: quatre concerts et un concours international depuis 2009, jamais moins de 450 personnes. Depuis la création, trente-neuf élèves ont mis les lèvres sur cet instrument difficile, et une douzaine de passionnés sonnent toujours ensemble. Pendant des années, l'école a sonné chaque assemblée générale des chasseurs des Landes&nbsp;; le rituel s'est arrêté depuis quelque temps. Son président est délégué départemental de la <a href="https://fitf.org/la-trompe/" target="_blank" rel="noopener">Fédération Internationale des Trompes de France</a>.</p>
 
     <h3>Ce que l'école a déjà organisé</h3>
     <div class="dates">
@@ -1153,7 +1165,7 @@ document.addEventListener('click', function (e) {
 
   // Horaire
   if (INFOS.heure) {
-    texte('i-heure-hero', ' · ' + INFOS.heure.toUpperCase());
+    texte('i-heure-hero', INFOS.heure.toUpperCase());
     var h = 'Samedi 5 juin 2027, ' + INFOS.heure + '.';
     if (INFOS.ouverturePortes) h += ' Ouverture des portes à ' + INFOS.ouverturePortes + '.';
     texte('i-horaire', h);
@@ -1188,7 +1200,6 @@ document.addEventListener('click', function (e) {
       b.style.opacity = '.6';
       b.style.cursor = 'default';
     });
-    texte('i-note', 'Les réservations ne sont pas encore ouvertes. Revenez bientôt.');
   }
 
   // Programme
