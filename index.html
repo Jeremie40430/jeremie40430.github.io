@@ -36,24 +36,38 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;600;700&display=swap">
 
 <style>
-/* Palette reprise des couleurs du Débuché de Paris : le rouge et le bleu
-   de leurs tenues, l'or des trompes et du logo, sur un bleu de nuit. */
+/* =========================================================================
+   Palette du concert. Le rouge et le bleu des tenues du Débuché de Paris,
+   l'or des trompes, posés sur un papier chaud. La page alterne des bandes
+   claires et des bandes bleu nuit : c'est ce contraste qui donne le rythme.
+   ========================================================================= */
 :root{
-  --night:#0B1524;
-  --surface:#122134;
-  --raised:#1A2C44;
-  --parchment:#EFEDE6;
-  --muted:#98A6BA;
-  --faint:#6B7B92;
-  --red:#CE2434;
-  --red-bright:#E85763;
-  --brass:#E3B34A;
-  --brass-bright:#F2CF87;
-  --line:#23364E;
+  --papier:#F8F5ED;
+  --papier-creux:#EFEADC;
+  --blanc:#FFFFFF;
+  --encre:#141F2E;
+  --encre-douce:#4B5B6E;
+  --encre-pale:#8493A3;
+  --trait:#DED6C4;
+  --trait-fort:#C3B9A3;
+
+  --nuit:#0D1B2C;
+  --nuit-claire:#17283D;
+  --sur-nuit:#F3F0E6;
+  --sur-nuit-douce:#A9B8CA;
+  --sur-nuit-pale:#75879B;
+  --trait-nuit:#2A3D55;
+
+  --rouge:#C4102C;
+  --rouge-vif:#E02438;
+  --or:#8A6414;   /* bronze foncé : lisible sur le papier, contraste 4,9 */
+  --or-clair:#E3B34A;
+
   --max:64rem;
+  color-scheme:light;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -61,107 +75,107 @@ html{scroll-behavior:smooth}
 
 body{
   margin:0;
-  background:var(--night);
-  color:var(--parchment);
+  background:var(--papier);
+  color:var(--encre);
   font-family:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   font-size:17px;line-height:1.65;
   -webkit-font-smoothing:antialiased;
 }
 img{max-width:100%;display:block}
 [hidden]{display:none!important}
-a{color:var(--brass-bright)}
-:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+a{color:var(--rouge)}
+:focus-visible{outline:2px solid var(--rouge);outline-offset:3px}
 
 .shell{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
 .eyebrow{
   font-family:"IBM Plex Mono",ui-monospace,monospace;
   font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--brass);margin:0;
+  color:var(--rouge);margin:0;
 }
 
-/* ---------------- bouton ---------------- */
+/* ---------------- boutons ---------------- */
 .cta{
-  display:inline-block;padding:.85rem 1.9rem;
-  background:var(--red);color:var(--parchment);text-decoration:none;
-  font-family:"IBM Plex Mono",monospace;font-size:.82rem;
-  letter-spacing:.12em;text-transform:uppercase;font-weight:500;
-  border-radius:2px;transition:background .15s ease;
+  display:inline-block;padding:1rem 2.2rem;
+  background:var(--rouge);color:#FFFFFF;text-decoration:none;
+  font-family:"IBM Plex Mono",monospace;font-size:.84rem;
+  letter-spacing:.14em;text-transform:uppercase;font-weight:500;
+  border-radius:2px;transition:background .15s ease, transform .15s ease;
+  box-shadow:0 6px 18px rgba(196,16,44,.24);
 }
-.cta:hover{background:var(--red-bright)}
-.cta.ghost{background:transparent;color:var(--brass);box-shadow:inset 0 0 0 1px var(--brass)}
-.cta.ghost:hover{background:rgba(227,179,74,.12)}
+.cta:hover{background:var(--rouge-vif);transform:translateY(-1px)}
+.cta.ghost{
+  background:transparent;color:var(--sur-nuit);
+  box-shadow:inset 0 0 0 1px var(--or-clair);
+}
+.cta.ghost:hover{background:rgba(227,179,74,.14);transform:none}
 
 /* ---------------- barre du haut ---------------- */
 .tabs{
   position:sticky;top:0;z-index:30;
-  background:rgba(11,21,36,.94);
+  background:rgba(248,245,237,.94);
   backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line);
+  border-bottom:1px solid var(--trait);
 }
 .tabs-inner{
   max-width:var(--max);margin:0 auto;padding:0 1.2rem;
-  display:flex;align-items:center;gap:1rem;height:3.4rem;
+  display:flex;align-items:center;gap:1rem;height:3.6rem;
 }
-.tabs .cta{padding:.45rem 1.05rem;font-size:.7rem;flex:0 0 auto}
-
-/* le nom de la section en cours, au milieu de la barre */
+.tabs .cta{
+  padding:.55rem 1.2rem;font-size:.7rem;flex:0 0 auto;box-shadow:none;
+}
 .tabs-ou{
   flex:1;margin:0;text-align:center;min-width:0;
   font-family:"IBM Plex Mono",monospace;font-size:.68rem;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+  letter-spacing:.14em;text-transform:uppercase;color:var(--encre-douce);
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
-
-/* le bouton menu */
 .burger{
   display:flex;align-items:center;gap:.55rem;flex:0 0 auto;
   background:transparent;border:0;padding:.4rem .2rem;cursor:pointer;
-  color:var(--parchment);
+  color:var(--encre);
 }
 .burger-traits{display:flex;flex-direction:column;gap:3px;width:1.05rem}
-.burger-traits i{display:block;height:1.5px;background:currentColor;border-radius:1px}
+.burger-traits i{display:block;height:2px;background:currentColor;border-radius:1px}
 .burger-mot{
   font-family:"IBM Plex Mono",monospace;font-size:.68rem;
-  letter-spacing:.14em;text-transform:uppercase;
+  letter-spacing:.14em;text-transform:uppercase;font-weight:600;
 }
 @media (max-width:26rem){.burger-mot{display:none}}
 
-/* ---------------- menu déroulant ---------------- */
+/* ---------------- menu ---------------- */
 .menu-fond{
   position:fixed;inset:0;z-index:38;
-  background:rgba(4,9,16,.6);backdrop-filter:blur(2px);
+  background:rgba(13,27,44,.55);backdrop-filter:blur(2px);
 }
 .menu{
   position:fixed;top:0;left:0;bottom:0;z-index:40;
   width:min(21rem,86vw);overflow-y:auto;
-  background:var(--surface);border-right:1px solid var(--line);
+  background:var(--blanc);border-right:1px solid var(--trait);
   padding:1.2rem 1.4rem 2.5rem;
+  box-shadow:0 0 40px rgba(13,27,44,.18);
 }
 .menu-tete{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.4rem}
 .fermer{
-  background:transparent;border:0;color:var(--muted);
-  font-size:1.7rem;line-height:1;cursor:pointer;padding:0 .2rem;
+  background:transparent;border:0;color:var(--encre-pale);
+  font-size:1.8rem;line-height:1;cursor:pointer;padding:0 .2rem;
 }
-.fermer:hover{color:var(--parchment)}
+.fermer:hover{color:var(--encre)}
 .menu-groupe{margin-bottom:1.5rem}
 .menu-titre{
-  font-family:"EB Garamond",Georgia,serif;font-size:1.25rem;
-  color:var(--brass);margin:0 0 .5rem;
-  padding-bottom:.35rem;border-bottom:1px solid var(--line);
+  font-family:"EB Garamond",Georgia,serif;font-size:1.35rem;font-weight:600;
+  color:var(--encre);margin:0 0 .5rem;
+  padding-bottom:.35rem;border-bottom:2px solid var(--rouge);
 }
 .menu-groupe a{
   display:block;padding:.42rem 0 .42rem .9rem;
-  color:var(--muted);text-decoration:none;font-size:.94rem;
-  border-left:2px solid transparent;
+  color:var(--encre-douce);text-decoration:none;font-size:.95rem;
+  border-left:2px solid var(--trait);
 }
-.menu-groupe a:hover{color:var(--parchment)}
-.menu-groupe a.active{color:var(--parchment);border-left-color:var(--brass)}
+.menu-groupe a:hover{color:var(--encre);border-left-color:var(--trait-fort)}
+.menu-groupe a.active{color:var(--rouge);font-weight:600;border-left-color:var(--rouge)}
 .menu-cta{display:block;text-align:center;margin-top:.5rem}
 
-/* ---------------- repère vertical ----------------
-   Toujours visible. Sur écran étroit il se réduit à une colonne de
-   pastilles, calée dans la marge, pour ne jamais recouvrir le texte.
-   Dès qu'il y a de la place, les intitulés apparaissent.            */
+/* ---------------- repère vertical ---------------- */
 .rail{
   position:fixed;z-index:15;
   right:.55rem;top:50%;transform:translateY(-50%);
@@ -169,279 +183,314 @@ a{color:var(--brass-bright)}
 }
 .rail a{
   display:flex;align-items:center;justify-content:flex-end;gap:.6rem;
-  min-height:1.75rem;padding:0 .35rem;text-decoration:none;
+  min-height:1.85rem;padding:0 .35rem;text-decoration:none;
   font-family:"IBM Plex Mono",monospace;font-size:.68rem;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+  letter-spacing:.1em;text-transform:uppercase;color:var(--encre-pale);
   transition:color .15s ease;
 }
 .rail a .point{
-  width:.4rem;height:.4rem;border-radius:50%;
-  background:var(--line);flex:0 0 auto;
+  width:.45rem;height:.45rem;border-radius:50%;
+  background:var(--trait-fort);flex:0 0 auto;
   transition:background .15s ease, box-shadow .15s ease;
 }
-.rail a:hover{color:var(--muted)}
-.rail a:hover .point{background:var(--muted)}
-.rail a.active{color:var(--parchment)}
-.rail a.active .point{background:var(--brass);box-shadow:0 0 0 3px rgba(227,179,74,.2)}
-
-/* Écrans étroits : pastilles seules, l'intitulé reste lisible par les
-   lecteurs d'écran grâce au title sur le lien. */
+.rail a:hover{color:var(--encre-douce)}
+.rail a:hover .point{background:var(--encre-pale)}
+.rail a.active{color:var(--rouge);font-weight:600}
+.rail a.active .point{background:var(--rouge);box-shadow:0 0 0 4px rgba(196,16,44,.16)}
 .rail .mot{
   position:absolute;width:1px;height:1px;overflow:hidden;
   clip:rect(0 0 0 0);white-space:nowrap;
 }
 @media (min-width:80rem){
-  .rail{right:1.8rem;padding-left:.9rem;border-left:1px solid var(--line)}
+  .rail{right:1.8rem;padding-left:.9rem;border-left:1px solid var(--trait)}
   .rail a{justify-content:flex-start;padding:.45rem 0;min-height:0}
   .rail .mot{position:static;width:auto;height:auto;overflow:visible;clip:auto}
 }
 
-section{scroll-margin-top:4rem}
-
-/* ---------------- hero ---------------- */
+/* ---------------- bandeau d'ouverture ---------------- */
 .hero{
-  border-bottom:1px solid var(--line);
-  padding:3.5rem 0 3rem;
+  border-bottom:none;
+  padding:4.5rem 0 3.6rem;
   background:
-    radial-gradient(120% 90% at 50% -10%, rgba(206,36,52,.20), transparent 62%),
-    var(--night);
+    radial-gradient(100% 80% at 50% 0%, rgba(196,16,44,.34), transparent 60%),
+    linear-gradient(180deg, var(--nuit-claire), var(--nuit));
+  color:var(--sur-nuit);
   text-align:center;
 }
 .centenaire{
   display:inline-flex;align-items:center;gap:.9rem;
-  font-family:"IBM Plex Mono",monospace;font-size:.78rem;
-  letter-spacing:.24em;color:var(--brass);margin-bottom:1.6rem;
+  font-family:"IBM Plex Mono",monospace;font-size:.82rem;
+  letter-spacing:.3em;color:var(--or-clair);margin-bottom:1.8rem;
 }
 .centenaire::before,.centenaire::after{
-  content:"";width:2.5rem;height:1px;background:var(--brass);opacity:.55;
+  content:"";width:2.8rem;height:1px;background:var(--or-clair);opacity:.6;
 }
 .hero h1{
   font-family:"EB Garamond",Georgia,serif;
-  font-weight:400;font-size:clamp(2.6rem,8.5vw,5.4rem);
-  line-height:1.02;letter-spacing:-.015em;margin:0;text-wrap:balance;
+  font-weight:600;font-size:clamp(2.9rem,9.5vw,6rem);
+  line-height:.98;letter-spacing:-.02em;margin:0;text-wrap:balance;
+  color:#FFFFFF;
 }
 .hero .kicker{
   font-family:"EB Garamond",Georgia,serif;font-style:italic;
-  font-size:clamp(1.1rem,3vw,1.5rem);color:var(--muted);
-  margin:.9rem auto 0;max-width:34ch;line-height:1.4;
+  font-size:clamp(1.15rem,3.2vw,1.6rem);color:var(--or-clair);
+  margin:1rem auto 0;max-width:34ch;line-height:1.35;
 }
 .hero-when{
-  font-family:"IBM Plex Mono",monospace;font-size:.9rem;
-  letter-spacing:.1em;color:var(--parchment);margin:2.2rem 0 .4rem;
+  font-family:"IBM Plex Mono",monospace;font-size:1rem;font-weight:500;
+  letter-spacing:.14em;color:#FFFFFF;margin:2.4rem 0 .5rem;
 }
-.hero-where{color:var(--muted);font-size:.94rem;margin:0 0 2rem}
-.hero-actions{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+.hero-where{color:var(--sur-nuit-douce);font-size:1rem;margin:0 0 2.2rem}
+.hero-actions{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
 .hero-note{
   font-family:"IBM Plex Mono",monospace;font-size:.72rem;
-  letter-spacing:.09em;color:var(--faint);margin:1.4rem 0 0;
+  letter-spacing:.12em;color:var(--sur-nuit-pale);margin:1.6rem 0 0;
 }
 
-/* ---------------- bandeau chiffres ---------------- */
+/* ---------------- bandeau des chiffres ---------------- */
 .strip{
   display:grid;grid-template-columns:repeat(4,1fr);
-  gap:1px;background:var(--line);border-bottom:1px solid var(--line);
+  gap:1px;background:var(--trait-nuit);
+  border-bottom:3px solid var(--rouge);
 }
 .strip div{
-  background:var(--night);padding:1.5rem 1rem 1.6rem;text-align:center;
+  background:var(--nuit);padding:1.7rem 1rem 1.8rem;text-align:center;
   display:flex;flex-direction:column;justify-content:flex-start;
 }
 .strip dt{
   font-family:"IBM Plex Mono",monospace;font-size:.62rem;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin:0 0 .55rem;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--sur-nuit-pale);margin:0 0 .6rem;
 }
 .strip dd{
-  margin:0;font-family:"EB Garamond",Georgia,serif;
-  font-size:2rem;line-height:1;color:var(--brass);
+  margin:0;font-family:"EB Garamond",Georgia,serif;font-weight:600;
+  font-size:2.4rem;line-height:1;color:var(--or-clair);
   font-variant-numeric:tabular-nums;
 }
 .strip dd.sous{
-  font-family:"Public Sans",sans-serif;font-size:.76rem;line-height:1.3;
-  color:var(--faint);margin-top:.5rem;
+  font-family:"Public Sans",sans-serif;font-size:.76rem;font-weight:400;
+  line-height:1.3;color:var(--sur-nuit-pale);margin-top:.55rem;
 }
-/* Deux colonnes sur mobile : jamais de vignette orpheline en bout de ligne. */
 @media (max-width:46rem){
   .strip{grid-template-columns:repeat(2,1fr)}
-  .strip div{padding:1.2rem .8rem 1.3rem}
-  .strip dd{font-size:1.7rem}
+  .strip div{padding:1.3rem .8rem 1.4rem}
+  .strip dd{font-size:2rem}
 }
 
 /* ---------------- sections ---------------- */
-section{padding:3.6rem 0;border-bottom:1px solid var(--line)}
+section{padding:4.2rem 0;border-bottom:1px solid var(--trait)}
 .narrow{max-width:38rem}
 h2{
-  font-family:"EB Garamond",Georgia,serif;font-weight:400;
-  font-size:clamp(1.8rem,4.5vw,2.5rem);line-height:1.15;
-  margin:.7rem 0 1.2rem;text-wrap:balance;
+  font-family:"EB Garamond",Georgia,serif;font-weight:600;
+  font-size:clamp(2rem,5.2vw,3rem);line-height:1.08;
+  margin:.6rem 0 1.3rem;text-wrap:balance;letter-spacing:-.01em;
 }
 h3{
-  font-family:"Public Sans",sans-serif;font-size:.95rem;font-weight:600;
-  margin:2rem 0 .5rem;
+  font-family:"Public Sans",sans-serif;font-size:.82rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--or);
+  margin:2.4rem 0 .6rem;
 }
-p{margin:0 0 1.1rem;max-width:60ch}
+p{margin:0 0 1.15rem;max-width:60ch}
 .big{
-  font-family:"EB Garamond",Georgia,serif;font-size:1.28rem;
-  line-height:1.55;color:var(--parchment);
+  font-family:"EB Garamond",Georgia,serif;font-size:1.42rem;
+  line-height:1.45;color:var(--encre);
 }
-.muted{color:var(--muted)}
-
-/* ---------------- reperes historiques ---------------- */
-.dates{
-  display:flex;flex-direction:column;gap:1px;
-  background:var(--line);border:1px solid var(--line);
-  margin:1.8rem 0 1.6rem;
-}
-.dates div{
-  background:var(--night);padding:.85rem 1rem;
-  display:grid;grid-template-columns:5.2rem 1fr;gap:1rem;align-items:baseline;
-}
-.dates .an{
-  font-family:"IBM Plex Mono",monospace;font-size:.82rem;
-  letter-spacing:.08em;color:var(--brass);font-variant-numeric:tabular-nums;
-}
-.dates span:last-child{font-size:.94rem;color:var(--muted);line-height:1.5}
-@media (max-width:30rem){.dates div{grid-template-columns:1fr;gap:.15rem}}
-
+.muted{color:var(--encre-douce)}
+.lead-p{color:var(--encre-douce);max-width:60ch}
 .signature{
   font-family:"EB Garamond",Georgia,serif;font-style:italic;
-  font-size:1.25rem;line-height:1.4;color:var(--brass-bright);
-  margin:1.6rem 0 0;
+  font-size:1.4rem;line-height:1.35;color:var(--rouge);
+  margin:1.8rem 0 0;
 }
+sup{font-size:.7em}
+
+/* Bandes inversées : c'est là que la page respire et frappe. */
+.inverse{
+  background:linear-gradient(180deg, var(--nuit-claire), var(--nuit));
+  color:var(--sur-nuit);border-bottom:3px solid var(--rouge);
+}
+.inverse h2{color:#FFFFFF}
+.inverse h3{color:var(--or-clair)}
+.inverse .eyebrow{color:var(--or-clair)}
+.inverse .big{color:var(--sur-nuit)}
+.inverse p{color:var(--sur-nuit-douce)}
+.inverse .signature{color:var(--or-clair)}
+.inverse a{color:var(--or-clair)}
+.inverse b{color:#FFFFFF}
+
+/* ---------------- repères datés ---------------- */
+.dates{
+  display:flex;flex-direction:column;
+  margin:2rem 0 1.8rem;border-top:2px solid var(--encre);
+}
+.dates div{
+  padding:1rem .2rem;border-bottom:1px solid var(--trait);
+  display:grid;grid-template-columns:6rem 1fr;gap:1.2rem;align-items:baseline;
+}
+.dates .an{
+  font-family:"EB Garamond",Georgia,serif;font-weight:600;font-size:1.4rem;
+  color:var(--rouge);font-variant-numeric:tabular-nums;line-height:1;
+}
+.dates span:last-child{font-size:.98rem;color:var(--encre-douce);line-height:1.5}
+@media (max-width:30rem){.dates div{grid-template-columns:1fr;gap:.2rem}}
+
+/* ---------------- litanie ---------------- */
 .litanie{
-  list-style:none;margin:1.8rem 0;padding:0 0 0 1.2rem;
-  border-left:2px solid var(--brass);
+  list-style:none;margin:2rem 0;padding:0 0 0 1.4rem;
+  border-left:4px solid var(--rouge);
 }
 .litanie li{
-  font-family:"EB Garamond",Georgia,serif;
-  font-size:1.35rem;line-height:1.35;color:var(--parchment);
-  margin-bottom:.35rem;
+  font-family:"EB Garamond",Georgia,serif;font-weight:600;
+  font-size:clamp(1.4rem,3.6vw,1.9rem);line-height:1.25;
+  margin-bottom:.5rem;color:#FFFFFF;
 }
-.litanie li:last-child{margin-bottom:0;color:var(--brass-bright)}
+.litanie li:last-child{margin-bottom:0;color:var(--or-clair)}
 
+/* ---------------- encadré des places ---------------- */
 .rare{
-  border-left:3px solid var(--red);background:var(--surface);
-  padding:.95rem 1.15rem;margin:1.5rem 0;max-width:62ch;
+  background:var(--rouge);color:#FFFFFF;
+  padding:1.3rem 1.5rem;margin:2rem 0;max-width:none;
+  border-radius:2px;font-size:1.05rem;
+  box-shadow:0 8px 24px rgba(196,16,44,.2);
 }
-.rare b{color:var(--parchment)}
-
-/* ---------------- encart UNESCO ---------------- */
-.unesco{
-  border:1px solid var(--line);border-radius:2px;
-  background:var(--surface);padding:1.2rem 1.3rem;margin-top:2rem;
-}
-.unesco p{margin:0 0 .8rem;max-width:60ch}
-.unesco .eyebrow{margin-bottom:.6rem}
-.unesco b{color:var(--parchment)}
-.liens{display:flex;flex-wrap:wrap;gap:1.4rem;margin:0!important;
-  font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.05em}
-
-/* ---------------- contact de l'école ---------------- */
-.contact{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));
-  gap:1px;background:var(--line);border:1px solid var(--line);margin:1.4rem 0 0;
-}
-.contact > div{background:var(--night);padding:.9rem 1.1rem}
-.contact dt{
-  font-family:"IBM Plex Mono",monospace;font-size:.66rem;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:.35rem;
-}
-.contact dd{margin:0;font-size:.95rem;line-height:1.5}
-.contact dd a{display:block}
-
-/* ---------------- plan ---------------- */
-.plan{margin-top:2rem}
-.plan iframe{
-  width:100%;height:22rem;border:1px solid var(--line);border-radius:2px;display:block;
-}
-.plan-note{font-size:.84rem;color:var(--faint);margin:.8rem 0 0;max-width:58ch}
-
-/* ---------------- séjour ---------------- */
-.lead-p{color:var(--muted);max-width:60ch}
-.liste-lieux{list-style:none;margin:0;padding:0}
-.liste-lieux li{
-  display:grid;grid-template-columns:1fr auto;gap:1rem;
-  padding:.7rem 0;border-top:1px solid var(--line);align-items:baseline;
-}
-.liste-lieux li:last-child{border-bottom:1px solid var(--line)}
-.liste-lieux .detail{
-  font-family:"IBM Plex Mono",monospace;font-size:.76rem;color:var(--brass);white-space:nowrap;
-}
-.groupe-trajet{margin-bottom:1.8rem}
-.groupe-trajet h4{
-  font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--brass);margin:0 0 .3rem;font-weight:400;
-}
-
-/* ---------------- programme et partenaires ---------------- */
-.setlist{list-style:none;margin:1.4rem 0 0;padding:0;counter-reset:morceau}
-.setlist li{
-  display:grid;grid-template-columns:2.2rem 1fr;gap:.6rem;
-  padding:.7rem 0;border-top:1px solid var(--line);align-items:baseline;
-}
-.setlist li:last-child{border-bottom:1px solid var(--line)}
-.setlist li::before{
-  counter-increment:morceau;content:counter(morceau,decimal-leading-zero);
-  font-family:"IBM Plex Mono",monospace;font-size:.74rem;color:var(--brass);
-}
-.partners{
-  list-style:none;margin:1.4rem 0 0;padding:0;
-  display:flex;flex-wrap:wrap;gap:.6rem;
-}
-.partners li{
-  border:1px solid var(--line);border-radius:2px;
-  padding:.4rem .8rem;font-size:.9rem;color:var(--muted);
-}
+.rare b{color:#FFFFFF;display:block;font-size:1.25rem;margin-bottom:.3rem;
+  font-family:"EB Garamond",Georgia,serif;font-weight:600}
 
 /* ---------------- images ---------------- */
-.photo{margin:0;border-bottom:1px solid var(--line)}
+.photo{margin:0;border-bottom:3px solid var(--rouge)}
 .photo img{width:100%;height:auto}
 .photo figcaption{
   font-family:"IBM Plex Mono",monospace;font-size:.68rem;
-  letter-spacing:.1em;color:var(--faint);
-  padding:.7rem 1.5rem;max-width:var(--max);margin:0 auto;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--encre-pale);
+  padding:.8rem 1.5rem;max-width:var(--max);margin:0 auto;
 }
 .logo{
-  width:6.5rem;height:auto;border-radius:50%;
-  background:#FFFFFF;padding:.35rem;margin-bottom:1.4rem;
+  width:7rem;height:auto;border-radius:50%;
+  background:#FFFFFF;padding:.4rem;margin-bottom:1.6rem;
+  box-shadow:0 4px 16px rgba(20,31,46,.12);
 }
+
+/* ---------------- liens en bas de bloc ---------------- */
+.liens{
+  display:flex;flex-wrap:wrap;gap:1.6rem;margin:1.6rem 0 0!important;
+  font-family:"IBM Plex Mono",monospace;font-size:.74rem;
+  letter-spacing:.06em;text-transform:uppercase;
+}
+.liens a{font-weight:600}
+
+/* ---------------- contacts et coordonnées ---------------- */
+.contact{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));
+  gap:1px;background:var(--trait);border:1px solid var(--trait);
+  margin:1.8rem 0 0;
+}
+.contact > div{background:var(--blanc);padding:1.1rem 1.2rem}
+.contact dt{
+  font-family:"IBM Plex Mono",monospace;font-size:.64rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--rouge);margin-bottom:.45rem;
+}
+.contact dd{margin:0;font-size:.96rem;line-height:1.55;color:var(--encre)}
+.contact dd a{display:block}
+.inverse .contact{background:var(--trait-nuit);border-color:var(--trait-nuit)}
+.inverse .contact > div{background:var(--nuit-claire)}
+.inverse .contact dt{color:var(--or-clair)}
+.inverse .contact dd{color:var(--sur-nuit)}
 
 /* ---------------- infos pratiques ---------------- */
 .infos{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));
-  gap:1.6rem 2.2rem;margin-top:1.6rem;
+  gap:1.8rem 2.4rem;margin-top:2rem;
 }
-.infos h3{margin:0 0 .3rem}
-.infos p{margin:0;font-size:.95rem;color:var(--muted)}
+.infos h3{margin:0 0 .35rem}
+.infos p{margin:0;font-size:.97rem;color:var(--encre-douce)}
 
-/* ---------------- faq ---------------- */
-details{border-top:1px solid var(--line);padding:.9rem 0}
-details:last-of-type{border-bottom:1px solid var(--line)}
+/* ---------------- plan ---------------- */
+.plan{margin-top:2.2rem}
+.plan .cta.ghost{color:var(--rouge);box-shadow:inset 0 0 0 1px var(--rouge)}
+.plan .cta.ghost:hover{background:rgba(196,16,44,.08)}
+.plan iframe{
+  width:100%;height:22rem;border:1px solid var(--trait);border-radius:2px;display:block;
+}
+.plan-note{font-size:.85rem;color:var(--encre-pale);margin:.9rem 0 0;max-width:58ch}
+
+/* ---------------- séjour ---------------- */
+.liste-lieux{list-style:none;margin:0;padding:0}
+.liste-lieux li{
+  display:grid;grid-template-columns:1fr auto;gap:1rem;
+  padding:.8rem 0;border-bottom:1px solid var(--trait);align-items:baseline;
+}
+.liste-lieux li:first-child{border-top:2px solid var(--encre)}
+.liste-lieux .detail{
+  font-family:"IBM Plex Mono",monospace;font-size:.76rem;color:var(--rouge);white-space:nowrap;
+}
+.groupe-trajet{margin-bottom:2rem}
+.groupe-trajet h4{
+  font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--or);margin:0 0 .4rem;font-weight:400;
+}
+
+/* ---------------- programme et partenaires ---------------- */
+.setlist{list-style:none;margin:1.6rem 0 0;padding:0;counter-reset:morceau}
+.setlist li{
+  display:grid;grid-template-columns:2.6rem 1fr;gap:.7rem;
+  padding:.8rem 0;border-bottom:1px solid var(--trait);align-items:baseline;
+}
+.setlist li:first-child{border-top:2px solid var(--encre)}
+.setlist li::before{
+  counter-increment:morceau;content:counter(morceau,decimal-leading-zero);
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--rouge);font-weight:500;
+}
+.partners{list-style:none;margin:1.6rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.7rem}
+.partners li{
+  border:1px solid var(--trait-fort);border-radius:2px;background:var(--blanc);
+  padding:.5rem .9rem;font-size:.92rem;color:var(--encre-douce);
+}
+
+/* ---------------- questions ---------------- */
+details{border-bottom:1px solid var(--trait);padding:1rem 0}
+details:first-of-type{border-top:2px solid var(--encre)}
 summary{
-  cursor:pointer;font-weight:600;font-size:.98rem;
+  cursor:pointer;font-weight:700;font-size:1.02rem;color:var(--encre);
   list-style:none;display:flex;justify-content:space-between;gap:1rem;align-items:baseline;
 }
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";color:var(--brass);font-family:"IBM Plex Mono",monospace}
+summary::after{content:"+";color:var(--rouge);font-family:"IBM Plex Mono",monospace;font-size:1.2rem}
+details[open] summary{color:var(--rouge)}
 details[open] summary::after{content:"–"}
-details p{margin:.7rem 0 .1rem;color:var(--muted);font-size:.95rem}
+details p{margin:.8rem 0 .1rem;color:var(--encre-douce);font-size:.97rem}
 
-/* ---------------- placeholders a completer ---------------- */
+/* ---------------- à compléter ---------------- */
 .todo{
-  border:1px dashed var(--brass);border-radius:2px;
-  padding:1rem 1.1rem;margin:1.2rem 0;background:rgba(227,179,74,.06);
+  border:1px dashed var(--trait-fort);border-radius:2px;
+  padding:1rem 1.2rem;margin:1.6rem 0 0;background:var(--papier-creux);
 }
 .todo::before{
   content:"À compléter";display:block;
-  font-family:"IBM Plex Mono",monospace;font-size:.66rem;
-  letter-spacing:.16em;text-transform:uppercase;color:var(--brass);margin-bottom:.4rem;
+  font-family:"IBM Plex Mono",monospace;font-size:.64rem;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--or);margin-bottom:.45rem;
 }
-.todo p{margin:0;font-size:.92rem;color:var(--muted);max-width:62ch}
+.todo p{margin:0;font-size:.92rem;color:var(--encre-douce);max-width:62ch}
+.inverse .todo{background:rgba(255,255,255,.05);border-color:var(--trait-nuit)}
+.inverse .todo p{color:var(--sur-nuit-douce)}
 
-/* ---------------- pied ---------------- */
-.closing{text-align:center;background:var(--surface)}
-.closing h2{margin-top:0}
-footer{padding:2.5rem 0 3.5rem;color:var(--faint);font-size:.85rem}
+/* ---------------- appel final ---------------- */
+.closing{
+  text-align:center;border-bottom:none;
+  background:
+    radial-gradient(90% 90% at 50% 100%, rgba(196,16,44,.3), transparent 62%),
+    linear-gradient(180deg, var(--nuit), var(--nuit-claire));
+  color:var(--sur-nuit);padding:5rem 0;
+}
+.closing h2{margin-top:0;color:#FFFFFF}
+.closing .eyebrow{color:var(--or-clair)}
+.closing p{color:var(--sur-nuit-douce)}
+
+/* ---------------- pied de page ---------------- */
+footer{
+  padding:2.6rem 0 3.6rem;color:var(--encre-pale);font-size:.88rem;
+  background:var(--papier-creux);border-top:1px solid var(--trait);
+}
 footer p{max-width:60ch;margin:0 0 .6rem}
-footer a{color:var(--muted)}
+footer a{color:var(--encre-douce)}
 </style>
 </head>
 <body>
@@ -570,7 +619,7 @@ footer a{color:var(--muted)}
   </div>
 </section>
 
-<section id="centenaire">
+<section id="centenaire" class="inverse">
   <div class="shell narrow">
     <p class="eyebrow">Pourquoi venir</p>
     <h2>Un centenaire à ne pas manquer</h2>
@@ -674,7 +723,7 @@ footer a{color:var(--muted)}
   </div>
 </section>
 
-<section id="unesco">
+<section id="unesco" class="inverse">
   <div class="shell narrow">
     <p class="eyebrow">Patrimoine mondial</p>
     <h2>Reconnue par l'UNESCO</h2>
