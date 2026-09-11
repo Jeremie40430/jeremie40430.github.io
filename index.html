@@ -540,6 +540,13 @@ sup{font-size:.7em}
 }
 .contact dd{margin:0;font-size:.96rem;line-height:1.55;color:var(--encre)}
 .contact dd a{display:block}
+.devoiler{
+  display:block;margin:.1rem 0 .35rem;padding:0;
+  background:transparent;border:0;cursor:pointer;
+  font-family:inherit;font-size:.93rem;color:var(--rouge);
+  text-align:left;border-bottom:1px dashed var(--rouge);
+}
+.devoiler:hover{color:var(--rouge-vif);border-bottom-style:solid}
 .inverse .contact{background:var(--trait-nuit);border-color:var(--trait-nuit)}
 .inverse .contact > div{background:var(--nuit-claire)}
 .inverse .contact dt{color:var(--or-clair)}
@@ -1217,18 +1224,44 @@ document.addEventListener('click', function (e) {
     cacher('i-programme-todo');
   }
 
-  // Contact : mail, téléphones, Facebook
+  // Contact : les coordonnées sont brouillées dans infos.js et ne sont
+  // décodées qu'au moment où le visiteur clique. Rien de lisible ne
+  // traîne donc dans la page pour les robots collecteurs d'adresses.
+  function dechiffre(v) {
+    try {
+      var d = decodeURIComponent(escape(atob(v)));
+      if (/^[\w .+@'-]{4,}$/.test(d)) return d;
+    } catch (e) {}
+    return v;
+  }
+
+  function bouton(libelle, code, prefixe) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'devoiler';
+    b.textContent = libelle;
+    b.addEventListener('click', function () {
+      var valeur = dechiffre(code);
+      var a = document.createElement('a');
+      a.href = prefixe + (prefixe === 'tel:' ? valeur.replace(/[^0-9+]/g, '') : valeur);
+      a.textContent = valeur;
+      b.replaceWith(a);
+    });
+    return b;
+  }
+
   var tels = INFOS.telephones || [];
   if (INFOS.email || tels.length || INFOS.facebook) {
     var c = document.getElementById('i-contact');
-    function lien(href, texte) {
-      var a = document.createElement('a');
-      a.href = href; a.textContent = texte; a.rel = 'noopener';
-      c.appendChild(a);
+    if (INFOS.email) c.appendChild(bouton('Afficher l\'adresse mail', INFOS.email, 'mailto:'));
+    tels.forEach(function (t, i) {
+      c.appendChild(bouton('Afficher le ' + (i === 0 ? 'portable' : 'fixe'), t, 'tel:'));
+    });
+    if (INFOS.facebook) {
+      var fb = document.createElement('a');
+      fb.href = INFOS.facebook; fb.rel = 'noopener'; fb.textContent = 'Notre page Facebook';
+      c.appendChild(fb);
     }
-    if (INFOS.email) lien('mailto:' + INFOS.email, INFOS.email);
-    tels.forEach(function (t) { lien('tel:' + t.replace(/[^0-9+]/g, ''), t); });
-    if (INFOS.facebook) lien(INFOS.facebook, 'Notre page Facebook');
     montrer('bloc-contact');
     cacher('bloc-contact-vide');
   }

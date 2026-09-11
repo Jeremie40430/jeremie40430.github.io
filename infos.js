@@ -63,13 +63,21 @@ var INFOS = {
 
   /* --- NOUS CONTACTER --------------------------------------------------- */
 
-  // L'adresse mail de l'association.
-  // Colle ici la nouvelle adresse dédiée au concert dès qu'elle existe.
-  email: "",
+  // ATTENTION : le mail et les téléphones sont volontairement brouillés.
+  // Ils ne s'affichent qu'après un clic du visiteur, et le fichier ne
+  // contient aucune adresse lisible telle quelle par les robots qui
+  // ratissent le web pour revendre des listes de contacts.
+  //
+  // Tu ne peux donc pas les modifier à la main : demande-moi de te
+  // recalculer ces valeurs, c'est l'affaire de dix secondes.
 
-  // Les numéros de téléphone, un par ligne entre guillemets.
-  // Ne mets ici que des numéros que vous acceptez de rendre publics.
+  // Adresse mail de Francis
+  email: "ZnJhbmNpc2ZhZ2V0NTNAaG90bWFpbC5mcg==",
+
+  // Portable, puis ligne fixe
   telephones: [
+    "MDYgMDQgNTMgNTYgNDY=",
+    "MDUgNTggNDUgNzUgMTA=",
   ],
 
   // Le lien de la page Facebook. Laisse "" s'il n'y en a pas.
