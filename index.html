@@ -301,6 +301,32 @@ a{color:var(--rouge)}
 @keyframes defile{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.ticker-piste{animation:none}}
 
+/* ---------------- photographies ----------------
+   Les images gardent leurs proportions d'origine et respirent hors de la
+   colonne de texte, comme dans un article de revue.                    */
+.fig{margin:2.6rem 0;position:relative}
+.fig img{
+  width:100%;height:auto;display:block;
+  border:1px solid var(--trait);
+  box-shadow:0 14px 34px rgba(20,31,46,.14);
+}
+.fig figcaption{
+  font-size:.85rem;color:var(--encre-pale);line-height:1.5;
+  margin-top:.8rem;padding-left:.9rem;
+  border-left:2px solid var(--rouge);max-width:52ch;
+}
+/* La façade, en portrait, déborde légèrement de la colonne sur grand écran. */
+@media (min-width:56rem){
+  .fig-large{width:calc(100% + 6rem);margin-left:-3rem}
+  .fig-large img{aspect-ratio:4/3;object-fit:cover;object-position:center 32%}
+}
+/* La nef est en basse définition : on la garde petite pour qu'elle reste nette. */
+.fig-nef{max-width:25rem}
+@media (min-width:56rem){
+  .fig-nef{float:right;width:17rem;margin:.4rem 0 1.4rem 2rem}
+  .fig-nef figcaption{font-size:.8rem}
+}
+
 /* ---------------- vidéos ---------------- */
 .video{margin:2.4rem 0 0}
 .video-titre{
@@ -401,6 +427,8 @@ sup{font-size:.7em}
 .inverse .signature{color:var(--or-clair)}
 .inverse a{color:var(--or-clair)}
 .inverse b{color:#FFFFFF}
+
+#eglise .shell::after{content:"";display:block;clear:both}
 
 /* ---------------- repères datés ---------------- */
 .dates{
@@ -737,12 +765,29 @@ footer a{color:var(--encre-douce)}
 
     <p class="big">Un vaisseau de pierre néoclassique au cœur de Mont-de-Marsan, et l'une des plus belles caisses de résonance des Landes.</p>
 
+    <figure class="fig fig-large">
+      <img src="eglise-facade.jpg" alt="La façade de l'église de la Madeleine, son portique à colonnes et ses deux tours, vue depuis la rue Victor-Hugo" width="900" height="1200" loading="lazy">
+      <figcaption>Le portique et les deux tours, rue Victor-Hugo.</figcaption>
+    </figure>
+
     <p>L'édifice actuel remplace une chapelle prieurale élevée dès la fondation de la ville, au XII<sup>e</sup> siècle. Il est construit entre 1823 et 1831 sur les plans d'Augustin Arthaud, l'architecte qui refait alors tout le quartier, et consacré le 1<sup>er</sup> novembre 1829. Pierres de taille, colonnes et fronton triangulaire&nbsp;: c'est du néoclassique assumé, plus proche d'un temple antique que d'une église gothique. Elle est inscrite au titre des monuments historiques depuis 1975.</p>
 
     <h3>Ce qu'on y voit</h3>
+
+    <figure class="fig">
+      <img src="eglise-1900.jpg" alt="Carte postale ancienne montrant l'église de la Madeleine et la rue qui la borde, au début du XXe siècle" width="1100" height="688" loading="lazy">
+      <figcaption>La même église au début du XX<sup>e</sup> siècle, sur une carte postale imprimée à Langon. Presque rien n'a bougé.</figcaption>
+    </figure>
+
     <p>Un maître-autel de marbre de 1775, œuvre des frères Mazzetti, rapporté d'un autre édifice. Un grand orgue venu de l'abbaye Saint-Jean de la Castelle, restauré en 1895. Une fresque consacrée à sainte Madeleine. Et, devant le porche, un bronze d'Antoine Bourdelle daté de 1923.</p>
 
     <h3>Ce qu'on y entend</h3>
+
+    <figure class="fig fig-nef">
+      <img src="eglise-nef.jpg" alt="L'intérieur de l'église, la nef bordée de chaises et le chœur peint sous la coupole" width="450" height="450" loading="lazy">
+      <figcaption>La nef et le chœur peint. C'est ici que sonneront les trompes.</figcaption>
+    </figure>
+
     <p>C'est la raison pour laquelle le concert a lieu ici. La pierre nue et la hauteur de la nef prolongent le son au lieu de l'absorber. Une trompe n'est jamais amplifiée&nbsp;: sa puissance vient du souffle du sonneur, et sa couleur du bâtiment qui l'entoure. Sous ces voûtes, une quinzaine de trompes ne produisent pas un son plus fort, elles produisent un son plus large.</p>
     <p class="muted">L'école y a déjà donné un concert en 2009, devant 550 personnes.</p>
   </div>
