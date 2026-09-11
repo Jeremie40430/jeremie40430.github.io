@@ -540,13 +540,29 @@ sup{font-size:.7em}
 }
 .contact dd{margin:0;font-size:.96rem;line-height:1.55;color:var(--encre)}
 .contact dd a{display:block}
-.devoiler{
-  display:block;margin:.1rem 0 .35rem;padding:0;
-  background:transparent;border:0;cursor:pointer;
-  font-family:inherit;font-size:.93rem;color:var(--rouge);
-  text-align:left;border-bottom:1px dashed var(--rouge);
+.masque{
+  display:grid;grid-template-columns:4.6rem 1fr auto;
+  align-items:center;gap:.6rem;padding:.3rem 0;
+  border-bottom:1px solid var(--trait);
 }
-.devoiler:hover{color:var(--rouge-vif);border-bottom-style:solid}
+.masque:last-child{border-bottom:0}
+.masque-nom{
+  font-family:"IBM Plex Mono",monospace;font-size:.64rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--encre-pale);
+}
+.masque-valeur{
+  font-size:.93rem;letter-spacing:.04em;color:var(--encre-pale);
+  overflow:hidden;text-overflow:ellipsis;
+}
+.masque-valeur a{display:inline;color:var(--rouge);letter-spacing:normal}
+.oeil{
+  display:flex;align-items:center;justify-content:center;
+  width:2rem;height:2rem;padding:0;flex:0 0 auto;
+  background:transparent;border:1px solid var(--trait);border-radius:2px;
+  color:var(--encre-douce);cursor:pointer;
+  transition:color .15s ease, border-color .15s ease;
+}
+.oeil:hover{color:var(--rouge);border-color:var(--rouge)}
 .inverse .contact{background:var(--trait-nuit);border-color:var(--trait-nuit)}
 .inverse .contact > div{background:var(--nuit-claire)}
 .inverse .contact dt{color:var(--or-clair)}
@@ -1225,8 +1241,17 @@ document.addEventListener('click', function (e) {
   }
 
   // Contact : les coordonnées sont brouillées dans infos.js et ne sont
-  // décodées qu'au moment où le visiteur clique. Rien de lisible ne
-  // traîne donc dans la page pour les robots collecteurs d'adresses.
+  // décodées qu'au moment où le visiteur clique sur l'œil. Rien de
+  // lisible ne traîne dans la page pour les robots collecteurs.
+  var OEIL_OUVERT = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" ' +
+    'stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">' +
+    '<path d="M1.8 12S5.2 5.8 12 5.8 22.2 12 22.2 12 18.8 18.2 12 18.2 1.8 12 1.8 12Z"/>' +
+    '<circle cx="12" cy="12" r="3"/></svg>';
+  var OEIL_BARRE = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" ' +
+    'stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">' +
+    '<path d="M1.8 12S5.2 5.8 12 5.8 22.2 12 22.2 12 18.8 18.2 12 18.2 1.8 12 1.8 12Z"/>' +
+    '<circle cx="12" cy="12" r="3"/><path d="M4.2 19.8 19.8 4.2"/></svg>';
+
   function dechiffre(v) {
     try {
       var d = decodeURIComponent(escape(atob(v)));
@@ -1235,27 +1260,60 @@ document.addEventListener('click', function (e) {
     return v;
   }
 
-  function bouton(libelle, code, prefixe) {
-    var b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'devoiler';
-    b.textContent = libelle;
-    b.addEventListener('click', function () {
-      var valeur = dechiffre(code);
-      var a = document.createElement('a');
-      a.href = prefixe + (prefixe === 'tel:' ? valeur.replace(/[^0-9+]/g, '') : valeur);
-      a.textContent = valeur;
-      b.replaceWith(a);
+  function ligneMasquee(etiquette, code, prefixe, masque) {
+    var ligne = document.createElement('div');
+    ligne.className = 'masque';
+
+    var nom = document.createElement('span');
+    nom.className = 'masque-nom';
+    nom.textContent = etiquette;
+
+    var valeur = document.createElement('span');
+    valeur.className = 'masque-valeur';
+    valeur.textContent = masque;
+
+    var oeil = document.createElement('button');
+    oeil.type = 'button';
+    oeil.className = 'oeil';
+    oeil.innerHTML = OEIL_OUVERT;
+    oeil.setAttribute('aria-label', 'Afficher : ' + etiquette.toLowerCase());
+    oeil.setAttribute('aria-pressed', 'false');
+
+    var visible = false;
+    oeil.addEventListener('click', function () {
+      visible = !visible;
+      if (visible) {
+        var v = dechiffre(code);
+        var lien = document.createElement('a');
+        lien.href = prefixe + (prefixe === 'tel:' ? v.replace(/[^0-9+]/g, '') : v);
+        lien.textContent = v;
+        valeur.textContent = '';
+        valeur.appendChild(lien);
+        oeil.innerHTML = OEIL_BARRE;
+        oeil.setAttribute('aria-label', 'Masquer : ' + etiquette.toLowerCase());
+        oeil.setAttribute('aria-pressed', 'true');
+      } else {
+        valeur.textContent = masque;
+        oeil.innerHTML = OEIL_OUVERT;
+        oeil.setAttribute('aria-label', 'Afficher : ' + etiquette.toLowerCase());
+        oeil.setAttribute('aria-pressed', 'false');
+      }
     });
-    return b;
+
+    ligne.appendChild(nom);
+    ligne.appendChild(valeur);
+    ligne.appendChild(oeil);
+    return ligne;
   }
 
   var tels = INFOS.telephones || [];
   if (INFOS.email || tels.length || INFOS.facebook) {
     var c = document.getElementById('i-contact');
-    if (INFOS.email) c.appendChild(bouton('Afficher l\'adresse mail', INFOS.email, 'mailto:'));
+    if (INFOS.email) {
+      c.appendChild(ligneMasquee('Mail', INFOS.email, 'mailto:', '••••••••••@•••••••.••'));
+    }
     tels.forEach(function (t, i) {
-      c.appendChild(bouton('Afficher le ' + (i === 0 ? 'portable' : 'fixe'), t, 'tel:'));
+      c.appendChild(ligneMasquee(i === 0 ? 'Portable' : 'Fixe', t, 'tel:', '•• •• •• •• ••'));
     });
     if (INFOS.facebook) {
       var fb = document.createElement('a');
