@@ -320,6 +320,28 @@ a{color:var(--rouge)}
   .fig-large{width:calc(100% + 6rem);margin-left:-3rem}
   .fig-large img{aspect-ratio:4/3;object-fit:cover;object-position:center 32%}
 }
+/* Deux images côte à côte, même proportion : l'œil compare au lieu d'empiler. */
+.duo{margin:2.6rem 0;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.duo .fig{margin:0}
+.duo-legende{
+  grid-column:1/-1;margin:.2rem 0 0;max-width:52ch;
+  font-size:.85rem;color:var(--encre-pale);line-height:1.5;
+  padding-left:.9rem;border-left:2px solid var(--rouge);
+}
+@media (max-width:30rem){.duo{grid-template-columns:1fr}}
+
+/* Une image qui accompagne le texte sans l'interrompre. */
+.fig-cote{max-width:25rem}
+@media (min-width:56rem){
+  .fig-cote{float:right;width:17rem;margin:.4rem 0 1.4rem 2rem}
+  .fig-cote figcaption{font-size:.8rem}
+}
+#trompe .shell::after{content:"";display:block;clear:both}
+
+/* Sur bande sombre, l'image se détache par un filet d'or. */
+.fig-nuit{max-width:22rem;margin:2.4rem auto 0}
+.fig-nuit img{border-color:var(--or-clair);box-shadow:0 18px 40px rgba(0,0,0,.45)}
+
 /* La nef est en basse définition : on la garde petite pour qu'elle reste nette. */
 .fig-nef{max-width:25rem}
 @media (min-width:56rem){
@@ -696,21 +718,6 @@ footer a{color:var(--encre-douce)}
   <div><dt>Tarifs</dt><dd id="i-strip-tarif">20 €</dd><dd class="sous" id="i-strip-tarif-sous">10 € pour les enfants</dd></div>
 </dl>
 
-<!-- Photo du groupe. Deposer debuche-groupe.jpg dans ce dossier, environ
-     2000 px de large. Si le fichier est absent, le bloc se masque tout seul. -->
-<figure class="photo" id="photo-groupe" hidden>
-  <img src="debuche-groupe.jpg" alt="Les sonneurs du Débuché de Paris en tenue rouge, trompes à l'épaule, devant un château"
-       onload="document.getElementById('photo-groupe').hidden = false">
-  <figcaption>Le Débuché de Paris</figcaption>
-</figure>
-
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-piste">
-    <span>Samedi 5 juin 2027 <i>·</i> Église de la Madeleine <i>·</i> Mont-de-Marsan <i>·</i> 500 places <i>·</i> Centenaire 1927–2027 <i>·</i> </span>
-    <span>Samedi 5 juin 2027 <i>·</i> Église de la Madeleine <i>·</i> Mont-de-Marsan <i>·</i> 500 places <i>·</i> Centenaire 1927–2027 <i>·</i> </span>
-  </div>
-</div>
-
 <main>
 
 <section id="concert">
@@ -729,6 +736,16 @@ footer a{color:var(--encre-douce)}
     <p>Le Débuché de Paris est né en 1927, à l'initiative de Jules Romary, lorsque six sonneurs réputés de leur époque décident de se réunir sous un même nom. En 1936, Gaston Chalmel prend la direction musicale du groupe et participe largement à la construction de son répertoire et de son style.</p>
     <p>Depuis, les générations se succèdent sans que le nom ne disparaisse. Le groupe est aujourd'hui présidé par Romain Renard et dirigé musicalement par Guillaume Caucat.</p>
     <p>Aujourd'hui encore, ses sonneurs viennent de France, de Belgique et des Pays-Bas pour se retrouver et travailler ensemble. Le groupe poursuit ses prestations dans des lieux qui ne sont pas choisis au hasard&nbsp;: Notre-Dame de Paris, le Sacré-Cœur de Montmartre, la chapelle royale de Versailles ou encore la basilique de Saint-Hubert en Belgique ont récemment accueilli ses trompes.</p>
+
+    <div class="duo">
+      <figure class="fig">
+        <img src="debuche-eglise.jpg" alt="Les sonneurs du Débuché de Paris en tenue rouge, en demi-cercle devant le grand orgue d'une église" width="640" height="960" loading="lazy">
+      </figure>
+      <figure class="fig">
+        <img src="debuche-coupole.jpg" alt="Vue en contre-plongée d'une coupole peinte, les sonneurs minuscules au pied du chœur" width="640" height="960" loading="lazy">
+      </figure>
+      <p class="duo-legende">Quinze sonneurs sous une coupole. C'est l'échelle du bâtiment qui fait la couleur du son.</p>
+    </div>
 
     <h3>Et en 2027, ce sera Mont-de-Marsan</h3>
     <p>Pour son centenaire, le Débuché de Paris viendra faire résonner ses trompes à l'église de la Madeleine.</p>
@@ -754,6 +771,10 @@ footer a{color:var(--encre-douce)}
       <li>Un lieu chargé d'acoustique.</li>
       <li>Une seule soirée dans les Landes.</li>
     </ul>
+    <figure class="fig fig-nuit">
+      <img src="debuche-notre-dame-choeur.jpg" alt="Les sonneurs alignés dans le chœur de Notre-Dame de Paris, la nef gothique et les orgues derrière eux" width="640" height="959" loading="lazy">
+    </figure>
+
     <p class="signature">Le Débuché de Paris à Mont-de-Marsan.<br>Un centenaire à ne pas manquer.</p>
   </div>
 </section>
@@ -867,6 +888,11 @@ footer a{color:var(--encre-douce)}
 
     <p class="big">Un tour et demi de cuivre enroulé, aucune clé, aucun piston. Tout se joue aux lèvres et au souffle.</p>
 
+    <figure class="fig fig-cote">
+      <img src="debuche-sonneur.jpg" alt="Gros plan sur un sonneur en habit rouge à parements bleus, la trompe posée sur l'épaule, en train de sonner" width="640" height="853" loading="lazy">
+      <figcaption>Ni clé ni piston&nbsp;: la main tient, les lèvres font le reste.</figcaption>
+    </figure>
+
     <p>On ne dit pas qu'on en joue, on dit qu'on la sonne. Le son est clair et perçant, et la musique repose entièrement sur la résonance naturelle de l'instrument et sur ses harmoniques. C'est ce qui explique qu'un ensemble puisse superposer un chant, une seconde voix et une basse sans qu'aucun sonneur ne change de doigté&nbsp;: il n'y en a pas.</p>
 
     <p>Le répertoire, les fanfares, ne cesse de s'enrichir depuis le XVII<sup>e</sup> siècle. Beaucoup de ces pièces racontent une scène de chasse ou rendent hommage à un animal. La transmission, elle, reste orale et se fait par imitation, au sein d'écoles de trompe où l'on apprend en sonnant avec les autres plutôt que seul devant une partition.</p>
@@ -889,6 +915,11 @@ footer a{color:var(--encre-douce)}
     <p>Plus récente, placée sous l'égide de la Fondation de France, elle défend une idée simple et exigeante&nbsp;: la trompe est un instrument de concert à part entière. Elle exhume des partitions oubliées dans les archives européennes, commande des œuvres à des compositeurs d'aujourd'hui, et soutient l'ouverture de classes de trompe dans les conservatoires.</p>
 
     <p>C'est elle qui a fait renaître la messe de la Saint-Hubert à Notre-Dame de Paris après l'incendie, avec le Débuché de Paris pour l'assurer. Et c'est elle qui a commandé à Sylvain Oudot, ancien directeur musical du groupe, les pièces créées à Notre-Dame et à la basilique de Saint-Hubert en Belgique.</p>
+
+    <figure class="fig">
+      <img src="debuche-notre-dame.jpg" alt="Le Débuché de Paris sonnant dans le chœur de Notre-Dame de Paris, sur le dallage en damier, devant les stalles de bois" width="640" height="427" loading="lazy">
+      <figcaption>Le chœur de Notre-Dame de Paris, le soir de la Saint-Hubert.</figcaption>
+    </figure>
 
     <p>Dans sa propre présentation, la fondation range le Débuché de Paris parmi les formations auxquelles elle fait appel pour ses grands rendez-vous, du Sacré-Cœur à la Sorbonne, des Invalides au château de Versailles. C'est ce groupe-là qui vient à Mont-de-Marsan.</p>
 
