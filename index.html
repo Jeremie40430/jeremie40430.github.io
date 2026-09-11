@@ -90,8 +90,14 @@ a{color:var(--rouge)}
 .eyebrow{
   font-family:"IBM Plex Mono",ui-monospace,monospace;
   font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--rouge);margin:0;
+  color:var(--rouge);margin:0;font-weight:500;
+  display:flex;align-items:center;gap:.7rem;
 }
+.eyebrow::before{
+  content:"";width:2rem;height:3px;background:var(--rouge);flex:0 0 auto;
+}
+.inverse .eyebrow::before,.closing .eyebrow::before{background:var(--or-clair)}
+.hero .centenaire::before{width:2.8rem;height:1px}
 
 /* ---------------- boutons ---------------- */
 .cta{
@@ -227,8 +233,8 @@ a{color:var(--rouge)}
 }
 .hero h1{
   font-family:"EB Garamond",Georgia,serif;
-  font-weight:600;font-size:clamp(2.9rem,9.5vw,6rem);
-  line-height:.98;letter-spacing:-.02em;margin:0;text-wrap:balance;
+  font-weight:600;font-size:clamp(3.1rem,11vw,7rem);
+  line-height:.94;letter-spacing:-.025em;margin:0;text-wrap:balance;
   color:#FFFFFF;
 }
 .hero .kicker{
@@ -237,8 +243,10 @@ a{color:var(--rouge)}
   margin:1rem auto 0;max-width:34ch;line-height:1.35;
 }
 .hero-when{
-  font-family:"IBM Plex Mono",monospace;font-size:1rem;font-weight:500;
-  letter-spacing:.14em;color:#FFFFFF;margin:2.4rem 0 .5rem;
+  display:inline-block;margin:2.6rem 0 .7rem;
+  padding:.6rem 1.4rem;border:1px solid var(--or-clair);
+  font-family:"IBM Plex Mono",monospace;font-size:1.02rem;font-weight:500;
+  letter-spacing:.16em;color:#FFFFFF;
 }
 .hero-where{color:var(--sur-nuit-douce);font-size:1rem;margin:0 0 2.2rem}
 .hero-actions{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
@@ -274,6 +282,67 @@ a{color:var(--rouge)}
   .strip{grid-template-columns:repeat(2,1fr)}
   .strip div{padding:1.3rem .8rem 1.4rem}
   .strip dd{font-size:2rem}
+}
+
+/* ---------------- bandeau défilant ----------------
+   Un ruban rouge qui défile lentement, comme sur une devanture de salle.
+   Il s'arrête pour qui a demandé moins d'animations.                    */
+.ticker{
+  background:var(--rouge);color:#FFFFFF;overflow:hidden;
+  padding:.7rem 0;border-bottom:1px solid rgba(0,0,0,.12);
+}
+.ticker-piste{display:flex;width:max-content;animation:defile 38s linear infinite}
+.ticker span{
+  white-space:nowrap;padding-right:1.5rem;
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;
+  letter-spacing:.22em;text-transform:uppercase;font-weight:500;
+}
+.ticker i{font-style:normal;opacity:.55;padding:0 .5rem}
+@keyframes defile{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker-piste{animation:none}}
+
+/* ---------------- vidéo ---------------- */
+.video{margin:2.2rem 0 0}
+.video iframe{
+  width:100%;aspect-ratio:16/9;border:0;display:block;
+  border:3px solid var(--encre);
+}
+.video-lancer{
+  display:flex;align-items:center;gap:1.2rem;width:100%;
+  aspect-ratio:16/9;padding:1.5rem;cursor:pointer;text-align:left;
+  border:3px solid var(--encre);border-radius:0;
+  background:
+    radial-gradient(70% 100% at 15% 50%, rgba(196,16,44,.45), transparent 70%),
+    linear-gradient(120deg, var(--nuit-claire), var(--nuit));
+  color:#FFFFFF;transition:border-color .15s ease;
+}
+.video-lancer:hover{border-color:var(--rouge)}
+.video-play{
+  flex:0 0 auto;width:3.6rem;height:3.6rem;border-radius:50%;
+  background:var(--rouge);position:relative;
+  box-shadow:0 6px 20px rgba(0,0,0,.35);
+  transition:transform .15s ease;
+}
+.video-lancer:hover .video-play{transform:scale(1.06)}
+.video-play::after{
+  content:"";position:absolute;top:50%;left:56%;transform:translate(-50%,-50%);
+  border-style:solid;border-width:.6rem 0 .6rem 1rem;
+  border-color:transparent transparent transparent #FFFFFF;
+}
+.video-texte{
+  font-family:"Public Sans",sans-serif;font-size:.92rem;line-height:1.45;
+  color:var(--sur-nuit-douce);
+}
+.video-texte b{
+  display:block;font-family:"EB Garamond",Georgia,serif;font-weight:600;
+  font-size:1.5rem;color:#FFFFFF;margin-bottom:.2rem;
+}
+.video figcaption{
+  font-size:.84rem;color:var(--encre-pale);margin-top:.8rem;max-width:58ch;
+}
+@media (max-width:34rem){
+  .video-lancer{flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:.9rem}
+  .video-play{width:3rem;height:3rem}
 }
 
 /* ---------------- sections ---------------- */
@@ -323,13 +392,16 @@ sup{font-size:.7em}
   margin:2rem 0 1.8rem;border-top:2px solid var(--encre);
 }
 .dates div{
-  padding:1rem .2rem;border-bottom:1px solid var(--trait);
-  display:grid;grid-template-columns:6rem 1fr;gap:1.2rem;align-items:baseline;
+  padding:1.15rem .2rem;border-bottom:1px solid var(--trait);
+  display:grid;grid-template-columns:7rem 1fr;gap:1.4rem;align-items:baseline;
 }
 .dates .an{
-  font-family:"EB Garamond",Georgia,serif;font-weight:600;font-size:1.4rem;
-  color:var(--rouge);font-variant-numeric:tabular-nums;line-height:1;
+  font-family:"EB Garamond",Georgia,serif;font-weight:600;font-size:2rem;
+  color:var(--rouge);font-variant-numeric:tabular-nums;line-height:.95;
 }
+.inverse .dates{border-top-color:var(--or-clair)}
+.inverse .dates div{border-bottom-color:var(--trait-nuit)}
+.inverse .dates .an{color:var(--or-clair)}
 .dates span:last-child{font-size:.98rem;color:var(--encre-douce);line-height:1.5}
 @media (max-width:30rem){.dates div{grid-template-columns:1fr;gap:.2rem}}
 
@@ -588,6 +660,13 @@ footer a{color:var(--encre-douce)}
   <figcaption>Le Débuché de Paris</figcaption>
 </figure>
 
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-piste">
+    <span>Samedi 5 juin 2027 <i>·</i> Église de la Madeleine <i>·</i> Mont-de-Marsan <i>·</i> 500 places <i>·</i> Centenaire 1927–2027 <i>·</i> </span>
+    <span>Samedi 5 juin 2027 <i>·</i> Église de la Madeleine <i>·</i> Mont-de-Marsan <i>·</i> 500 places <i>·</i> Centenaire 1927–2027 <i>·</i> </span>
+  </div>
+</div>
+
 <main>
 
 <section id="concert">
@@ -657,11 +736,22 @@ footer a{color:var(--encre-douce)}
   <div class="shell narrow">
     <p class="eyebrow">Le programme</p>
     <h2>Ce que vous entendrez</h2>
-    <p id="i-programme-intro" hidden></p>
-    <ol class="setlist" id="i-programme" hidden></ol>
-    <div class="todo" id="i-programme-todo">
-      <p>Programme détaillé à recevoir du Débuché de Paris&nbsp;: les fanfares annoncées, la durée du concert, la présence ou non d'un entracte, et si un récitant présente les morceaux.</p>
-    </div>
+
+    <p class="big">Il n'y aura pas de programme imprimé annoncé à l'avance. Le Débuché choisira ses fanfares pour l'occasion, et c'est très bien ainsi.</p>
+
+    <p>En attendant, voici à quoi ressemble le groupe sous des voûtes. Cette captation a été filmée à la messe de Saint-Hubert 2024, dans la chapelle royale du château de Versailles.</p>
+
+    <figure class="video">
+      <button type="button" class="video-lancer" id="video-lancer"
+              aria-label="Lire la vidéo du Débuché de Paris à Versailles">
+        <span class="video-play" aria-hidden="true"></span>
+        <span class="video-texte">
+          <b>Le Débuché de Paris</b>
+          Messe de Saint-Hubert 2024 · Chapelle royale de Versailles
+        </span>
+      </button>
+      <figcaption>Vidéo publiée par la Fédération Internationale de Trompes de France. Elle ne se charge qu'à votre demande.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -897,6 +987,21 @@ footer a{color:var(--encre-douce)}
 </section>
 
 </main>
+
+<script>
+// La vidéo YouTube n'est chargée qu'après un clic, sur le domaine sans
+// cookie, pour ne rien déposer sur l'appareil du visiteur sans son accord.
+document.addEventListener('click', function (e) {
+  var bouton = e.target.closest && e.target.closest('#video-lancer');
+  if (!bouton) return;
+  var cadre = document.createElement('iframe');
+  cadre.src = 'https://www.youtube-nocookie.com/embed/RDa5KP3r8Zk?autoplay=1&rel=0';
+  cadre.title = 'Le Débuché de Paris à la chapelle royale de Versailles';
+  cadre.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+  cadre.allowFullscreen = true;
+  bouton.replaceWith(cadre);
+});
+</script>
 
 <script>
 // Le plan Google n'est chargé qu'après un clic : aucun cookie tiers
