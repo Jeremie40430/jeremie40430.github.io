@@ -301,49 +301,65 @@ a{color:var(--rouge)}
 @keyframes defile{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.ticker-piste{animation:none}}
 
-/* ---------------- vidéo ---------------- */
-.video{margin:2.2rem 0 0}
-.video iframe{
-  width:100%;aspect-ratio:16/9;border:0;display:block;
-  border:3px solid var(--encre);
+/* ---------------- vidéos ---------------- */
+.video{margin:2.4rem 0 0}
+.video-titre{
+  font-family:"EB Garamond",Georgia,serif;font-weight:600;
+  font-size:1.6rem;line-height:1.15;color:var(--encre);
+  text-transform:none;letter-spacing:normal;
+  margin:0 0 .15rem;
+}
+.video-sous{
+  font-family:"IBM Plex Mono",monospace;font-size:.72rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--rouge);
+  margin:0 0 1rem;
 }
 .video-lancer{
-  display:flex;align-items:center;gap:1.2rem;width:100%;
-  aspect-ratio:16/9;padding:1.5rem;cursor:pointer;text-align:left;
-  border:3px solid var(--encre);border-radius:0;
-  background:
-    radial-gradient(70% 100% at 15% 50%, rgba(196,16,44,.45), transparent 70%),
-    linear-gradient(120deg, var(--nuit-claire), var(--nuit));
-  color:#FFFFFF;transition:border-color .15s ease;
+  display:block;position:relative;width:100%;padding:0;
+  border:3px solid var(--encre);background:var(--nuit);
+  cursor:pointer;overflow:hidden;line-height:0;
+  transition:border-color .15s ease;
+}
+.video-lancer img{
+  width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;
+  transition:transform .4s ease, filter .2s ease;
+  filter:saturate(.92);
 }
 .video-lancer:hover{border-color:var(--rouge)}
+.video-lancer:hover img{transform:scale(1.03);filter:saturate(1)}
 .video-play{
-  flex:0 0 auto;width:3.6rem;height:3.6rem;border-radius:50%;
-  background:var(--rouge);position:relative;
-  box-shadow:0 6px 20px rgba(0,0,0,.35);
-  transition:transform .15s ease;
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:4.4rem;height:4.4rem;border-radius:50%;
+  background:var(--rouge);
+  box-shadow:0 8px 28px rgba(0,0,0,.45);
+  transition:transform .15s ease, background .15s ease;
 }
-.video-lancer:hover .video-play{transform:scale(1.06)}
+.video-lancer:hover .video-play{transform:translate(-50%,-50%) scale(1.08);background:var(--rouge-vif)}
 .video-play::after{
   content:"";position:absolute;top:50%;left:56%;transform:translate(-50%,-50%);
-  border-style:solid;border-width:.6rem 0 .6rem 1rem;
+  border-style:solid;border-width:.72rem 0 .72rem 1.2rem;
   border-color:transparent transparent transparent #FFFFFF;
 }
-.video-texte{
-  font-family:"Public Sans",sans-serif;font-size:.92rem;line-height:1.45;
-  color:var(--sur-nuit-douce);
-}
-.video-texte b{
-  display:block;font-family:"EB Garamond",Georgia,serif;font-weight:600;
-  font-size:1.5rem;color:#FFFFFF;margin-bottom:.2rem;
+.video iframe{
+  width:100%;aspect-ratio:16/9;display:block;
+  border:3px solid var(--encre);
 }
 .video figcaption{
-  font-size:.84rem;color:var(--encre-pale);margin-top:.8rem;max-width:58ch;
+  font-size:.86rem;color:var(--encre-pale);margin-top:.9rem;max-width:58ch;line-height:1.5;
 }
-@media (max-width:34rem){
-  .video-lancer{flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:.9rem}
-  .video-play{width:3rem;height:3rem}
+.video-note{font-size:.86rem;margin-top:2rem}
+@media (max-width:34rem){.video-play{width:3.4rem;height:3.4rem}}
+
+/* séparateur entre deux captations */
+.sep{
+  border:0;height:auto;margin:3rem 0;
+  display:flex;align-items:center;justify-content:center;
 }
+.sep::before,.sep::after{
+  content:"";height:1px;background:var(--trait-fort);flex:1;
+}
+.sep::before{margin-right:1rem}
+.sep::after{margin-left:1rem}
 
 /* ---------------- sections ---------------- */
 section{padding:4.2rem 0;border-bottom:1px solid var(--trait)}
@@ -737,21 +753,35 @@ footer a{color:var(--encre-douce)}
     <p class="eyebrow">Le programme</p>
     <h2>Ce que vous entendrez</h2>
 
-    <p class="big">Il n'y aura pas de programme imprimé annoncé à l'avance. Le Débuché choisira ses fanfares pour l'occasion, et c'est très bien ainsi.</p>
+    <p class="big">Il n'y aura pas de programme annoncé à l'avance. Le Débuché choisira ses fanfares pour l'occasion, et c'est très bien ainsi.</p>
 
-    <p>En attendant, voici à quoi ressemble le groupe sous des voûtes. Cette captation a été filmée à la messe de Saint-Hubert 2024, dans la chapelle royale du château de Versailles.</p>
+    <p>En attendant, voici à quoi ressemble le groupe sous des voûtes. Deux captations récentes, dans deux lieux qui n'ont pas été choisis au hasard.</p>
 
     <figure class="video">
-      <button type="button" class="video-lancer" id="video-lancer"
-              aria-label="Lire la vidéo du Débuché de Paris à Versailles">
+      <h3 class="video-titre">Chapelle royale du château de Versailles</h3>
+      <p class="video-sous">Messe de Saint-Hubert, 2024</p>
+      <button type="button" class="video-lancer" data-video="RDa5KP3r8Zk"
+              aria-label="Lire la vidéo du Débuché de Paris à la chapelle royale de Versailles">
+        <img src="https://i.ytimg.com/vi/RDa5KP3r8Zk/maxresdefault.jpg" alt="" loading="lazy" width="1280" height="720">
         <span class="video-play" aria-hidden="true"></span>
-        <span class="video-texte">
-          <b>Le Débuché de Paris</b>
-          Messe de Saint-Hubert 2024 · Chapelle royale de Versailles
-        </span>
       </button>
-      <figcaption>Vidéo publiée par la Fédération Internationale de Trompes de France. Elle ne se charge qu'à votre demande.</figcaption>
+      <figcaption>Vidéo publiée par la Fédération Internationale de Trompes de France.</figcaption>
     </figure>
+
+    <hr class="sep">
+
+    <figure class="video">
+      <h3 class="video-titre">Cathédrale Notre-Dame de Paris</h3>
+      <p class="video-sous">Messe de la Saint-Hubert, 22 novembre 2025</p>
+      <button type="button" class="video-lancer" data-video="ajK1EJD9ygs"
+              aria-label="Lire la retransmission de la messe de la Saint-Hubert à Notre-Dame de Paris">
+        <img src="https://i.ytimg.com/vi/ajK1EJD9ygs/maxresdefault.jpg" alt="" loading="lazy" width="1280" height="720">
+        <span class="video-play" aria-hidden="true"></span>
+      </button>
+      <figcaption>Retransmission intégrale de la messe par KTO. Le Débuché de Paris y sonne, un an après la réouverture de la cathédrale.</figcaption>
+    </figure>
+
+    <p class="muted video-note">Les vidéos sont hébergées par YouTube et ne se chargent qu'à votre demande.</p>
   </div>
 </section>
 
@@ -989,14 +1019,16 @@ footer a{color:var(--encre-douce)}
 </main>
 
 <script>
-// La vidéo YouTube n'est chargée qu'après un clic, sur le domaine sans
-// cookie, pour ne rien déposer sur l'appareil du visiteur sans son accord.
+// Les vidéos YouTube ne sont chargées qu'après un clic, sur le domaine
+// sans cookie, pour ne rien déposer sur l'appareil du visiteur sans son
+// accord. Seule la vignette vient de YouTube au chargement de la page.
 document.addEventListener('click', function (e) {
-  var bouton = e.target.closest && e.target.closest('#video-lancer');
+  var bouton = e.target.closest && e.target.closest('.video-lancer');
   if (!bouton) return;
   var cadre = document.createElement('iframe');
-  cadre.src = 'https://www.youtube-nocookie.com/embed/RDa5KP3r8Zk?autoplay=1&rel=0';
-  cadre.title = 'Le Débuché de Paris à la chapelle royale de Versailles';
+  cadre.src = 'https://www.youtube-nocookie.com/embed/' + bouton.dataset.video +
+              '?autoplay=1&rel=0';
+  cadre.title = bouton.getAttribute('aria-label') || 'Vidéo';
   cadre.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
   cadre.allowFullscreen = true;
   bouton.replaceWith(cadre);
