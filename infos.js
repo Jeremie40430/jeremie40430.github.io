@@ -41,9 +41,8 @@ var INFOS = {
   // Les tarifs. Tu peux en ajouter ou en retirer en copiant une ligne
   // entière, virgule comprise.
   tarifs: [
-    { nom: "Plein tarif",     prix: "20 €" },
-    { nom: "Moins de 12 ans", prix: "10 €" },
-    { nom: "Moins de 3 ans",  prix: "Gratuit" },
+    { nom: "Entrée",         prix: "15 €" },
+    { nom: "Moins de 3 ans", prix: "Gratuit" },
   ],
 
 

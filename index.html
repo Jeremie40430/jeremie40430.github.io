@@ -750,7 +750,7 @@ footer a{color:var(--encre-douce)}
   <div><dt>Fondation</dt><dd>1927</dd></div>
   <div><dt>Centenaire</dt><dd>100 ans</dd></div>
   <div><dt>Places</dt><dd>500</dd></div>
-  <div><dt>Tarifs</dt><dd id="i-strip-tarif">20 €</dd><dd class="sous" id="i-strip-tarif-sous">10 € pour les enfants</dd></div>
+  <div><dt>Entrée</dt><dd id="i-strip-tarif">15 €</dd><dd class="sous" id="i-strip-tarif-sous">Gratuit pour les moins de 3 ans</dd></div>
 </dl>
 
 <main>
@@ -1205,7 +1205,11 @@ document.addEventListener('click', function (e) {
   if (INFOS.tarifs && INFOS.tarifs.length) {
     texte('i-strip-tarif', INFOS.tarifs[0].prix);
     var second = INFOS.tarifs[1];
-    texte('i-strip-tarif-sous', second ? second.prix + ' ' + second.nom.toLowerCase() : '');
+    texte('i-strip-tarif-sous', second
+      ? (/gratuit/i.test(second.prix)
+          ? second.prix + ' pour les ' + second.nom.toLowerCase()
+          : second.prix + ' ' + second.nom.toLowerCase())
+      : '');
   }
 
   // Tarifs
