@@ -7,7 +7,7 @@ Deux façons de faire, au choix.
 
 ## La façon simple : l'interface
 
-**https://jeremie40430.github.io/admin.html**
+**https://debuche-montdemarsan.fr/admin.html**
 
 Une page avec des champs à remplir. Elle se pré-remplit avec ce qui est
 actuellement en ligne, tu modifies ce que tu veux, tu cliques sur **Copier**,
