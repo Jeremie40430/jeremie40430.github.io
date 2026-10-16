@@ -673,6 +673,14 @@ footer{
 }
 footer p{max-width:60ch;margin:0 0 .6rem}
 footer a{color:var(--encre-douce)}
+.logo-fitf{float:right;width:7.5rem;height:auto;margin:0 0 1rem 1.5rem}
+#fitf .narrow::after{content:"";display:block;clear:both}
+/* Agrandissement des photos */
+figure:not(.video) img{cursor:zoom-in}
+.loupe{position:fixed;inset:0;z-index:200;background:rgba(8,14,24,.92);display:flex;align-items:center;justify-content:center;padding:3.5rem 1rem 1rem;cursor:zoom-out}
+.loupe[hidden]{display:none!important}
+.loupe img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;box-shadow:0 10px 40px rgba(0,0,0,.5);cursor:default}
+.loupe button{position:absolute;top:.8rem;right:.8rem;width:2.8rem;height:2.8rem;border:0;border-radius:50%;background:#FFFFFF;color:#141F2E;font-size:1.6rem;line-height:1;cursor:pointer}
 </style>
 </head>
 <body>
@@ -805,7 +813,7 @@ footer a{color:var(--encre-douce)}
     <figure class="fig fig-cote">
       <img src="debuche-tournee.jpg" alt="Affiche officielle : Le Débuché de Paris, Tournée du Centenaire, 100 ans de passion, de tradition et de musique" width="800" height="1200" loading="lazy">
     </figure>
-    <p>Pour fêter ses cent ans, le Débuché de Paris part en tournée aux quatre coins de la France en 2027, avec ses grandes fanfares et des pièces inédites, écrites pour l'occasion.</p>
+    <p>Pour fêter ses cent ans, le Débuché de Paris part en tournée aux quatre coins de la France en 2027, avec ses grandes fanfares et des pièces inédites.</p>
     <p>Mont-de-Marsan est l'une de ces dates, et la seule du Sud-Ouest&nbsp;: les autres étapes se tiendront bien plus au nord. Pour l'entendre près de chez soi, c'est ici, et pas ailleurs.</p>
 
     <h3>Et en 2027, ce sera Mont-de-Marsan</h3>
@@ -970,7 +978,11 @@ footer a{color:var(--encre-douce)}
 
     <p class="big">La trompe n'est pas une pratique isolée. Deux structures la portent, et le concert du 5 juin s'inscrit dans ce que l'une et l'autre rendent possible.</p>
 
-    <h3><a href="https://fitf.org/la-trompe/" target="_blank" rel="noopener">La Fédération Internationale des Trompes de France</a></h3>
+    <h3><a href="https://fitf.org/la-federation/" target="_blank" rel="noopener">La Fédération Internationale des Trompes de France</a></h3>
+    <img class="logo-fitf" src="logo-fitf.png" alt="Logo de la Fédération Internationale des Trompes de France" width="359" height="400" loading="lazy">
+    <p>Créée en 1928, un an après le Débuché de Paris, la FITF est l'instance de référence pour la trompe de chasse, en France comme à l'étranger. Elle fédère des milliers de sonneurs, de groupes et de passionnés, avec un but affiché&nbsp;: préserver, transmettre et promouvoir cet art, dans le respect de son héritage.</p>
+    <p>Elle agrée les écoles de trompe, organise les stages, forme les moniteurs et délivre le brevet du sonneur. Ses délégués nationaux et leurs équipes régionales animent la trompe partout en France, et son conseil compte des administrateurs suisses, allemands, belges et italiens. Elle est reconnue d'intérêt général.</p>
+    <p>Le lien avec le concert est direct&nbsp;: Romain Renard, président du Débuché de Paris, est trésorier de la fédération, et Guillaume Caucat, son directeur musical, siège à son conseil d'administration.</p>
     <p>C'est l'ossature du milieu&nbsp;: elle fédère les sonneurs et les écoles, organise les concours et fait circuler le répertoire d'un pays à l'autre. C'est dans ce cadre que les écoles se rencontrent, se jaugent et se transmettent leur style. L'École de Beaussiet y est rattachée, et son président en est le délégué départemental pour les Landes, après plus de quarante ans d'adhésion. C'est aussi ce réseau qui a rendu possible le concours international organisé à Maurrin en 2018.</p>
 
     <h3><a href="https://www.frtm.fr/la-frtm" target="_blank" rel="noopener">La Fondation pour le Rayonnement de la Trompe Musicale</a></h3>
@@ -991,7 +1003,7 @@ footer a{color:var(--encre-douce)}
     <p>Dans sa propre présentation, la fondation range le Débuché de Paris parmi les formations auxquelles elle fait appel pour ses grands rendez-vous, du Sacré-Cœur à la Sorbonne, des Invalides au château de Versailles. C'est ce groupe-là qui vient à Mont-de-Marsan.</p>
 
     <p class="liens">
-      <a href="https://fitf.org/la-trompe/" target="_blank" rel="noopener">La FITF</a>
+      <a href="https://fitf.org/la-federation/" target="_blank" rel="noopener">La FITF</a>
       <a href="https://www.frtm.fr/la-frtm" target="_blank" rel="noopener">La FRTM</a>
     </p>
   </div>
@@ -1026,7 +1038,7 @@ footer a{color:var(--encre-douce)}
 
     <p>Le nom vient du premier lieu de répétition, l'église historique de Beaussiet, sur la commune de Mazerolles. L'école se retrouve aujourd'hui à la salle des fêtes d'Artassenx, mise à disposition par la commune, tous les mardis de 20 h à 22 h.</p>
 
-    <p>Tous les quatre ou cinq ans, l'école monte un grand rendez-vous, et le public landais répond&nbsp;: quatre concerts et un concours international depuis 2009, jamais moins de 450 personnes. Depuis la création, trente-neuf élèves ont mis les lèvres sur cet instrument difficile, et une douzaine de passionnés sonnent toujours ensemble. Pendant des années, l'école a sonné chaque assemblée générale des chasseurs des Landes&nbsp;; le rituel s'est arrêté depuis quelque temps. Son président est délégué départemental de la <a href="https://fitf.org/la-trompe/" target="_blank" rel="noopener">Fédération Internationale des Trompes de France</a>.</p>
+    <p>Tous les quatre ou cinq ans, l'école monte un grand rendez-vous, et le public landais répond&nbsp;: quatre concerts et un concours international depuis 2009, jamais moins de 450 personnes. Depuis la création, trente-neuf élèves ont mis les lèvres sur cet instrument difficile, et une douzaine de passionnés sonnent toujours ensemble. Pendant des années, l'école a sonné chaque assemblée générale des chasseurs des Landes. Son président est délégué départemental de la <a href="https://fitf.org/la-trompe/" target="_blank" rel="noopener">Fédération Internationale des Trompes de France</a>.</p>
 
     <h3>Ce que l'école a déjà organisé</h3>
     <div class="dates">
@@ -1036,6 +1048,26 @@ footer a{color:var(--encre-douce)}
       <div><span class="an">2023</span><span>Concert avec Trompe et Fantaisie, dans les arènes de Maurrin. 450 personnes.</span></div>
       <div><span class="an">2027</span><span>Le centenaire du Débuché de Paris, de retour à la Madeleine.</span></div>
     </div>
+
+    <figure class="fig">
+      <img src="ecole-2009-madeleine.jpg" alt="Vue depuis la tribune de l'église de la Madeleine : la nef comble, les sonneurs en habit rouge dans le chœur" width="1200" height="900" loading="lazy">
+      <figcaption>Le Rallye Deux Étangs à l'église de la Madeleine, devant une nef comble. Le Débuché de Paris sonnera au même endroit.</figcaption>
+    </figure>
+
+    <div class="duo">
+      <figure class="fig">
+        <img src="ecole-2013-watrigant.jpg" alt="Le public assis dans le parc du château de Watrigant, face aux sonneurs en habit rouge sur le perron" width="1200" height="900" loading="lazy">
+      </figure>
+      <figure class="fig">
+        <img src="ecole-2013-perron.jpg" alt="Les sonneurs réunis sur le perron du château à la tombée du jour, trompes en main" width="1000" height="750" loading="lazy">
+      </figure>
+      <p class="duo-legende">2013, le Rallye Deux Étangs dans le parc du château de Watrigant, à Artassenx.</p>
+    </div>
+
+    <figure class="fig">
+      <img src="ecole-2018-maurrin.jpg" alt="Les Trompes de Bonne en tenue bordeaux et verte, alignés dans les arènes de Maurrin devant les gradins" width="1100" height="733" loading="lazy">
+      <figcaption>2018, arènes de Maurrin&nbsp;: les Trompes de Bonne, vainqueurs du concours international de sociétés organisé par l'école.</figcaption>
+    </figure>
 
     <p>Faire venir le Débuché de Paris pour son centenaire est le projet le plus ambitieux que l'école ait porté. Les bénéfices de cette soirée reviennent intégralement à l'école et à la transmission de la trompe dans les Landes.</p>
 
@@ -1513,5 +1545,25 @@ document.addEventListener('click', function (e) {
   </div>
 </footer>
 
+<div class="loupe" id="loupe" hidden role="dialog" aria-modal="true" aria-label="Photo agrandie">
+  <button type="button" aria-label="Fermer">&times;</button>
+  <img alt="">
+</div>
+<script>
+(function () {
+  var loupe = document.getElementById('loupe');
+  var grande = loupe.querySelector('img');
+  function fermer() { loupe.hidden = true; grande.src = ''; document.body.style.overflow = ''; }
+  document.querySelectorAll('figure:not(.video) img').forEach(function (img) {
+    img.addEventListener('click', function () {
+      grande.src = img.currentSrc || img.src; grande.alt = img.alt;
+      loupe.hidden = false; document.body.style.overflow = 'hidden';
+      loupe.querySelector('button').focus();
+    });
+  });
+  loupe.addEventListener('click', function (e) { if (e.target !== grande) fermer(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !loupe.hidden) fermer(); });
+})();
+</script>
 </body>
 </html>
