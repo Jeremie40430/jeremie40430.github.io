@@ -478,7 +478,7 @@ sup{font-size:.7em}
   display:flex;flex-direction:column;
   margin:2rem 0 1.8rem;border-top:2px solid var(--encre);
 }
-.dates div{
+.dates > div{
   padding:1.15rem .2rem;border-bottom:1px solid var(--trait);
   display:grid;grid-template-columns:7rem 1fr;gap:1.4rem;align-items:baseline;
 }
@@ -489,8 +489,11 @@ sup{font-size:.7em}
 .inverse .dates{border-top-color:var(--or-clair)}
 .inverse .dates div{border-bottom-color:var(--trait-nuit)}
 .inverse .dates .an{color:var(--or-clair)}
-.dates span:last-child{font-size:.98rem;color:var(--encre-douce);line-height:1.5}
-@media (max-width:30rem){.dates div{grid-template-columns:1fr;gap:.2rem}}
+.dates-texte > span{font-size:.98rem;color:var(--encre-douce);line-height:1.5}
+.dates-photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:.6rem;margin-top:.9rem}
+.dates-photos figure{margin:0}
+.dates-photos img{width:100%;height:9.5rem;object-fit:cover;display:block;border-radius:2px}
+@media (max-width:30rem){.dates > div{grid-template-columns:1fr;gap:.2rem}}
 
 /* ---------------- litanie ---------------- */
 .litanie{
@@ -1042,37 +1045,12 @@ figure:not(.video) img{cursor:zoom-in}
 
     <h3>Ce que l'école a déjà organisé</h3>
     <div class="dates">
-      <div><span class="an">2009</span><span>Concert avec le Rallye Deux Étangs, à l'église de la Madeleine de Mont-de-Marsan. 550 personnes.</span></div>
-      <div><span class="an">2013</span><span>Concert dans le parc du château de Watrigant, à Artassenx. Plus de 500 personnes.</span></div>
-      <div><span class="an">2018</span><span>Concours international de sociétés à Maurrin&nbsp;: 17 groupes et plus de 600 sonneurs réunis dans les arènes.</span></div>
-      <div><span class="an">2023</span><span>Concert avec Trompe et Fantaisie, dans les arènes de Maurrin. 450 personnes.</span></div>
-      <div><span class="an">2027</span><span>Le centenaire du Débuché de Paris, de retour à la Madeleine.</span></div>
+      <div><span class="an">2009</span><div class="dates-texte"><span>Concert avec le Rallye Deux Étangs, à l'église de la Madeleine de Mont-de-Marsan. 550 personnes.</span><div class="dates-photos"><figure><img src="ecole-2009-madeleine.jpg" alt="Vue depuis la tribune de l'église de la Madeleine : la nef comble, les sonneurs en habit rouge dans le chœur" width="1200" height="900" loading="lazy"></figure></div></div></div>
+      <div><span class="an">2013</span><div class="dates-texte"><span>Concert avec le Rallye Deux Étangs, dans le parc du château de Watrigant, à Artassenx. Plus de 500 personnes.</span><div class="dates-photos"><figure><img src="ecole-2013-watrigant.jpg" alt="Le public assis dans le parc du château de Watrigant, face aux sonneurs en habit rouge sur le perron" width="1200" height="900" loading="lazy"></figure><figure><img src="ecole-2013-perron.jpg" alt="Les sonneurs réunis sur le perron du château à la tombée du jour, trompes en main" width="1000" height="750" loading="lazy"></figure></div></div></div>
+      <div><span class="an">2018</span><div class="dates-texte"><span>Concours international de sociétés à Maurrin&nbsp;: 17 groupes et plus de 600 sonneurs réunis dans les arènes. Victoire des Trompes de Bonne.</span><div class="dates-photos"><figure><img src="ecole-2018-maurrin.jpg" alt="Les Trompes de Bonne en tenue bordeaux et verte, alignés dans les arènes de Maurrin devant les gradins" width="1100" height="733" loading="lazy"></figure></div></div></div>
+      <div><span class="an">2023</span><div class="dates-texte"><span>Concert avec Trompe et Fantaisie, dans les arènes de Maurrin. 450 personnes.</span><div class="dates-photos"><figure><img src="ecole-2023-trompe-fantaisie.jpg" alt="Les sonneurs de Trompe et Fantaisie en veste bleu marine, trompe à l'épaule, devant la façade d'un château" width="1100" height="825" loading="lazy"></figure></div></div></div>
+      <div><span class="an">2027</span><div class="dates-texte"><span>Le centenaire du Débuché de Paris, de retour à la Madeleine.</span></div></div>
     </div>
-
-    <figure class="fig">
-      <img src="ecole-2009-madeleine.jpg" alt="Vue depuis la tribune de l'église de la Madeleine : la nef comble, les sonneurs en habit rouge dans le chœur" width="1200" height="900" loading="lazy">
-      <figcaption>Le Rallye Deux Étangs à l'église de la Madeleine, devant une nef comble. Le Débuché de Paris sonnera au même endroit.</figcaption>
-    </figure>
-
-    <div class="duo">
-      <figure class="fig">
-        <img src="ecole-2013-watrigant.jpg" alt="Le public assis dans le parc du château de Watrigant, face aux sonneurs en habit rouge sur le perron" width="1200" height="900" loading="lazy">
-      </figure>
-      <figure class="fig">
-        <img src="ecole-2013-perron.jpg" alt="Les sonneurs réunis sur le perron du château à la tombée du jour, trompes en main" width="1000" height="750" loading="lazy">
-      </figure>
-      <p class="duo-legende">2013, le Rallye Deux Étangs dans le parc du château de Watrigant, à Artassenx.</p>
-    </div>
-
-    <figure class="fig">
-      <img src="ecole-2018-maurrin.jpg" alt="Les Trompes de Bonne en tenue bordeaux et verte, alignés dans les arènes de Maurrin devant les gradins" width="1100" height="733" loading="lazy">
-      <figcaption>2018, arènes de Maurrin&nbsp;: les Trompes de Bonne, vainqueurs du concours international de sociétés organisé par l'école.</figcaption>
-    </figure>
-
-    <figure class="fig">
-      <img src="ecole-2023-trompe-fantaisie.jpg" alt="Les sonneurs de Trompe et Fantaisie en veste bleu marine et pantalon camel, trompe à l'épaule, devant la façade d'un château" width="1100" height="825" loading="lazy">
-      <figcaption>Trompe et Fantaisie, invités de l'école pour le concert de 2023 dans les arènes de Maurrin.</figcaption>
-    </figure>
 
     <p>Faire venir le Débuché de Paris pour son centenaire est le projet le plus ambitieux que l'école ait porté.</p>
 
@@ -1505,7 +1483,7 @@ document.addEventListener('click', function (e) {
   function majuscule() {
     var trouvee = null;
     sections.forEach(function (sec) {
-      if (sec.getBoundingClientRect().top <= 120) trouvee = sec;
+      if (!sec.hidden && sec.getBoundingClientRect().top <= 120) trouvee = sec;
     });
     if (trouvee === courante) return;
     courante = trouvee;
