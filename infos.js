@@ -107,10 +107,20 @@ var INFOS = {
     // { nom: "Parking du Midou",  detail: "5 minutes à pied" },
   ],
 
-  // Les hébergements du secteur. « trajet » sert à les classer :
-  // écris "15 minutes" ou "30 minutes".
+  // Les hébergements, regroupés par « categorie » (le titre affiché).
+  // « lien » est facultatif : laisse "" si l'hôtel n'a pas de site.
   hebergements: [
-    // { nom: "Hôtel …", ville: "Mont-de-Marsan", trajet: "15 minutes" },
+    { categorie: "Hôtels de charme et de centre-ville", nom: "Hôtel Richelieu",   ville: "Mont-de-Marsan", lien: "https://www.hotel-richelieu-montdemarsan.com/" },
+    { categorie: "Hôtels de charme et de centre-ville", nom: "Hôtel de la Gare",  ville: "Mont-de-Marsan", lien: "https://www.hotel-gare-montdemarsan.com/" },
+    { categorie: "Hôtels de charme et de centre-ville", nom: "Villa Mirasol",     ville: "Mont-de-Marsan", lien: "" },
+    { categorie: "Hôtels de charme et de centre-ville", nom: "Le Renaissance",    ville: "Mont-de-Marsan", lien: "" },
+    { categorie: "Hôtels de charme et de centre-ville", nom: "Hôtel du Sablar",   ville: "Mont-de-Marsan", lien: "" },
+    { categorie: "Hôtels de charme et de centre-ville", nom: "Le Zanchettin",     ville: "Mont-de-Marsan", lien: "" },
+    { categorie: "Hôtels simples et économiques",       nom: "Fasthotel",         ville: "Mont-de-Marsan", lien: "" },
+    { categorie: "Hôtels simples et économiques",       nom: "ibis budget",       ville: "Mont-de-Marsan", lien: "" },
+    { categorie: "Hôtels simples et économiques",       nom: "B&B Hôtel",         ville: "Mont-de-Marsan", lien: "" },
+    { categorie: "Hôtels simples et économiques",       nom: "Campanile",         ville: "Mont-de-Marsan", lien: "" },
+    { categorie: "Hôtels simples et économiques",       nom: "Kyriad Direct",     ville: "Mont-de-Marsan", lien: "" },
   ],
 
 

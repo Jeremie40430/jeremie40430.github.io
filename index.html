@@ -1116,10 +1116,11 @@ footer a{color:var(--encre-douce)}
 
     <h3>Où dormir</h3>
     <div id="i-hebergements" hidden></div>
+    <p class="muted">Liste donnée à titre indicatif, sans partenariat avec ces établissements. Pour les gîtes et chambres d'hôtes, l'office de tourisme de Mont-de-Marsan Agglomération (1 place Charles-de-Gaulle) renseigne sur les disponibilités.</p>
     <p class="muted" id="i-hebergements-vide">Une sélection d'hébergements à moins de quinze et de trente minutes de l'église sera publiée ici. En attendant, l'office de tourisme du Marsan renseigne sur les disponibilités.</p>
 
     <div class="todo">
-      <p>À me transmettre pour remplir cette section&nbsp;: les parkings que vous recommandez avec le temps de marche, et les hébergements retenus avec leur commune et le temps de trajet. Je ne les invente pas, citer un hôtel sur votre site revient à le recommander.</p>
+      <p>À me transmettre pour remplir cette section&nbsp;: les parkings que vous recommandez, avec le temps de marche jusqu'à l'église.</p>
     </div>
   </div>
 </section>
@@ -1381,25 +1382,28 @@ document.addEventListener('click', function (e) {
     cacher('i-parkings-vide');
   }
 
-  // Hébergements, regroupés par temps de trajet
+  // Hébergements, regroupés par catégorie, dans l'ordre de infos.js
   if (INFOS.hebergements && INFOS.hebergements.length) {
     var hote = document.getElementById('i-hebergements');
     var groupes = {};
+    var ordre = [];
     INFOS.hebergements.forEach(function (h) {
-      var k = h.trajet || 'À proximité';
-      (groupes[k] = groupes[k] || []).push(h);
+      var k = h.categorie || 'À proximité';
+      if (!groupes[k]) { groupes[k] = []; ordre.push(k); }
+      groupes[k].push(h);
     });
-    Object.keys(groupes).sort().forEach(function (k) {
+    ordre.forEach(function (k) {
       var bloc = document.createElement('div');
       bloc.className = 'groupe-trajet';
       var t = document.createElement('h4');
-      t.textContent = 'À moins de ' + k + ' de l\'église';
+      t.textContent = k;
       bloc.appendChild(t);
       var ul = document.createElement('ul');
       ul.className = 'liste-lieux';
       groupes[k].forEach(function (h) {
         var li = document.createElement('li');
-        var n = document.createElement('span'); n.textContent = h.nom;
+        var n = document.createElement(h.lien ? 'a' : 'span'); n.textContent = h.nom;
+        if (h.lien) { n.href = h.lien; n.target = '_blank'; n.rel = 'noopener'; }
         var v = document.createElement('span'); v.className = 'detail'; v.textContent = h.ville || '';
         li.appendChild(n); li.appendChild(v);
         ul.appendChild(li);
