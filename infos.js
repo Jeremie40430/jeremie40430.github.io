@@ -104,7 +104,7 @@ var INFOS = {
   // Les parkings à recommander autour de l'église, un par ligne.
   // Mets le nom, puis le temps de marche.
   parkings: [
-    // { nom: "Parking du Midou",  detail: "5 minutes à pied" },
+    { nom: "Parking de la Douze", detail: "Place de la Douze, Mont-de-Marsan" },
   ],
 
   // Les hébergements, regroupés par « categorie » (le titre affiché).

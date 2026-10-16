@@ -723,7 +723,7 @@ figure:not(.video) img{cursor:zoom-in}
   <div class="menu-groupe">
     <p class="menu-titre">L'école</p>
     <a href="#ecole">L'École de trompes de Beaussiet</a>
-    <a href="#partenaires">Les partenaires</a>
+    <a href="#partenaires" id="menu-partenaires" hidden>Les partenaires</a>
   </div>
 
   <div class="menu-groupe">
@@ -1069,7 +1069,12 @@ figure:not(.video) img{cursor:zoom-in}
       <figcaption>2018, arènes de Maurrin&nbsp;: les Trompes de Bonne, vainqueurs du concours international de sociétés organisé par l'école.</figcaption>
     </figure>
 
-    <p>Faire venir le Débuché de Paris pour son centenaire est le projet le plus ambitieux que l'école ait porté. Les bénéfices de cette soirée reviennent intégralement à l'école et à la transmission de la trompe dans les Landes.</p>
+    <figure class="fig">
+      <img src="ecole-2023-trompe-fantaisie.jpg" alt="Les sonneurs de Trompe et Fantaisie en veste bleu marine et pantalon camel, trompe à l'épaule, devant la façade d'un château" width="1100" height="825" loading="lazy">
+      <figcaption>Trompe et Fantaisie, invités de l'école pour le concert de 2023 dans les arènes de Maurrin.</figcaption>
+    </figure>
+
+    <p>Faire venir le Débuché de Paris pour son centenaire est le projet le plus ambitieux que l'école ait porté.</p>
 
     <h3>Envie d'essayer&nbsp;?</h3>
     <p class="muted">L'école accueille de nouveaux élèves, sans aucun prérequis musical. Venez nous voir à la table d'accueil le soir du concert, ou passez un mardi soir à la salle des fêtes d'Artassenx, entre 20 h et 22 h.</p>
@@ -1081,14 +1086,11 @@ figure:not(.video) img{cursor:zoom-in}
   </div>
 </section>
 
-<section id="partenaires">
+<section id="partenaires" hidden>
   <div class="shell narrow">
     <p class="eyebrow">Ils soutiennent le centenaire</p>
     <h2>Partenaires</h2>
     <ul class="partners" id="i-partenaires" hidden></ul>
-    <div class="todo" id="i-partenaires-todo">
-      <p>Les partenaires s'ajoutent au fur et à mesure des accords, dans le fichier infos.js.</p>
-    </div>
   </div>
 </section>
 
@@ -1128,7 +1130,6 @@ figure:not(.video) img{cursor:zoom-in}
     </div>
     <div class="plan" id="plan">
       <button type="button" class="cta ghost" id="voir-plan">Afficher le plan</button>
-      <p class="plan-note">Le plan est fourni par Google. Il ne se charge qu'à votre demande, pour ne rien déposer sur votre appareil sans votre accord.</p>
       <p class="plan-note"><a href="https://www.google.com/maps/search/?api=1&amp;query=%C3%89glise%20de%20la%20Madeleine%2C%2035%20rue%20Victor-Hugo%2C%2040000%20Mont-de-Marsan" target="_blank" rel="noopener">Ouvrir l'itinéraire dans Google Maps</a></p>
     </div>
   </div>
@@ -1149,9 +1150,6 @@ figure:not(.video) img{cursor:zoom-in}
     <p class="muted">Liste donnée à titre indicatif, sans partenariat avec ces établissements. Pour les gîtes et chambres d'hôtes, l'office de tourisme de Mont-de-Marsan Agglomération (1 place Charles-de-Gaulle) renseigne sur les disponibilités.</p>
     <p class="muted" id="i-hebergements-vide">Une sélection d'hébergements à moins de quinze et de trente minutes de l'église sera publiée ici. En attendant, l'office de tourisme du Marsan renseigne sur les disponibilités.</p>
 
-    <div class="todo">
-      <p>À me transmettre pour remplir cette section&nbsp;: les parkings que vous recommandez, avec le temps de marche jusqu'à l'église.</p>
-    </div>
   </div>
 </section>
 
@@ -1454,7 +1452,8 @@ document.addEventListener('click', function (e) {
       ul.appendChild(li);
     });
     montrer('i-partenaires');
-    cacher('i-partenaires-todo');
+    montrer('partenaires');
+    montrer('menu-partenaires');
   }
 
   // Infos pratiques libres
