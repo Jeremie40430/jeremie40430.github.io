@@ -58,27 +58,31 @@ billetterieOuverte: true,
 lienBilletterie: "https://www.helloasso.com/associations/.../evenements/...",
 ```
 
-Les boutons « Bientôt en réservation » deviennent aussitôt « Réserver ma place »
-et pointent vers HelloAsso. **Le QR code des affiches n'est pas à refaire** : il
-passe par la page `/reserver/`, qui lit cette même ligne.
+Le lien de billetterie devient « Réserver ma place » et le panneau de réservation
+affiche son bouton. **Le QR code des affiches n'est pas à refaire** : il passe
+par la page `/reserver/`, qui lit ces mêmes réglages. Tant que la billetterie
+est fermée ou que son lien est vide, cette page affiche l'ouverture prochaine.
 
 ## Ajouter les photos
 
 Sur la page du dépôt, bouton **Add file** puis **Upload files**. Dépose les
 fichiers à la racine, avec exactement ces noms :
 
-- `debuche-groupe.jpg` — la photo du groupe, environ 2000 px de large
-- `logo-debuche.png` — le logo
+- `debuche-notre-dame-choeur.jpg` — la grande photo du groupe à l'accueil
+- `logo-debuche.png` — le logo, facultatif, dans la rubrique du Débuché
 - `affiche-partage.jpg` — 1200 × 630 px, l'image qui s'affiche quand on partage
   le lien sur Facebook
 
-Ils apparaissent tout seuls sur la page une fois déposés.
+Remplacer un fichier par une photo portant le même nom met à jour son visuel.
+Pour une nouvelle photo ou une légende différente, demande-moi de modifier la
+page correspondante pour conserver les bonnes dimensions et les crédits.
 
 ## Avant l'annonce publique
 
-La page est invisible sur Google tant qu'une ligne est présente dans
-`index.html`. Quand tout est prêt, dis-le-moi et je l'enlève, ou supprime
-toi-même cette ligne :
+Les cinq pages principales restent invisibles sur Google tant que la balise
+ci-dessous est présente. Quand tout est prêt, dis-le-moi et je l'enlève dans
+`index.html`, `le-debuche-de-paris/index.html`, `la-trompe/index.html`,
+`ecole-de-beaussiet/index.html` et `infos-pratiques/index.html` :
 
 ```html
 <meta name="robots" content="noindex">

@@ -1,68 +1,15 @@
 <!doctype html>
-<html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="fr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
-
-<!-- =========================================================================
-     REDIRECTION VERS LA BILLETTERIE HELLOASSO
-     =========================================================================
-     Rien a modifier ici. L'adresse de la billetterie se renseigne une seule
-     fois, dans le fichier infos.js a la racine du site, ligne
-     "lienBilletterie". Les affiches deja imprimees continuent de marcher.
-     ========================================================================= -->
-<script src="/infos.js"></script>
-<script>
-  var DESTINATION = "https://www.helloasso.com/";
-  if (typeof INFOS !== "undefined" && INFOS.lienBilletterie) {
-    DESTINATION = INFOS.lienBilletterie;
-  }
-</script>
-
-<title>Réservation — Le Débuché de Paris à Mont-de-Marsan</title>
-<style>
-  :root { color-scheme: dark; }
-  body {
-    margin: 0; min-height: 100vh;
-    display: flex; align-items: center; justify-content: center;
-    background: #0B1524; color: #EFEDE6;
-    font-family: "Iowan Old Style", Georgia, serif;
-    text-align: center; padding: 2rem;
-  }
-  .box { max-width: 30rem; }
-  .eyebrow {
-    font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
-    font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
-    color: #E3B34A; margin: 0 0 1rem;
-  }
-  h1 { font-size: 1.5rem; font-weight: 500; margin: 0 0 .6rem; line-height: 1.25; }
-  p { color: #98A6BA; line-height: 1.6; margin: 0 0 1.5rem; font-size: .95rem; }
-  a {
-    display: inline-block; padding: .7rem 1.4rem;
-    background: #CE2434; color: #EFEDE6; text-decoration: none;
-    font-family: ui-monospace, Menlo, monospace; font-size: .8rem;
-    letter-spacing: .1em; text-transform: uppercase; border-radius: 2px;
-  }
-  a:hover, a:focus-visible { background: #E85763; }
-</style>
-</head>
-<body>
-  <div class="box">
-    <p class="eyebrow">Centenaire 1927 &ndash; 2027</p>
-    <h1>Ouverture de la billetterie&hellip;</h1>
-    <p>Vous êtes redirigé vers la billetterie en ligne de l'École de trompe de Beaussiet. Si rien ne se passe, utilisez le bouton ci-dessous.</p>
-    <a id="fallback" href="https://www.helloasso.com/">Accéder à la billetterie</a>
-  </div>
-
-<script>
-  (function () {
-    var link = document.getElementById("fallback");
-    link.href = DESTINATION;
-    // Remplace l'entree dans l'historique : le bouton "retour" du navigateur
-    // ramene sur la page vitrine, pas sur cet ecran de transition.
-    window.location.replace(DESTINATION);
-  })();
-</script>
-</body>
-</html>
+<title>Billetterie — Le Débuché de Paris à Mont-de-Marsan</title>
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/infos.js" defer></script><script src="/assets/site.js" defer></script>
+</head><body id="debuche-edition" data-reservation>
+<main class="dp-reservation">
+<p class="dp-kicker">Centenaire 1927 — 2027</p>
+<div data-booking-closed><h1>La billetterie<br>ouvre prochainement.</h1><p>Le Débuché de Paris vous donne rendez-vous le samedi 5 juin 2027 à la Madeleine, à Mont-de-Marsan.</p><p>Les réservations ne sont pas encore ouvertes.</p></div>
+<div data-booking-open hidden><h1>Votre place pour<br>le concert du centenaire.</h1><p>Vous allez être redirigé vers la billetterie en ligne. Si rien ne se passe, utilisez le bouton ci-dessous.</p><a id="reservation-link" class="dp-action" href="/infos-pratiques/#billetterie">Accéder à la billetterie ↗</a></div>
+<p><a href="/infos-pratiques/#billetterie">Les informations pratiques</a> · <a href="/">Retour au concert</a></p>
+<noscript><p>Consultez les informations pratiques ou contactez l’école pour connaître l’état de la billetterie.</p></noscript>
+</main></body></html>
