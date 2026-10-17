@@ -1,6 +1,9 @@
 /* Comportements partagés des cinq pages. Les réglages restent dans infos.js. */
 (function () {
   'use strict';
+  // Numéro de version affiché en pied de page : à changer à chaque mise à jour.
+  var VERSION = 'Version 2.1 · 17 octobre 2026';
+  document.querySelectorAll('[data-version]').forEach(function (node) { node.textContent = VERSION; });
   var info = typeof INFOS === 'undefined' ? {} : INFOS;
   function element(id) { return document.getElementById(id); }
   function text(id, value) { var node = element(id); if (node && value) node.textContent = value; }
@@ -19,7 +22,8 @@
   document.querySelectorAll('[data-booking-closed]').forEach(function (node) { node.hidden = bookingOpen; });
   document.querySelectorAll('[data-booking]').forEach(function (link) {
     link.href = bookingOpen ? '/reserver/' : '/infos-pratiques/#billetterie';
-    link.textContent = bookingOpen ? (link.dataset.openLabel || 'Réserver ma place') + ' ↗' : 'Billetterie · bientôt ↗';
+    link.textContent = bookingOpen ? (link.dataset.openLabel || 'Réserver ma place') + ' ↗' : 'Billetterie bientôt';
+    link.classList.toggle('dp-closed', !bookingOpen);
   });
   fill('heure', info.heure);
   fill('portes', info.ouverturePortes);
@@ -133,7 +137,7 @@
   }
   // Préserve les anciens liens directs vers une rubrique de la page unique.
   if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-    var legacy = { concert: '/le-debuche-de-paris/#concert', centenaire: '/le-debuche-de-paris/#centenaire', trompe: '/la-trompe/#trompe', fitf: '/la-trompe/#fitf', unesco: '/la-trompe/#unesco', ecole: '/ecole-de-beaussiet/#ecole', infos: '/infos-pratiques/#infos', apres: '/infos-pratiques/#apres', sejour: '/infos-pratiques/#sejour', faq: '/infos-pratiques/#faq', eglise: '/infos-pratiques/#eglise' };
+    var legacy = { concert: '/le-debuche-de-paris/#concert', centenaire: '/le-debuche-de-paris/#centenaire', trompe: '/la-trompe/#trompe', fitf: '/la-trompe/#fitf', unesco: '/la-trompe/#unesco', ecole: '/ecole-de-beaussiet/#ecole', infos: '/infos-pratiques/#infos', apres: '/infos-pratiques/#apres', sejour: '/infos-pratiques/#sejour', faq: '/infos-pratiques/#faq', eglise: '/#eglise' };
     var destination = legacy[window.location.hash.slice(1)]; if (destination) window.location.replace(destination);
   }
   // Ouvre le volet d'histoire si l'adresse pointe vers une de ses images/sections.

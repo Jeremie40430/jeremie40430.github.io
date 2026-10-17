@@ -249,3 +249,10 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0}body#debuche-e
 #debuche-edition .dp-discover img{height:auto;object-fit:cover}
 #debuche-edition .dp-photo>.photo-button>img{width:100%;height:auto;aspect-ratio:.81;object-fit:cover;object-position:center 54%}
 @media(max-width:550px){#debuche-edition .dp-photo>.photo-button>img{aspect-ratio:1.15}}
+
+/* Logo, billetterie fermée, mentions, église */
+#debuche-edition .dp-logo{width:52px;height:52px;padding-right:0;margin-right:18px}
+@media(max-width:550px){#debuche-edition .dp-logo{width:40px;height:40px;margin-right:10px}}
+#debuche-edition .dp-header-ticket.dp-closed{background:transparent;color:var(--dp-ink);border:1px dashed var(--dp-line);opacity:.75}
+#debuche-edition .dp-legal{flex-basis:100%;border-top:1px solid rgba(255,255,255,.15);padding-top:14px;margin-top:4px;font-size:11px;color:#b9c0c2}
+#debuche-edition .dp-eglise>section{padding:40px max(6%,calc((100% - 790px)/2));border-top:1px solid var(--dp-line)}
