@@ -42,7 +42,7 @@ var INFOS = {
   // entière, virgule comprise.
   tarifs: [
     { nom: "Entrée",         prix: "15 €" },
-    { nom: "Moins de 3 ans", prix: "Gratuit" },
+    { nom: "Moins de 12 ans", prix: "Gratuit" },
   ],
 
 
