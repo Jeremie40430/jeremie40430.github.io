@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   // Numéro de version affiché en pied de page : à changer à chaque mise à jour.
-  var VERSION = 'Version 2.2 · 17 octobre 2026';
+  var VERSION = 'Version 2.3 · 17 octobre 2026';
   document.querySelectorAll('[data-version]').forEach(function (node) { node.textContent = VERSION; });
   var info = typeof INFOS === 'undefined' ? {} : INFOS;
   function element(id) { return document.getElementById(id); }
@@ -110,6 +110,36 @@
   var partners = element('i-partenaires');
   if (partners && Array.isArray(info.partenaires) && info.partenaires.length) {
     info.partenaires.forEach(function (partner) { var li = document.createElement('li'); li.textContent = partner; partners.appendChild(li); }); visible('partenaires', true);
+  }
+
+
+  // Menu mobile : bouton trois traits et panneau plein écran, construits à partir des onglets.
+  var nav = document.querySelector('.dp-nav'); var mast = document.querySelector('.dp-masthead');
+  if (nav && mast) {
+    var burger = document.createElement('button'); burger.type = 'button'; burger.className = 'dp-burger';
+    burger.setAttribute('aria-label', 'Ouvrir le menu'); burger.setAttribute('aria-expanded', 'false'); burger.setAttribute('aria-controls', 'dp-menu');
+    burger.innerHTML = '<span></span><span></span><span></span>';
+    mast.appendChild(burger);
+    var panel = document.createElement('div'); panel.id = 'dp-menu'; panel.className = 'dp-menu'; panel.hidden = true;
+    panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-modal', 'true'); panel.setAttribute('aria-label', 'Menu');
+    var close = document.createElement('button'); close.type = 'button'; close.className = 'dp-menu-close'; close.setAttribute('aria-label', 'Fermer le menu'); close.textContent = '×';
+    var list = document.createElement('nav'); list.className = 'dp-menu-links'; list.setAttribute('aria-label', 'Rubriques du site');
+    nav.querySelectorAll('a').forEach(function (a) { var c = a.cloneNode(true); c.removeAttribute('class'); list.appendChild(c); });
+    var when = document.createElement('div'); when.className = 'dp-menu-when';
+    when.innerHTML = '<strong>Samedi 5 juin 2027 · ' + (info.heure || '20 h 30') + '</strong><span>Église de la Madeleine, Mont-de-Marsan</span>';
+    var ticket = document.createElement('a'); ticket.className = 'dp-menu-ticket';
+    ticket.href = bookingOpen ? '/reserver/' : '/infos-pratiques/#billetterie';
+    ticket.textContent = bookingOpen ? 'Réserver ma place ↗' : 'Billetterie bientôt ouverte';
+    if (!bookingOpen) ticket.classList.add('dp-closed');
+    panel.append(close, list, when, ticket); document.body.appendChild(panel);
+    function openMenu(open) {
+      panel.hidden = !open; burger.setAttribute('aria-expanded', String(open)); document.body.style.overflow = open ? 'hidden' : '';
+      (open ? close : burger).focus();
+    }
+    burger.addEventListener('click', function () { openMenu(true); });
+    close.addEventListener('click', function () { openMenu(false); });
+    list.addEventListener('click', function (e) { if (e.target.closest('a')) openMenu(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) openMenu(false); });
   }
 
   // Lecteurs et plan créés uniquement après un clic, comme avant la refonte.

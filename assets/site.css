@@ -257,3 +257,30 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0}body#debuche-e
 #debuche-edition .dp-legal{flex-basis:100%;border-top:1px solid rgba(255,255,255,.15);padding-top:14px;margin-top:4px;font-size:11px;color:#b9c0c2}
 #debuche-edition .dp-eglise>section{padding:40px max(6%,calc((100% - 790px)/2));border-top:1px solid var(--dp-line)}
 #debuche-edition .dp-mail-line{margin-top:8px;font-size:14px}#debuche-edition .dp-mail-line a{color:var(--dp-red)}
+
+/* Menu mobile (trois traits) */
+#debuche-edition .dp-burger,#debuche-edition .dp-menu{display:none}
+@media(max-width:760px){
+#debuche-edition header#haut{position:sticky;top:0;z-index:50;background:var(--dp-paper);border-bottom:1px solid var(--dp-line)}
+#debuche-edition .dp-nav{display:none}
+#debuche-edition .dp-masthead{flex-wrap:nowrap!important;padding-block:10px!important;gap:10px!important}
+#debuche-edition .dp-brand{flex:1;min-width:0}
+#debuche-edition .dp-name{font-size:17px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#debuche-edition .dp-name small{display:none}
+#debuche-edition .dp-logo{display:block!important;width:38px!important;height:38px!important;margin-right:10px}
+#debuche-edition .dp-header-ticket{padding:8px 10px!important;min-height:38px;font-size:11px!important;white-space:nowrap}
+#debuche-edition .dp-burger{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;padding:0 10px;background:transparent;border:1px solid var(--dp-line);border-radius:2px;cursor:pointer;flex-shrink:0}
+#debuche-edition .dp-burger span{display:block;height:2px;background:var(--dp-ink);border-radius:1px}
+#debuche-edition .dp-menu:not([hidden]){display:flex;flex-direction:column;position:fixed;inset:0;z-index:100;background:var(--dp-ink);color:#f6f0e5;padding:70px 28px 32px;overflow-y:auto}
+#debuche-edition .dp-menu-close{position:absolute;top:14px;right:16px;width:44px;height:44px;background:transparent;border:1px solid rgba(255,255,255,.3);border-radius:2px;color:#fff;font-size:28px;line-height:1;cursor:pointer}
+#debuche-edition .dp-menu-links{display:flex;flex-direction:column}
+#debuche-edition .dp-menu-links a{font-family:'EB Garamond',Georgia,serif;font-size:28px;line-height:1.2;color:#f6f0e5;text-decoration:none;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+#debuche-edition .dp-menu-links a[aria-current="page"]{color:#e8a0a8}
+#debuche-edition .dp-menu-when{margin-top:auto;padding-top:28px;font-size:14px;line-height:1.6}
+#debuche-edition .dp-menu-when strong{display:block;font-weight:500}
+#debuche-edition .dp-menu-when span{color:#b9c0c2}
+#debuche-edition .dp-menu-ticket{margin-top:18px;display:block;text-align:center;padding:14px;background:var(--dp-red);color:#fff;text-decoration:none;font-size:14px;border-radius:2px}
+#debuche-edition .dp-menu-ticket.dp-closed{background:transparent;border:1px dashed rgba(255,255,255,.4);color:#d6dbdc}
+}
+#debuche-edition .dp-logo{background:none!important;object-fit:contain}
+@media(max-width:760px){#debuche-edition .dp-header-ticket.dp-closed{display:none}}
