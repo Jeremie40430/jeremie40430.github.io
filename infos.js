@@ -36,7 +36,7 @@ var INFOS = {
 
   // Le lien de la campagne HelloAsso, à coller ici le jour de l'ouverture.
   // Exemple : "https://www.helloasso.com/associations/xxx/evenements/yyy"
-  lienBilletterie: "",
+  lienBilletterie: "https://www.helloasso.com/associations/ecole-de-trompes-de-chasse-de-beaussiet/evenements/debuche-de-paris-2027",
 
   // Les tarifs. Tu peux en ajouter ou en retirer en copiant une ligne
   // entière, virgule comprise.
