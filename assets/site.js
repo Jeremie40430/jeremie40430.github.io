@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   // Numéro de version affiché en pied de page : à changer à chaque mise à jour.
-  var VERSION = 'Version 2.1 · 17 octobre 2026';
+  var VERSION = 'Version 2.2 · 17 octobre 2026';
   document.querySelectorAll('[data-version]').forEach(function (node) { node.textContent = VERSION; });
   var info = typeof INFOS === 'undefined' ? {} : INFOS;
   function element(id) { return document.getElementById(id); }
@@ -71,6 +71,10 @@
     });
     row.append(name, value, button); return row;
   }
+  // Adresse écrite en clair à l'écran, mais absente du code source lisible par les robots.
+  document.querySelectorAll('[data-mail]').forEach(function (link) {
+    var mail = decode(link.dataset.mail); if (mail) { link.href = 'mailto:' + mail; link.textContent = mail; }
+  });
   var contacts = element('i-contact');
   if (contacts) {
     if (info.email) contacts.appendChild(contactRow('Mail', info.email, 'mailto:', '••••••••••@•••••••.••'));
