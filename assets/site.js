@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   // Numéro de version affiché en pied de page : à changer à chaque mise à jour.
-  var VERSION = 'Version 3.1';
+  var VERSION = 'Version 3.2';
   document.querySelectorAll('[data-version]').forEach(function (node) { node.textContent = VERSION; });
   var info = typeof INFOS === 'undefined' ? {} : INFOS;
   function element(id) { return document.getElementById(id); }
@@ -21,7 +21,7 @@
   document.querySelectorAll('[data-booking-open]').forEach(function (node) { node.hidden = !bookingOpen; });
   document.querySelectorAll('[data-booking-closed]').forEach(function (node) { node.hidden = bookingOpen; });
   document.querySelectorAll('[data-booking]').forEach(function (link) {
-    link.href = bookingOpen ? '/reserver/' : '/#billetterie';
+    link.href = bookingOpen ? '/reserver/' : '/infos-pratiques/#billetterie';
     link.textContent = bookingOpen ? (link.dataset.openLabel || 'Réserver ma place') + ' ↗' : 'Billetterie bientôt';
     link.classList.toggle('dp-closed', !bookingOpen);
   });
@@ -128,7 +128,7 @@
     var when = document.createElement('div'); when.className = 'dp-menu-when';
     when.innerHTML = '<strong>Samedi 5 juin 2027 · ' + (info.heure || '20 h 30') + '</strong><span>Église de la Madeleine, Mont-de-Marsan</span>';
     var ticket = document.createElement('a'); ticket.className = 'dp-menu-ticket';
-    ticket.href = bookingOpen ? '/reserver/' : '/#billetterie';
+    ticket.href = bookingOpen ? '/reserver/' : '/infos-pratiques/#billetterie';
     ticket.textContent = bookingOpen ? 'Réserver ma place ↗' : 'Billetterie bientôt ouverte';
     if (!bookingOpen) ticket.classList.add('dp-closed');
     panel.append(close, list, when, ticket); document.body.appendChild(panel);
@@ -171,7 +171,7 @@
   }
   // Préserve les anciens liens directs vers une rubrique de la page unique.
   if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-    var legacy = { concert: '/le-debuche-de-paris/#concert', centenaire: '/le-debuche-de-paris/#centenaire', trompe: '/la-trompe/#trompe', fitf: '/la-trompe/#fitf', unesco: '/la-trompe/#unesco', ecole: '/ecole-de-beaussiet/#ecole', eglise: '/eglise/' };
+    var legacy = { concert: '/le-debuche-de-paris/#concert', centenaire: '/le-debuche-de-paris/#centenaire', trompe: '/la-trompe/#trompe', fitf: '/la-trompe/#fitf', unesco: '/la-trompe/#unesco', ecole: '/ecole-de-beaussiet/#ecole', infos: '/infos-pratiques/#infos', apres: '/infos-pratiques/#apres', sejour: '/infos-pratiques/#sejour', faq: '/infos-pratiques/#faq', eglise: '/#eglise' };
     var destination = legacy[window.location.hash.slice(1)]; if (destination) window.location.replace(destination);
   }
   // Ouvre le volet d'histoire si l'adresse pointe vers une de ses images/sections.
