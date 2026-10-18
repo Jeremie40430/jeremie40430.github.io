@@ -284,3 +284,7 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0}body#debuche-e
 }
 #debuche-edition .dp-logo{background:none!important;object-fit:contain}
 @media(max-width:760px){#debuche-edition .dp-header-ticket.dp-closed{display:none}}
+
+#debuche-edition .dp-plus .dp-discover{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+#debuche-edition .dp-plus .dp-discover img[src$='.png']{object-fit:contain;background:var(--dp-white);padding:20px}
+#debuche-edition .dp-plus .dp-section-heading a{color:var(--dp-red)}
