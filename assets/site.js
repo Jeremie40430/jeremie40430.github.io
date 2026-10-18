@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   // Numéro de version affiché en pied de page : à changer à chaque mise à jour.
-  var VERSION = 'Version 3.0';
+  var VERSION = 'Version 3.1';
   document.querySelectorAll('[data-version]').forEach(function (node) { node.textContent = VERSION; });
   var info = typeof INFOS === 'undefined' ? {} : INFOS;
   function element(id) { return document.getElementById(id); }
