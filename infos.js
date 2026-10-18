@@ -95,7 +95,7 @@ var INFOS = {
   /* --- LE REPAS D'APRÈS-CONCERT ----------------------------------------- */
 
   // Le prix du repas, s'il est payant. Exemple : "15 €"
-  // Le repas est sans réservation : ce prix est indicatif, pour information.
+  // Prix indicatif, affiché sur la page Infos pratiques.
   repasPrix: "",
 
 

@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   // Numéro de version affiché en pied de page : à changer à chaque mise à jour.
-  var VERSION = 'Version 2.6';
+  var VERSION = 'Version 2.7';
   document.querySelectorAll('[data-version]').forEach(function (node) { node.textContent = VERSION; });
   var info = typeof INFOS === 'undefined' ? {} : INFOS;
   function element(id) { return document.getElementById(id); }
@@ -42,7 +42,7 @@
   }
   text('i-accessibilite', info.accessibilite);
   text('i-stationnement', info.stationnement);
-  if (info.repasPrix) text('i-repas', info.repasPrix + ' par personne, sans réservation. Même si vous n’avez pas assisté au concert, vous serez les bienvenus. Règlement sur place, carte bancaire acceptée.');
+  if (info.repasPrix) text('i-repas', info.repasPrix + ' par personne. Règlement sur place, carte bancaire acceptée.');
   var programme = element('i-programme');
   if (programme && Array.isArray(info.programme) && info.programme.length) {
     info.programme.forEach(function (piece) { var li = document.createElement('li'); li.textContent = piece; programme.appendChild(li); });
