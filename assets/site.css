@@ -285,3 +285,17 @@ html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0}body#debuche-e
 #debuche-edition .dp-logo{background:none!important;object-fit:contain}
 @media(max-width:760px){#debuche-edition .dp-header-ticket.dp-closed{display:none}}
 @media(max-width:760px){#debuche-edition .dp-name{white-space:normal!important;font-size:16px!important;line-height:1.2}}
+/* Impression : la page entière sur des feuilles A4, sans menus ni boutons */
+@media print{
+@page{size:A4;margin:14mm}
+#debuche-edition{font-size:11pt;background:#fff!important}
+#debuche-edition header#haut{position:static!important}
+#debuche-edition .dp-nav,#debuche-edition .dp-burger,#debuche-edition .dp-menu,#debuche-edition .dp-header-ticket,#debuche-edition .dp-hero-actions,#debuche-edition .skip-link,#debuche-edition #photo-dialog,#debuche-edition .video-play{display:none!important}
+#debuche-edition *{box-shadow:none!important}
+#debuche-edition .dp-hero,#debuche-edition .dp-listen{display:block!important}
+#debuche-edition img{max-height:110mm;width:auto!important;max-width:100%!important;object-fit:contain!important}
+#debuche-edition figure,#debuche-edition img,#debuche-edition article,#debuche-edition .dp-essential>div{break-inside:avoid}
+#debuche-edition h2,#debuche-edition h3{break-after:avoid}
+#debuche-edition .dp-discover{grid-template-columns:repeat(3,1fr)!important}
+#debuche-edition .dp-discover img{max-height:45mm}
+}
